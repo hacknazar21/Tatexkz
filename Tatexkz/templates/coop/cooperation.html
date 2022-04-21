@@ -1,0 +1,193 @@
+{% extends 'base.html' %}
+
+{% block title %}Сотрудничество{% endblock %}
+{% block content %}
+<div class="wrapper">
+	<main class="page">
+		<section class="page__name page-name">
+			<h1 class="page-name__title"><a href="/">Сотрудничество</a></h1>
+		</section>
+		<section class="page__coop coop">
+			<div class="coop__container">
+				<div class="coop__text-box">
+					<h2 class="coop__text-box-title">Заключение договора</h2>
+					<div class="coop__text-box-text">
+						Для заключения договора вам необходимо заполнить заявку, представленную ниже. После
+						заполнения заявки с
+						вами свяжется специалист отдела продаж для выявления текущих потребностей по отправлениям и
+						расскажет о
+						возможности заключения договора с Tatex.
+					</div>
+				</div>
+				<div class="coop__form-box">
+					<form action="#" class="coop__form coop-form">
+						<div class="coop-form__block">
+							<h3 class="coop-form__personal-title">Личные данные</h3>
+							<div class="coop-form__personal coop_grid">
+								<div class="coop-form__input-box">
+									<div class="coop-form__input-title _nessesary">ФИО</div>
+									<div class="input">
+										<input type="text" name="form[]" value="" data-error="Ошибка" placeholder="ФИО"
+											class="coop-form__input">
+									</div>
+								</div>
+								<div class="coop-form__input-box">
+									<div class="coop-form__input-title _nessesary">Контактный телефон</div>
+									<div class="input">
+										<input type="tel" data-phone class="coop-form__input"
+											data-inputmask-clearmaskonlostfocus="true" placeholder="Номер телефона">
+									</div>
+								</div>
+								<div class="coop-form__input-box">
+									<div class="coop-form__input-title _nessesary">E-mail</div>
+									<div class="input">
+										<input type="text" name="form[]" value="" data-error="Ошибка"
+											placeholder="E-mail" class="coop-form__input ">
+									</div>
+								</div>
+								<div class="coop-form__input-box">
+									<div class="coop-form__input-title _nessesary">Название компании</div>
+									<div class="input">
+										<input type="text" name="form[]" value="" data-error="Ошибка"
+											placeholder="Название компании" class="coop-form__input ">
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="coop-form__block">
+							<h3 class="coop-form__personal-title">Услуга</h3>
+							<div class="coop-form__personal coop_grid">
+								<div class="coop-form__input-box">
+									<div class="coop_grid__checkbox checkbox">
+										<input id="c_1" data-error="Ошибка" class="checkbox__input" type="checkbox"
+											value="1" name="form[]">
+										<label for="c_1" class="checkbox__label">
+											<span></span>
+											<span class="checkbox__text">Доставка почты</span>
+										</label>
+									</div>
+									<div class="coop_grid__checkbox checkbox">
+										<input id="c_2" data-error="Ошибка" class="checkbox__input" type="checkbox"
+											value="1" name="form[]">
+										<label for="c_2" class="checkbox__label">
+											<span></span>
+											<span class="checkbox__text">Доставка груза</span>
+										</label>
+									</div>
+									<div class="coop_grid__checkbox checkbox">
+										<input id="c_3" data-error="Ошибка" class="checkbox__input" type="checkbox"
+											value="1" name="form[]">
+										<label for="c_3" class="checkbox__label">
+											<span></span>
+											<span class="checkbox__text">Доставка для интернет магазинов</span>
+										</label>
+									</div>
+								</div>
+								<div class="coop-form__input-box">
+									<div class="coop_grid__checkbox checkbox">
+										<input id="c_4" data-error="Ошибка" class="checkbox__input" type="checkbox"
+											value="1" name="form[]">
+										<label for="c_4" class="checkbox__label">
+											<span></span>
+											<span class="checkbox__text">Доставка по времени</span>
+										</label>
+									</div>
+									<div class="coop_grid__checkbox checkbox">
+										<input id="c_5" data-error="Ошибка" class="checkbox__input" type="checkbox"
+											value="1" name="form[]">
+										<label for="c_5" class="checkbox__label">
+											<span></span>
+											<span class="checkbox__text">Доставка по времени</span>
+										</label>
+									</div>
+								</div>
+								<div class="coop-form__input-box">
+									<div class="coop-form__input-title _nessesary">Ожидаемый объем отправлений (шт в
+										месяц)
+									</div>
+									<div class="input">
+										<input type="text" name="form[]" value="" data-error="Ошибка"
+											placeholder="Ожидаемый объем отправлений (шт в месяц)"
+											class="coop-form__input ">
+									</div>
+								</div>
+								<div class="coop-form__input-box">
+									<div class="coop-form__input-title _nessesary"> Характер груза
+									</div>
+									<div class="input">
+										<input type="text" name="form[]" value="" data-error="Ошибка"
+											placeholder="Характер груза" class="coop-form__input ">
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="coop-form__block">
+							<h3 class="coop-form__personal-title">География отправок</h3>
+							<div class="coop-form__personal coop_grid">
+								<div class="coop-form__input-box">
+									<div class="coop_grid__checkbox checkbox">
+										<input id="geo_kz" data-error="Ошибка" class="checkbox__input" type="checkbox"
+											value="1" name="geo_kz">
+										<label for="geo_kz" class="checkbox__label">
+											<span></span>
+											<span class="checkbox__text">По Казахстану</span>
+										</label>
+									</div>
+									<div class="coop_grid__checkbox checkbox">
+										<input id="geo_sng" data-error="Ошибка" class="checkbox__input" type="checkbox"
+											value="1" name="geo_sng">
+										<label for="geo_sng" class="checkbox__label">
+											<span></span>
+											<span class="checkbox__text">СНГ и дальнее зарубежье</span>
+										</label>
+									</div>
+								</div>
+								<div class="coop-form__input-box">
+									<div class="coop_grid__checkbox checkbox">
+										<input id="geo_import" data-error="Ошибка" class="checkbox__input"
+											type="checkbox" value="1" name="geo_import">
+										<label for="geo_import" class="checkbox__label">
+											<span></span>
+											<span class="checkbox__text">Импорт</span>
+										</label>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<div class="coop-form__submit-box">
+							<a href="/" class="coop-form__cancel coop-btn">Отмена</a>
+							<button type="submit" class="coop-form__submit coop-btn">Отправить</button>
+						</div>
+					</form>
+				</div>
+			</div>
+		</section>
+	</main>
+</div>
+{% block popup %}
+<div id="popup_success" aria-hidden="true" class="popup">
+	<div class="popup__wrapper">
+		<div class="popup__content">
+			<button data-close type="button" class="popup__close"></button>
+			<div class="popup__header">
+				<div class="popup__circle">
+					<span></span>
+					<span></span>
+					<span></span>
+					<span></span>
+				</div>
+				<div class="popup__title">Заявка оформлена </div>
+				<div class="popup__text">
+					В течении 10 минут вам на почту придёт письмо с трек-номером
+					для отслеживания заказа и накладная по Вашему отправлению, ее нужно распечатать и передать
+					курьеру
+					вместе с Вашей посылкой
+				</div>
+			</div>
+			<a href="/" class="popup__button button">Вернуться на главную</a>
+		</div>
+	</div>
+</div>
+{% endblock %}
+{% endblock %}

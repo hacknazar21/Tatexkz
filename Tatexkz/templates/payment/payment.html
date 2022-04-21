@@ -1,0 +1,149 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Оплата{% endblock %}
+{% block content %}
+
+
+<main class="page">
+
+	{% if not error %}
+	<section class="page__name page-name">
+		<h1 class="page-name__title"><a href="/">Оплата</a></h1>
+	</section>
+	<section class="page__payment payment">
+		<a href="/" class="payment__back-btn payment-button">Назад</a>
+		<div class="payment__body">
+			<h2 class="payment__title">Выберите способ оплаты</h2>
+			<div class="payment__ways">
+				<button onclick="pay()" class="payment__way payment-way">
+					<div class="payment-way__img">
+						<picture>
+							<source srcset="{% static 'img/payment/card.webp' %}" type="image/webp">
+							<img src="{% static 'img/payment/card.png' %}" alt="card">
+						</picture>
+					</div>
+					<div class="payment-way__body">
+						<div class="payment-way__body-title">Оплата банковской картой</div>
+					</div>
+				</button>
+				<div class="payment__way payment-way">
+					<div class="payment-way__img">
+						<img src="{% static 'img/payment/unionpay.svg' %}" alt="unionpay">
+					</div>
+					<div class="payment-way__body">
+						<div class="payment-way__body-title">UnionPay</div>
+					</div>
+				</div>
+				<div class="payment__way payment-way">
+					<div class="payment-way__img">
+						<img src="{% static 'img/payment/timer.svg' %}" alt="nal">
+					</div>
+					<div class="payment-way__body">
+						<div class="payment-way__body-title">Оплатить наличными курьеру</div>
+						<div class="payment-way__body-value _red-color">Данная функция не доступна для вашего
+							региона</div>
+					</div>
+				</div>
+			</div>
+			<div class="payment__price">К оплате: {{price}}</div>
+			<button class="payment__cancel-btn payment-button">Отмена</button>
+		</div>
+	</section>
+	{% else %}
+	<div style="color:red; text-align: center; padding: 10% 0; text-transform: uppercase; font-size: 40px;">
+		{{ errorText}}
+	</div>
+	{% endif %}
+</main>
+
+{% block popup %}
+<div id="popup_success" aria-hidden="true" class="popup">
+	<div class="popup__wrapper">
+		<div class="popup__content">
+			<button data-close type="button" class="popup__close"></button>
+			<div class="popup__header">
+				<div class="popup__circle">
+					<span></span>
+					<span></span>
+					<span></span>
+					<span></span>
+				</div>
+				<div class="popup__title">Заявка оформлена </div>
+				<div class="popup__text">
+					В течении 10 минут вам на почту придёт письмо с трек-номером
+					для отслеживания заказа и накладная по Вашему отправлению, ее нужно распечатать и передать
+					курьеру
+					вместе с Вашей посылкой
+				</div>
+			</div>
+			<a href="/" class="popup__button button">Вернуться на главную</a>
+		</div>
+	</div>
+</div>
+{% endblock %}
+<script src="{% static 'js/halyk.js' %}"></script>
+
+<script>
+	var token = ''
+	const invoiceID = '564886'
+	const amount = '{{price}}'
+	const client_id = "TATEX.KZ"
+	const client_secret = "kms)(xZ(y$o(HxbH6"
+	const terminal_id = "8627cbe3-0ce0-471f-8087-4cb4d4d0ef6b"
+
+	function halykResp() {
+
+		const data = {
+			grant_type: "client_credentials",
+			scope: "webapi usermanagement email_send verification statement statistics payment",
+			client_id: client_id,
+			client_secret: client_secret,
+			invoiceID: invoiceID,
+			amount: amount,
+			currency: "KZT",
+			terminal: terminal_id
+		}
+
+		const dataform = new FormData()
+		for (var key in data) {
+			// добавление поля
+			dataform.append(key, data[key])
+		}
+		var xhr = new XMLHttpRequest();
+		xhr.open("POST", "https://epay-oauth.homebank.kz/oauth2/token");
+
+		xhr.onreadystatechange = function () {
+			if (this.readyState != 4) return;
+			token = JSON.parse(this.responseText)
+
+		}
+		xhr.send(dataform);
+
+	}
+	halykResp()
+	function pay() {
+
+
+		var paymentObject = {
+			invoiceId: invoiceID,
+			backLink: "/#popup_success",
+			failureBackLink: "/",
+			postLink: "/",
+			failurePostLink: "/",
+			language: "RU",
+			description: "Оплата в интернет магазине",
+			terminal: terminal_id,
+			amount: amount,
+			currency: "KZT",
+			cardSave: false  //Параметр должен передаваться как Boolean
+		};
+		paymentObject.auth = token;
+
+
+		halyk.showPaymentWidget(paymentObject, { success: true });
+
+	}
+</script>
+
+{% endblock %}

@@ -1,0 +1,77 @@
+<ns0:ShipmentRequest xmlns:ns0="http://www.dhl.com" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.dhl.com ship-val-global-req.xsd" schemaVersion="10.0"> 
+	<Request>
+		<ServiceHeader>
+			<MessageTime>2022-04-21T07:52:34.835427</MessageTime>
+			<MessageReference>Shipmnt_AP_CN_wth_62_40000000001</MessageReference>
+			<SiteID>v62_tBTTUgPMKT</SiteID>
+			<Password>y3vOe4xj9h</Password>
+		</ServiceHeader>
+
+		<MetaData>
+			<SoftwareName>3PV</SoftwareName> 
+			<SoftwareVersion>10</SoftwareVersion> 
+		</MetaData>
+	</Request>
+	<RegionCode>EU</RegionCode>
+	<LanguageCode>ru</LanguageCode>
+	<Billing>
+		<ShipperAccountNumber>376165440</ShipperAccountNumber>
+		<ShippingPaymentType>S</ShippingPaymentType>
+		<BillingAccountNumber>376165440</BillingAccountNumber> 
+	</Billing>
+	<Consignee>
+		<CompanyName>TATEX</CompanyName>
+		<AddressLine1>Ryskulbekova, 19</AddressLine1> 
+		<AddressLine2>.</AddressLine2>
+		<AddressLine3>.</AddressLine3>
+		<City>Almaty</City>
+		<PostalCode>050000</PostalCode>
+		<CountryCode>KZ</CountryCode>
+		<CountryName>Kazahstan</CountryName>
+		<Contact>
+			<PersonName>Boris</PersonName>
+			<PhoneNumber>+77897879889</PhoneNumber> 
+			<Email>adf@dsa.er</Email>
+		</Contact>
+	</Consignee>
+	<Reference>
+		<ReferenceID>.</ReferenceID>
+	</Reference>
+	<ShipmentDetails>
+		<Pieces> 
+          <Piece>  
+            <Weight>10.1</Weight> 
+            <Width>1</Width> 
+            <Height>1</Height> 
+            <Depth>1</Depth> 
+          </Piece> 
+		</Pieces> 
+		<WeightUnit>K</WeightUnit>
+		<GlobalProductCode>N</GlobalProductCode>
+		<LocalProductCode>N</LocalProductCode>
+		<Date>2022-04-21</Date>
+		<Contents>document</Contents>
+		<DimensionUnit>C</DimensionUnit>
+		<PackageType>DC</PackageType>
+		<IsDutiable>N</IsDutiable>
+		<CurrencyCode>KZT</CurrencyCode>
+	</ShipmentDetails>
+	<Shipper>
+		<ShipperID>600015482</ShipperID>
+		<CompanyName>DHL International Kazakhstan LLP</CompanyName>
+		<AddressLine1>Shaljapina, 12</AddressLine1> 
+		<City>Almaty</City>
+		<PostalCode>050000</PostalCode>
+		<CountryCode>KZ</CountryCode>
+		<CountryName>Kazahstan</CountryName>
+		<Contact>
+			<PersonName>Artur</PersonName>
+			<PhoneNumber>+77878979879</PhoneNumber>
+		</Contact>
+	</Shipper>
+	<LabelImageFormat>PDF</LabelImageFormat>
+	<Label>
+		<ReceiptTemplate>SHIP_RECPT_A4_RU_PDF</ReceiptTemplate>
+		<ShipmentReceiptWithLabels>Y</ShipmentReceiptWithLabels>
+	</Label>
+</ns0:ShipmentRequest>
