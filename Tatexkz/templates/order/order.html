@@ -273,13 +273,13 @@
                             <div class="form-order__input-box _margin-10">
                                 <div class="form-order__input-title">Удобно ли вам распечатать накладную?</div>
                                 <div class="form-order__checkbox checkbox">
-                                    <input type="radio" class="checkbox__input" id="answer_yes" name="print"
-                                        value="False">
+                                    <input checked type="radio" class="checkbox__input active" id="answer_yes"
+                                        name="print" value="False">
                                     <label class="form-order__label checkbox__label" for="answer_yes">
                                         <span></span>
                                         <span class="checkbox__text">Да</span>
                                     </label>
-                                    <input type="radio" class="checkbox__input" id="answer_no" name="print"
+                                    <input type="radio" class="checkbox__input " id="answer_no" name="print"
                                         value="False">
                                     <label class="form-order__label checkbox__label" for="answer_no">
                                         <span></span>
@@ -291,8 +291,8 @@
                         <div class="form-order__section">
                             <div class="form-order__danger">
                                 Нажимая на кнопку вы соглашаетесь с условиями отправки и принимаете <a
-                                    href="">оферту</a> и
-                                <a href="">политику</a> конфиденциальности
+                                    href="/oferta">оферту</a> и
+                                <a href="/privacy">политику</a> конфиденциальности
                             </div>
                             <div class="form-order__price">
                                 К оплате: <span>{{price}}</span> ₸

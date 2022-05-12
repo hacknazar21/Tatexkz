@@ -4823,7 +4823,10 @@
                         if (window.location.hash) this._openToHash(); else this.close(this.targetOpen.selector);
                     }.bind(this));
                     window.addEventListener("load", function () {
-                        if (window.location.hash) this._openToHash();
+                        if (window.location.hash) {
+                            this._openToHash()
+                        };
+                        
                     }.bind(this));
                 }
             }
@@ -4925,6 +4928,7 @@
             _openToHash() {
                 let classInHash = document.querySelector(`.${window.location.hash.replace("#", "")}`) ? `.${window.location.hash.replace("#", "")}` : document.querySelector(`${window.location.hash}`) ? `${window.location.hash}` : null;
                 const buttons = document.querySelector(`[${this.options.attributeOpenButton} = "${classInHash}"]`) ? document.querySelector(`[${this.options.attributeOpenButton} = "${classInHash}"]`) : document.querySelector(`[${this.options.attributeOpenButton} = "${classInHash.replace(".", "#")}"]`);
+                
                 if (buttons && classInHash) this.open(classInHash);
             }
             _setHash() {
@@ -4982,7 +4986,11 @@
                     });
                 }
                 FLS(`[gotoBlock]: Юхуу...едем к ${targetBlock}`);
-            } else FLS(`[gotoBlock]: Ой ой..Такого блока нет на странице: ${targetBlock}`);
+                return true
+            } else {
+                FLS(`[gotoBlock]: Ой ой..Такого блока нет на странице: ${targetBlock}`);
+                return false
+            }
         };
         function formFieldsInit() {
             const formFields = document.querySelectorAll("input[placeholder],textarea[placeholder]");
@@ -8975,7 +8983,7 @@
                 modules: [Navigation, Autoplay, Pagination],
                 loop: false,
                 autoplay: {
-                    delay: 3e3,
+                    delay: 1e3,
                     disableOnInteraction: false
                 },
                 navigation: {
@@ -9025,6 +9033,10 @@
                 speed: 800,
                 modules: [Autoplay, Pagination],
                 loop: true,
+                autoplay: {
+                    delay: 5e3,
+                    disableOnInteraction: false
+                },
                 preloadImages: true,
                 pagination: {
                     el: ".swiper-pagination",
@@ -9072,8 +9084,9 @@
                         const noHeader = gotoLink.hasAttribute("data-goto-header") ? true : false;
                         const gotoSpeed = gotoLink.dataset.gotoSpeed ? gotoLink.dataset.gotoSpeed : 500;
                         const offsetTop = gotoLink.dataset.gotoTop ? parseInt(gotoLink.dataset.gotoTop) : 0;
-                        gotoBlock(gotoLinkSelector, noHeader, gotoSpeed, offsetTop);
-                        e.preventDefault();
+                        if(gotoBlock(gotoLinkSelector, noHeader, gotoSpeed, offsetTop)){
+                            e.preventDefault();
+                        }
                     }
                 } else if ("watcherCallback" === e.type && e.detail) {
                     const entry = e.detail.entry;
@@ -9306,7 +9319,7 @@
                     form.querySelector('.errorMsg').remove()
 
                 form.querySelector("[data-btncalc]").insertAdjacentHTML("beforeBegin", templatePrice);
-                
+
                 return true;
             }
             else {

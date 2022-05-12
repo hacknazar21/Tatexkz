@@ -3,7 +3,7 @@ from datetime import datetime
 import json
 from re import sub
 from django.http import HttpResponse, JsonResponse
-from django.shortcuts import render
+from django.shortcuts import redirect, render
 import requests
 from bs4 import BeautifulSoup as BS
 import xml.etree.ElementTree as ET
@@ -35,7 +35,7 @@ def tracking(request):
             try:
                 person = Order.objects.get(trackcode=trackcode)
             except Order.DoesNotExist:
-                return HttpResponse("Ой. Что-то пошло не так. Возможно, данного трек-кода не существует")
+                return redirect('/#popup_error')
 
             country = person.whereCountry
             city = person.whereCity
@@ -82,7 +82,7 @@ def tracking(request):
                 events.append(event)
 
         except ValueError:
-            return HttpResponse("Ой. Что-то пошло не так. Возможно, данного трек-кода не существует")
+            return redirect('/#popup_error')
 
     return render(
         request, 'tracking/tracking.html', {
@@ -94,6 +94,15 @@ def tracking(request):
         }
     )
 
+
+def oferta(request):
+    return render(
+        request, 'oferta/index.html'
+    )
+def privacy(request):
+    return render(
+        request, 'privacy/index.html'
+    )
 
 @csrf_exempt
 def dhl(request):

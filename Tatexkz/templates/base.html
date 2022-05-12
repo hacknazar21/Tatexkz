@@ -7,6 +7,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <link rel="stylesheet" href="{% static 'css/style.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/search.css' %}">
+    <link rel="stylesheet" href="{% static 'css/popup.css' %}">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}{% endblock %}</title>
 </head>
@@ -17,8 +19,8 @@
         <header class="header" data-scroll-show data-scroll="1">
             <div class="header__container">
                 <div data-da=".menu__block-1, 767.98" class="header__links links-header">
-                    <a href="" class="links-header__link" data-goto=".about-us">О компании</a>
-                    <a href="" class="links-header__link" data-goto=".questions">Частые вопросы</a>
+                    <a href="/#about-us" class="links-header__link" data-goto=".about-us">О компании</a>
+                    <a href="/#questions" class="links-header__link" data-goto=".questions">Частые вопросы</a>
                     <a href="/coop" class="links-header__link">Сотрудничество</a>
                 </div>
 
@@ -27,7 +29,8 @@
                         <span class="_icon-tel"></span>
                         <span>+7 (705) 777-46-00</span>
                     </a>
-                    <a href="" class="header__number _icon-telegram"><span>Наш Телеграм</span></a>
+                    <a target="_blank" href="https://t.me/tatexkz" class="header__number _icon-telegram"><span>Наш
+                            Телеграм</span></a>
                 </div>
             </div>
             <div class="header__container">
@@ -77,21 +80,24 @@
                 </div>
                 <div class="footer__info-box">
                     <div data-da=".footer__logo-box, 767.98" class="footer__social-media footer-social-media">
-                        <a href="#" class="footer-social-media__img _icon-facebook"></a>
-                        <a href="#" class="footer-social-media__img _icon-instagram"></a>
-                        <a href="#" class="footer-social-media__img _icon-telegram"></a>
+                        <a target="_blank" href="https://www.facebook.com/tatex.kz"
+                            class="footer-social-media__img _icon-facebook"></a>
+                        <a target="_blank" href="https://www.instagram.com/tatex.kz/"
+                            class="footer-social-media__img _icon-instagram"></a>
+                        <a target="_blank" href="https://t.me/tatexkz"
+                            class="footer-social-media__img _icon-telegram"></a>
                     </div>
                     <div class="footer__links footer-link">
                         <a href="" class="footer-link__box">
                             <div class="footer-link__text">Documentation</div>
                         </a>
-                        <a href="" class="footer-link__box">
+                        <a href="/#about-us" data-goto=".about-us" class="footer-link__box">
                             <div class="footer-link__text">About Us</div>
                         </a>
                         <a href="" class="footer-link__box">
                             <div class="footer-link__text">Pricing</div>
                         </a>
-                        <a href="" class="footer-link__box">
+                        <a href="/#questions" data-goto=".questions" class="footer-link__box">
                             <div class="footer-link__text">FAQ</div>
                         </a>
                         <a href="" class="footer-link__box">

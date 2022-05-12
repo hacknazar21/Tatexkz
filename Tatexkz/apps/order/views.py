@@ -47,8 +47,9 @@ def tariff(request):
         oldPrice = calculatedTariff
 
         if promoResp['percent'] > -1:
-            calculatedTariff = calculatedTariff - \
-                calculatedTariff*(promoResp['percent']/100)
+            if isint(calculatedTariff):
+                calculatedTariff = calculatedTariff - \
+                    calculatedTariff*(promoResp['percent']/100)
         else:
             return JsonResponse({'error':  True, 'errorText': promoResp['error']})
         if isint(calculatedTariff):
@@ -240,6 +241,10 @@ def country(request, country_name):
         return JsonResponse({'cities': 'Error'})
 
 
+def getcountries(request):
+    return JsonResponse(countries)
+
+
 def calcPromo(promo):
     if not promo == '':
         try:
@@ -257,4 +262,4 @@ def calcPromo(promo):
         except Promo.DoesNotExist:
             return {'error': 'Данного промокода не существует', 'percent': -1}
     else:
-        return {'error': '', 'percent': 1}
+        return {'error': '', 'percent': 0}

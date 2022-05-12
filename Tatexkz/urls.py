@@ -20,6 +20,8 @@ from django.urls import path, include
 urlpatterns = [
     path('', views.home, name="home"),
     path('tracking/', views.tracking, name="tracking"),
+    path('oferta/', views.oferta, name="oferta"),
+    path('privacy/', views.privacy, name="privacy"),
     path('gotodhl/', views.dhl, name="dhl"),
     path('payment/', include('Tatexkz.apps.payment.urls')),
     path('coop/', include('Tatexkz.apps.coop.urls')),

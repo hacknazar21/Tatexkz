@@ -99,8 +99,8 @@
 							<div class="first-screen-calc__input input _icon-cart">
 								<input data-inputnumber required autocomplete="off" type="text" name="weight"
 									data-error="Ошибка" data-inputmask-clearmaskonlostfocus="true"
-									data-inputmask="'mask': '9{+|1}.9 (кг)', 'greedy' : false" placeholder="Вес (кг)"
-									class="first-screen-calc__weight">
+									data-inputmask="'inputmode': 'decimal', 'substitutes': {',': '.'}, 'mask': '9{+|1}\\.|\\,9 (кг)', 'greedy' : false, 'placeholder': '0'"
+									placeholder="Вес (кг)" class="first-screen-calc__weight">
 							</div>
 						</div>
 						<div class="first-screen-calc__input-box">
@@ -137,10 +137,10 @@
 						</div>
 						<div class="first-screen-calc__input-box">
 							<div class="first-screen-calc__input input _icon-cart">
-								<input name="weight" data-inputnumber required autocomplete="off" type="text"
-									name="weight" data-error="Ошибка" data-inputmask-clearmaskonlostfocus="true"
-									data-inputmask="'mask': '9{+|1}.9 (кг)', 'greedy' : false" placeholder="Вес (кг)"
-									class="first-screen-calc__weight">
+								<input data-inputnumber required autocomplete="off" type="text" name="weight"
+									data-error="Ошибка" data-inputmask-clearmaskonlostfocus="true"
+									data-inputmask="'inputmode': 'decimal', 'substitutes': {',': '.'}, 'mask': '9{+|1}\\.|\\,9 (кг)', 'greedy' : false, 'placeholder': '0'"
+									placeholder="Вес (кг)" class="first-screen-calc__weight">
 							</div>
 						</div>
 						<div class="first-screen-calc__input-box ">
@@ -554,16 +554,16 @@
 			</div>
 			<div class="contacts__info-box">
 				<div class="contacts__title">Наши контакты</div>
-				<a href="#" class="contacts__tel">+7(705)777-46-00</a>
-				<a href="#" class="contacts__email">info@tatex.kz</a>
+				<a href="tel:+77057774600" class="contacts__tel">+7(705)777-46-00</a>
+				<a target="_blank" href="mailto:info@tatex.kz" class="contacts__email">info@tatex.kz</a>
 				<div class="contacts__social-media-box">
-					<a href="" class="contacts__social-media">
+					<a target="_blank" href="https://www.facebook.com/tatex.kz" class="contacts__social-media">
 						<img src="{% static 'img/contacts/facebook.svg' %}" alt="">
 					</a>
-					<a href="" class="contacts__social-media">
+					<a target="_blank" href="https://www.instagram.com/tatex.kz/" class="contacts__social-media">
 						<img src="{% static 'img/contacts/insta.svg' %}" alt="">
 					</a>
-					<a href="" class="contacts__social-media">
+					<a target="_blank" href="https://t.me/tatexkz" class="contacts__social-media">
 						<img src="{% static 'img/contacts/telegram.svg' %}" alt="">
 					</a>
 				</div>
@@ -572,7 +572,7 @@
 	</section>
 </main>
 {% block popup %}
-<div id="popup_success" aria-hidden="true" class="popup">
+<div id="popup_success" aria-hidden="true" class="popup popup_success">
 	<div class="popup__wrapper">
 		<div class="popup__content">
 			<button data-close type="button" class="popup__close"></button>
@@ -595,5 +595,31 @@
 		</div>
 	</div>
 </div>
+<div id="popup_error" aria-hidden="true" class="popup">
+	<div class="popup__wrapper">
+		<div class="popup__content">
+			<button data-close type="button" class="popup__close"></button>
+			<div class="popup__header">
+				<div class="popup__circle">
+					<span></span>
+					<span></span>
+					<span></span>
+					<span></span>
+				</div>
+				<div class="popup__title">Что-то пошло не так</div>
+				<div class="popup__text">
+					Возможно данного трек-кода пока нет в нашей базе, попробуйте позже
+				</div>
+			</div>
+			<a href="/" class="popup__button button">Вернуться на главную</a>
+		</div>
+	</div>
+</div>
+
+<button type="hidden" data-popup='#popup_success'></button>
+<button type="hidden" data-popup='#popup_error'></button>
 {% endblock %}
+
+<script src="{% static 'js/search-input.js' %}"></script>
+
 {% endblock %}

@@ -1,0 +1,19 @@
+.searchHidden{
+    position:absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    max-height: 500px;
+    overflow-y:auto;
+    background-color: #fff;
+    z-index: 200;
+}
+.searchHidden li{
+    padding: 0.5rem;
+    cursor: pointer;
+}
+.searchHidden li:hover{
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+
