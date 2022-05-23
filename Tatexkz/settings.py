@@ -23,7 +23,7 @@ SECRET_KEY = 'django-insecure-!amdrn@uz=4&9io$sz&lh867)&hmxk4v19u$(dx8^_@qrhtxva
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["192.168.1.102", "127.0.0.1", '192.168.1.2']
+ALLOWED_HOSTS = ["192.168.1.6", "127.0.0.1", '192.168.1.2']
 
 
 # Application definition
@@ -36,7 +36,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'Tatexkz.apps.payment.apps.PaymentConfig',
-    'Tatexkz.apps.promo.apps.PromoConfig'
+    'Tatexkz.apps.promo.apps.PromoConfig',
+    'Tatexkz.apps.home.apps.HomeConfig'
 ]
 
 MIDDLEWARE = [
@@ -125,3 +126,8 @@ STATICFILES_DIRS = [
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+EMAIL_USE_SSL = True
+EMAIL_HOST = 'medstandard.kz'
+EMAIL_PORT = 465
+EMAIL_HOST_USER = 'mailkz@medstandard.kz'
+EMAIL_HOST_PASSWORD = '%b52Zaw19'

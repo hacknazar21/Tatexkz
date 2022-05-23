@@ -18,7 +18,7 @@ from django.contrib import admin
 from django.urls import path, include
 
 urlpatterns = [
-    path('', views.home, name="home"),
+    path('', include('Tatexkz.apps.home.urls')),
     path('tracking/', views.tracking, name="tracking"),
     path('oferta/', views.oferta, name="oferta"),
     path('privacy/', views.privacy, name="privacy"),

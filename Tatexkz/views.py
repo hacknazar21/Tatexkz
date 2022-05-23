@@ -22,12 +22,6 @@ for country in countiesRoot.iter('country'):
             countriesCodes[name.text] = alpha2.text
 
 
-def home(request):
-    return render(
-        request, 'home/index.html'
-    )
-
-
 def tracking(request):
     if(request.GET):
         try:
@@ -99,10 +93,13 @@ def oferta(request):
     return render(
         request, 'oferta/index.html'
     )
+
+
 def privacy(request):
     return render(
         request, 'privacy/index.html'
     )
+
 
 @csrf_exempt
 def dhl(request):
@@ -115,10 +112,9 @@ def dhl(request):
         width = jsonReq.get('width', '1')
         email = jsonReq.get('email', '')
         type = jsonReq.get('type', '')
-
-        dateSend = datetime.strptime(jsonReq.get(
-            'dateSend', ''), '%d/%m/%Y').strftime("%Y-%m-%d")
-
+        print(jsonReq.get('dateSend', ''))
+        dateSend = datetime.fromisoformat(jsonReq.get('dateSend', ''))
+        dateSend = dateSend.strftime('%Y-%m-%d')
         postIndexSender = jsonReq.get('postIndexSender', '000000')
         postIndexRecipient = jsonReq.get('postIndexRecipient', '000000')
         sendersName = translit(jsonReq.get(
@@ -154,13 +150,10 @@ def dhl(request):
         else:
             typeCode = 'YP'
             GlobalProductCodeType = 'P'
+        accountNumber = '967710648'
         if whereCountry == fromCountry:
             GlobalProductCodeType = 'N'
-            accountNumber = '376165440'
-        elif jsonReq.get('whereCountry', '') == 'Казахстан':
-            accountNumber = '967710648'
-        elif jsonReq.get('fromCountry', '') == 'Казахстан':
-            accountNumber = '376165440'
+
         personID = jsonReq.get('id', 0)
         tree = ET.parse('static/files/req.xml')
         root = tree.getroot()
@@ -177,7 +170,7 @@ def dhl(request):
             if not i:
                 PersonName.text = recipientName
             else:
-                PersonName.text = sendersName
+                PersonName.text =  sendersName
                 i = 0
                 break
             i += 1
@@ -185,13 +178,13 @@ def dhl(request):
             if not i:
                 AddressLine1.text = recipientAddress
             else:
-                AddressLine1.text = sendersAddress
+                AddressLine1.text =  sendersAddress
                 i = 0
                 break
             i += 1
         for PhoneNumber in root.iter('PhoneNumber'):
             if not i:
-                PhoneNumber.text = sendersTel
+                PhoneNumber.text =  sendersTel
             else:
                 PhoneNumber.text = recipientTel
                 i = 0
@@ -199,7 +192,7 @@ def dhl(request):
             i += 1
         for PostalCode in root.iter('PostalCode'):
             if not i:
-                PostalCode.text = postIndexRecipient
+                PostalCode.text =  postIndexRecipient
             else:
                 PostalCode.text = postIndexSender
                 i = 0
@@ -207,7 +200,7 @@ def dhl(request):
             i += 1
         for City in root.iter('City'):
             if not i:
-                City.text = whereCity
+                City.text =  whereCity
             else:
                 City.text = fromCity
                 i = 0
@@ -215,7 +208,7 @@ def dhl(request):
             i += 1
         for CountryName in root.iter('CountryName'):
             if not i:
-                CountryName.text = whereCountry
+                CountryName.text =  whereCountry
             else:
                 CountryName.text = fromCountry
                 i = 0
@@ -223,7 +216,7 @@ def dhl(request):
             i += 1
         for CountryCode in root.iter('CountryCode'):
             if not i:
-                CountryCode.text = whereCountryCode
+                CountryCode.text =  whereCountryCode
             else:
                 CountryCode.text = fromCountryCode
                 i = 0
@@ -245,6 +238,9 @@ def dhl(request):
             LocalProductCode.text = GlobalProductCodeType
         for BillingAccountNumber in root.iter('BillingAccountNumber'):
             BillingAccountNumber.text = accountNumber
+        for ShipperAccountNumber in root.iter('ShipperAccountNumber'):
+            ShipperAccountNumber.text = accountNumber
+
         tree.write('static/files/req.xml', 'UTF-8')
         with open('static/files/req.xml') as inputfile:
             xml_file = inputfile.read()
@@ -257,6 +253,7 @@ def dhl(request):
 
         for AirwayBillNumber in respRoot.iter('AirwayBillNumber'):
             trackcode = AirwayBillNumber.text
+
         Path('static/files/' + trackcode).mkdir(parents=True, exist_ok=True)
 
         for pdfXML in respRoot.iter('OutputImage'):

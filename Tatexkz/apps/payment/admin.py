@@ -65,7 +65,7 @@ class OrderAdmin(admin.ModelAdmin):
             obj.whereCity,
             obj.fromCountry,
             obj.whereCountry,
-            obj.dataSend,
+            obj.shipmentDate,
             obj.typePackage)
 
     def downloadDocs(self, obj):

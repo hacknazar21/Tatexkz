@@ -1,12 +1,11 @@
 <ns0:ShipmentRequest xmlns:ns0="http://www.dhl.com" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.dhl.com ship-val-global-req.xsd" schemaVersion="10.0"> 
 	<Request>
 		<ServiceHeader>
-			<MessageTime>2022-04-21T11:51:18.897652</MessageTime>
+			<MessageTime>2022-05-23T08:57:05.889277</MessageTime>
 			<MessageReference>Shipmnt_AP_CN_wth_62_40000000001</MessageReference>
 			<SiteID>v62_tBTTUgPMKT</SiteID>
 			<Password>y3vOe4xj9h</Password>
 		</ServiceHeader>
-
 		<MetaData>
 			<SoftwareName>3PV</SoftwareName> 
 			<SoftwareVersion>10</SoftwareVersion> 
@@ -15,23 +14,22 @@
 	<RegionCode>EU</RegionCode>
 	<LanguageCode>ru</LanguageCode>
 	<Billing>
-		<ShipperAccountNumber>376165440</ShipperAccountNumber>
+		<ShipperAccountNumber>967710648</ShipperAccountNumber>
 		<ShippingPaymentType>S</ShippingPaymentType>
-		<BillingAccountNumber>376165440</BillingAccountNumber> 
+		<BillingAccountNumber>967710648</BillingAccountNumber> 
 	</Billing>
 	<Consignee>
 		<CompanyName>TATEX</CompanyName>
-		<AddressLine1>Nazarbaeva, 13</AddressLine1> 
+		<AddressLine1>Testovaja, 15</AddressLine1> 
 		<AddressLine2>.</AddressLine2>
 		<AddressLine3>.</AddressLine3>
-		<City>Nur-Sultan</City>
-		<PostalCode>010000</PostalCode>
+		<City>Almaty</City>
+		<PostalCode>050000</PostalCode>
 		<CountryCode>KZ</CountryCode>
 		<CountryName>Kazahstan</CountryName>
 		<Contact>
-			<PersonName>Roman</PersonName>
-			<PhoneNumber>+77476409907</PhoneNumber> 
-			<Email>nazarcool2001@gmail.com</Email>
+			<PersonName>Eren</PersonName>
+			<PhoneNumber>+78787878979</PhoneNumber> 
 		</Contact>
 	</Consignee>
 	<Reference>
@@ -40,7 +38,7 @@
 	<ShipmentDetails>
 		<Pieces> 
           <Piece>  
-            <Weight>9.1</Weight> 
+            <Weight>0.1</Weight> 
             <Width>1</Width> 
             <Height>1</Height> 
             <Depth>1</Depth> 
@@ -49,7 +47,7 @@
 		<WeightUnit>K</WeightUnit>
 		<GlobalProductCode>N</GlobalProductCode>
 		<LocalProductCode>N</LocalProductCode>
-		<Date>2022-04-20</Date>
+		<Date>2022-05-26</Date>
 		<Contents>document</Contents>
 		<DimensionUnit>C</DimensionUnit>
 		<PackageType>DC</PackageType>
@@ -59,14 +57,15 @@
 	<Shipper>
 		<ShipperID>600015482</ShipperID>
 		<CompanyName>DHL International Kazakhstan LLP</CompanyName>
-		<AddressLine1>Markova, 12</AddressLine1> 
-		<City>Almaty</City>
-		<PostalCode>050000</PostalCode>
+		<AddressLine1>Testovaja, 12</AddressLine1> 
+		<City>Astana</City>
+		<PostalCode>010000</PostalCode>
 		<CountryCode>KZ</CountryCode>
 		<CountryName>Kazahstan</CountryName>
 		<Contact>
-			<PersonName>Vadim</PersonName>
-			<PhoneNumber>+77711608546</PhoneNumber>
+			<PersonName>Armin</PersonName>
+			<PhoneNumber>+78789787879</PhoneNumber>
+			<Email>armincoloss@gmail.com</Email>
 		</Contact>
 	</Shipper>
 	<LabelImageFormat>PDF</LabelImageFormat>

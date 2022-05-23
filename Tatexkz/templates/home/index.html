@@ -8,54 +8,17 @@
 		<div class="first-screen__box">
 			<div class="first-screen__slider swiper-first-screen">
 				<div class="first-screen__wrapper swiper-wrapper">
+					{% for slide in main_slides %}
 					<div class="first-screen__slide swiper-slide">
 						<div class="first-screen__offer offer">
-							<h1 class="offer__title">Экспресс доставка <br> по Казахстану</h1>
-							<div class="offer__text">Закажи экспресс доставку документов <br> и посылок</div>
+							<h1 class="offer__title">{{slide.title}}</h1>
+							<div class="offer__text">{{slide.text}}</div>
 						</div>
 						<div class="swiper-slide__img-ibg">
-							<picture>
-								<source srcset="{% static 'img/first-screen/01.webp' %}" type="image/webp">
-								<img src="{% static 'img/first-screen/01.png' %}" alt="Слайд 1">
-							</picture>
+							<img src="{{slide.img}}" alt="Слайд {{slide.id}}">
 						</div>
 					</div>
-					<div class="first-screen__slide swiper-slide">
-						<div class="first-screen__offer offer">
-							<h1 class="offer__title">Экспресс доставка <br> по Казахстану</h1>
-							<div class="offer__text">Закажи экспресс доставку документов <br> и посылок</div>
-						</div>
-						<div class="swiper-slide__img-ibg">
-							<picture>
-								<source srcset="{% static 'img/first-screen/02.webp' %}" type="image/webp"><img
-									src="{% static 'img/first-screen/02.jpg' %}" alt="Слайд 2">
-							</picture>
-						</div>
-					</div>
-					<div class="first-screen__slide swiper-slide">
-						<div class="first-screen__offer offer">
-							<h1 class="offer__title">Экспресс доставка <br> по Казахстану</h1>
-							<div class="offer__text">Закажи экспресс доставку документов <br> и посылок</div>
-						</div>
-						<div class="swiper-slide__img-ibg">
-							<picture>
-								<source srcset="{% static 'img/first-screen/03.webp' %}" type="image/webp"><img
-									src="{% static 'img/first-screen/03.jpg' %}" alt="Слайд 3">
-							</picture>
-						</div>
-					</div>
-					<div class="first-screen__slide swiper-slide">
-						<div class="first-screen__offer offer">
-							<h1 class="offer__title">Экспресс доставка <br> по Казахстану</h1>
-							<div class="offer__text">Закажи экспресс доставку документов <br> и посылок</div>
-						</div>
-						<div class="swiper-slide__img-ibg">
-							<picture>
-								<source srcset="{% static 'img/first-screen/04.webp' %}" type="image/webp"><img
-									src="{% static 'img/first-screen/04.jpg' %}" alt="Слайд 4">
-							</picture>
-						</div>
-					</div>
+					{% endfor %}
 				</div>
 				<div class="swiper-pagination"></div>
 			</div>
@@ -104,11 +67,12 @@
 							</div>
 						</div>
 						<div class="first-screen-calc__input-box">
-							<div class="first-screen-calc__input input">
-								<input name="promo" data-inputnumber autocomplete="off" type="text" data-error="Ошибка"
-									placeholder="Промокод" class="first-screen-calc__weight">
+							<div style="margin: 0; padding:0;" class="first-screen-calc__input input">
+								<input hidden name="promo" data-inputnumber autocomplete="off" type="text"
+									data-error="Ошибка" placeholder="Промокод" class="first-screen-calc__weight">
 							</div>
 						</div>
+						
 					</div>
 					<div data-for="package" class="first-screen-calc__params package-params">
 						<div class="first-screen-calc__input-box">
@@ -159,10 +123,20 @@
 							</div>
 						</div>
 						<div class="first-screen-calc__input-box">
-							<div class="first-screen-calc__input input">
-								<input name="promo" data-inputnumber autocomplete="off" type="text" data-error="Ошибка"
-									placeholder="Промокод" class="first-screen-calc__weight">
+							<div style="margin: 0; padding:0;" class="first-screen-calc__input input">
+								<input hidden name="promo" data-inputnumber autocomplete="off" type="text"
+									data-error="Ошибка" placeholder="Промокод" class="first-screen-calc__weight">
 							</div>
+						</div>
+					</div>
+					<div class="first-screen-calc__input-box">
+						<div style="border:none;" class="first-screen-calc__input input">
+							<input type="checkbox" class="checkbox__input " id="promo" name="print"
+									value="False">
+							<label style="font-size: 16px;" class="form-order__label checkbox__label" for="promo">
+								<span></span>
+								<span class="checkbox__text">У меня есть промокод</span>
+							</label>
 						</div>
 					</div>
 					<button data-btncalc class="first-screen-calc__btn button calc-submit-button">
@@ -175,23 +149,14 @@
 	<section class="page__about-us about-us">
 		<div class="about-us__container">
 			<div class="about-us__text-box">
-				<div class="about-us__title">О нас</div>
+				<div class="about-us__title">{{about.title}}</div>
 				<div class="about-us__text">
-					<p> Мы - TATEX, транспортно-экспедиционная компания, которая перевезет Ваши документы и
-						посылки в
-						кратчайшие
-						сроки по принципу «от-двери-до-двери».</p>
-					<p> Мы поможем Вам развивать бизнес или просто отправить письмо близкому человеку по
-						доступным ценам.
-					</p>
-					<p> Мы ценим Ваше время!</p>
+					{{about.text|safe}}
 				</div>
 			</div>
 			<div class="about-us__img-box-ibg">
-				<picture>
-					<source srcset="{% static 'img/about-us/phone_mockup.webp' %}" type="image/webp">
-					<img src="{% static 'img/about-us/phone_mockup.png' %}" alt="" class="about-us__img">
-				</picture>
+				<img src="{{about.img}}" alt="{{about.title}}" class="about-us__img">
+
 			</div>
 		</div>
 	</section>
@@ -206,64 +171,17 @@
 			<div class="our-benefits__slider swiper">
 				<!-- Двигающееся часть слайдера -->
 				<div class="our-benefits__wrapper swiper-wrapper">
-					<!-- Слайд -->
+					{% for slide in pref_slides %}
 					<div class="our-benefits__slide swiper-slide">
 						<div class="swiper-slide__img">
-							<picture>
-								<source srcset="{% static 'img/our-benefits/1.webp' %}" type="image/webp">
-								<img src="{% static 'img/our-benefits/1.png' %}" alt="">
-							</picture>
+							<img src="{{slide.img}}" alt="Слайд {{slide.id}}">
 						</div>
-						<div class="swiper-slide__title">Доставка от двери до двери</div>
-						<div class="swiper-slide__text">Курьер заберет Ваши документы или посылку когда и где
-							Вам удобно и
-							доставит их до двери в пункте назначения.</div>
-					</div>
-					<div class="our-benefits__slide swiper-slide">
-						<div class="swiper-slide__img">
-							<picture>
-								<source srcset="{% static 'img/our-benefits/2.webp' %}" type="image/webp">
-								<img src="{% static 'img/our-benefits/2.png' %}" alt="">
-							</picture>
-						</div>
-						<div class="swiper-slide__title">Сотрудничество с лидерами</div>
-						<div class="swiper-slide__text">Мы доставим Ваши отправления точно в срок благодаря
-							нашей
-							разветвленной сети партнеров по логистике.</div>
-					</div>
-					<div class="our-benefits__slide swiper-slide">
-						<div class="swiper-slide__img">
-							<picture>
-								<source srcset="{% static 'img/our-benefits/3.webp' %}" type="image/webp">
-								<img src="{% static 'img/our-benefits/3.png' %}" alt="">
-							</picture>
-						</div>
-						<div class="swiper-slide__title">Честные цены</div>
-						<div class="swiper-slide__text">У нас привлекательные цены за отличное качество услуг.
+						<div class="swiper-slide__title">{{slide.title}}</div>
+						<div class="swiper-slide__text">
+							{{slide.text}}
 						</div>
 					</div>
-					<div class="our-benefits__slide swiper-slide">
-						<div class="swiper-slide__img">
-							<picture>
-								<source srcset="{% static 'img/our-benefits/4.webp' %}" type="image/webp">
-								<img src="{% static 'img/our-benefits/4.png' %}" alt="">
-							</picture>
-						</div>
-						<div class="swiper-slide__title">Удобный вызов курьера</div>
-						<div class="swiper-slide__text">Пригласить курьера Вы можете здесь.</div>
-					</div>
-					<div class="our-benefits__slide swiper-slide">
-						<div class="swiper-slide__img">
-							<picture>
-								<source srcset="{% static 'img/our-benefits/5.webp' %}" type="image/webp">
-								<img src="{% static 'img/our-benefits/5.png' %}" alt="">
-							</picture>
-						</div>
-						<div class="swiper-slide__title">Широкая зона покрытия</div>
-						<div class="swiper-slide__text">Мы доставляем корреспонденцию и грузы во все областные,
-							районные
-							центры и удаленные города по всему Казахстану.</div>
-					</div>
+					{% endfor %}
 				</div>
 				<div class="swiper-pagination"></div>
 				<!-- Если нужна навигация (влево/вправо) -->
@@ -275,162 +193,43 @@
 		<div data-tabsbox class="questions__container">
 			<div class="questions__title">Часто задаваемые вопросы</div>
 			<div class="questions__type">
-				<button data-tabs="3" class="questions__type-btn active-btn">Отправка</button>
-				<button data-tabs="4" class="questions__type-btn">Оплата</button>
-				<button data-tabs="5" class="questions__type-btn">Доставка</button>
+				{% for key in questions %}
+				{% if key == first_q %}
+				<button data-tabs="{{key}}" class="questions__type-btn active-btn">{{key}}</button>
+				{% else %}
+				<button data-tabs="{{key}}" class="questions__type-btn">{{key}}</button>
+				{% endif %}
+				{% endfor %}
 			</div>
 			<div class="questions__box">
-				<div data-tab="3" data-spollers class="questions__question question active-tab">
+				{% for key, value in questions.items %}
+				{% if key == first_q %}
+				<div data-tab="{{key}}" data-spollers class="questions__question question active-tab">
+					{% for question in value %}
 					<div class="question__box question-box">
-						<div class="question-box__number">01</div>
-						<div data-spoller class="question-box__title">Как подготовить посылку</div>
+						<div class="question-box__number">{{question.index}}</div>
+						<div data-spoller class="question-box__title">{{question.title}}</div>
 						<div class="question-box__text">
-							<ul>
-								<li>
-									Убедитесь, что ваша посылка не входит в число запрещенных к перевозке
-									отправок либо не
-									требует предварительного согласования здесь.
-								</li>
-								<li>Надежно упакуйте вашу посылку до того, как за ней придет курьер.</li>
-								<li>
-									Убедитесь, что вес и габариты посылки не превышают максимальных значений. К
-									отправке
-									принимаются грузы не более 120x80x100 см и 70 килограмм.
-								</li>
-								<li>
-									Как рассчитать стоимость отправки? Минимальный тариф для отправки посылки
-									весом до 1
-									килограмм составляет 3000 тенге, а далее за каждые 500 грамм - 800 тенге
-									дополнительно.
-								</li>
-								<li>
-									Оформите заявку на нашем сайте в разделе "Отправка посылок" или "Отправка
-									документов".
-								</li>
+							{{question.text|safe}}
+						</div>
+					</div>
+					{% endfor %}
+				</div>
+				{% else %}
+				<div data-tab="{{key}}" data-spollers class="questions__question question">
+					{% for question in value %}
+					<div class="question__box question-box">
+						<div class="question-box__number">{{question.index}}</div>
+						<div data-spoller class="question-box__title">{{question.title}}</div>
+						<div class="question-box__text">
+							{{question.text|safe}}
+						</div>
+					</div>
+					{% endfor %}
+				</div>
+				{% endif %}
+				{% endfor %}
 
-							</ul>
-						</div>
-					</div>
-					<div class="question__box question-box">
-						<div class="question-box__number">02</div>
-						<div data-spoller class="question-box__title">Сроки доставки по Казахстану </div>
-						<div class="question-box__text">
-							<p>
-								Для скорейшей отправки ваших документов и посылок мы пользуемся услугами
-								авиаперевозчиков,
-								поэтому документы и посылки мы доставляем от 1 до 3 дней. Сроки доставки указаны
-								в рабочих
-								днях.
-								Просим обратить внимание, что день приезда курьера не входит в сроки доставки.
-							</p>
-
-							<p>
-								Для отправки письма или груза заполните форму для отправки во вкладке "Отправка
-								почты" либо
-								"Отправка посылок".
-							</p>
-						</div>
-					</div>
-					<div class="question__box question-box">
-						<div class="question-box__number">03</div>
-						<div data-spoller class="question-box__title">Запрещенные к перевозке посылки</div>
-						<div class="question-box__text">
-							<div class="question-box__text-title">Запрещенные к перевозке грузы</div>
-							<ul>
-								<li>Животные, рыбы, птицы (живые)</li>
-								<li>Акцизные и непогашенные почтовые марки</li>
-								<li>Слитки драгоценных металлов</li>
-								<li>Наличные деньги и их эквиваленты в форме на предъявителя (за исключением
-									билетов на
-									мероприятия)</li>
-								<li>Огнестрельное и холодное оружие, боеприпасы</li>
-								<li>Необработанные драгоценные камни</li>
-								<li>Предметы, имитирующие любые виды огнестрельного или холодного оружия, а
-									также
-									боеприпасов</li>
-								<li>Табачные изделия Человеческие останки, прах Любые предметы, запрещенные к
-									перевозке
-									законодательством стран</li>
-							</ul>
-							<div class="question-box__text-title">Грузы, перевозка которых требует
-								предварительного
-								согласования</div>
-							<ul>
-								<li>Части, механизмы оружия, аксессуары</li>
-								<li>Предметы, которые могут быть использованы в качестве оружия</li>
-								<li>Меха и слоновая кость</li>
-								<li>Насекомые, личинки, куколки и т. д.</li>
-								<li>Ювелирные изделия из драгоценных металлов и камней</li>
-								<li>Бланки платежных документов на предъявителя, а также билеты на мероприятия в
-									форме на
-									предъявителя</li>
-								<li>Игрушечное оружие</li>
-								<li>Часы и бижутерия</li>
-							</ul>
-						</div>
-					</div>
-					<div class="question__box question-box">
-						<div class="question-box__number">04</div>
-						<div data-spoller class="question-box__title">Ограничения на перевозку</div>
-						<div class="question-box__text">
-							<p>
-								Если ваша посылка превышает 120x80x100 см по габаритам и весит более 70
-								килограмм просим
-								связаться с нами в WhatsApp/ Telegram <br> по номеру
-								<a href="tel:87057774600">+7 705 777 46 00</a> для согласования отправки.
-							</p>
-						</div>
-					</div>
-				</div>
-				<div data-tab="4" data-spollers class="questions__question question">
-					<div class="question__box question-box">
-						<div class="question-box__number">01</div>
-						<div data-spoller class="question-box__title">Оплата</div>
-						<div class="question-box__text">
-							Ваши данные полностью защищены, мы не храним данные карт. Все данные вы вводите на
-							стороне
-							платежной системы.
-						</div>
-					</div>
-					<div class="question__box question-box">
-						<div class="question-box__number">02</div>
-						<div data-spoller class="question-box__title">Возврат денежных средств </div>
-						<div class="question-box__text">
-							Если вы передумали, до того как вашу посылку забрал курьер, вы можете оформить
-							возврат денежных
-							средств. Для это вы можете связаться с нами <br> по телефону <a href="tel:+77057774600">+7
-								705
-								777 46 00</a> WhatsApp/ Telegram.
-							Оплата возвращается на карту, с которой был произведен платеж.
-						</div>
-					</div>
-				</div>
-				<div data-tab="5" data-spollers class="questions__question question">
-					<div class="question__box question-box">
-						<div class="question-box__number">01</div>
-						<div data-spoller class="question-box__title">Прием и доставка</div>
-						<div class="question-box__text">
-							После оформления заявки на отправку с вами свяжется наш менеджер для уточнения
-							деталей. В
-							зависимости от деталей заказа за посылкой приедет наш курьер или курьер компании из
-							нашей
-							партнерской сети. Далее, посылка будет отправлена в пункт назначения
-							авиаперевозчиком и курьер
-							доставит ее по указанному в вашем заказе адресу.
-						</div>
-					</div>
-					<div class="question__box question-box">
-						<div class="question-box__number">02</div>
-						<div data-spoller class="question-box__title">Как происходит доставка </div>
-						<div class="question-box__text">
-							К вам приедет наш курьер или курьер компании из нашей партнерской сети (в
-							зависимости от деталей
-							заказа) и заберет посылку. Далее, посылка доставляется в пункт назначения самолетом
-							и курьер
-							привезет посылку в пункте назначения по адресу указанному в заказе.
-						</div>
-					</div>
-				</div>
 			</div>
 		</div>
 	</section>
@@ -440,104 +239,27 @@
 			<div class="reviews__slider slider-reviews">
 				<div class="slider-reviews__slider swiper-reviews">
 					<div class="slider-reviews__wrapper swiper-wrapper">
+						{% for slide in reviews %}
 						<div class="slider-reviews__slide slide-reviews swiper-slide">
 							<div class="slide-reviews__text-box">
 								<p class="slide-reviews__text">
-									Хотим выразить огромную благодарность компании Tatex за оперативное
-									выполнение работы,
-									всегда выручаете от куда бы не потребовалась доставка, очень рады работать с
-									вами на
-									долгосрочной перспективе ❤️
+									{{slide.text|safe}}
 								</p>
 							</div>
 							<div class="slide-reviews__client">
 								<div class="slide-reviews__img-ibg">
-									<picture>
-										<source srcset="{% static 'img/reviews/01.webp' %}" type="image/webp">
-										<img src="{% static 'img/reviews/01.jpeg' %}" alt="">
-									</picture>
+									<img src="{{slide.img}}" alt="Слайд {{slide.id}}">
 								</div>
-								<div class="slide-reviews__name">Директор: Даукен Ерназар</div>
-								<div class="slide-reviews__company">Отзыв от компании Visa Support</div>
+								<div class="slide-reviews__name">
+									{{slide.name}}
+								</div>
+								<div class="slide-reviews__company">
+									{{slide.where}}
+								</div>
 							</div>
 						</div>
-						<div class="slider-reviews__slide slide-reviews swiper-slide">
-							<div class="slide-reviews__text-box">
-								<p class="slide-reviews__text">
-									Воспользовалась курьерсками услугами в данной компании, была приятно
-									удивлена. Цены
-									ниже, чем у других курьерских служб. Отправляла конверт в Астану, доставили
-									за пару дней
-									лично в руки получателю 👍 Не раз к вам еще обращусь.
-								</p>
-							</div>
-							<div class="slide-reviews__client">
-								<div class="slide-reviews__img-ibg">
-									<picture>
-										<source srcset="{% static 'img/reviews/02.webp' %}" type="image/webp">
-										<img src="{% static 'img/reviews/02.jpeg' %}" alt="">
-									</picture>
-								</div>
-								<div class="slide-reviews__name">Клиент: Асель</div>
-								<div class="slide-reviews__company">Отзыв из карточки в 2ГИС</div>
-							</div>
-						</div>
-						<div class="slider-reviews__slide slide-reviews swiper-slide">
-							<div class="slide-reviews__text-box">
-								<p class="slide-reviews__text">
-									Бұл компаниямен жұмыс істеп жүргеніме 2ай болды, тек қана жақсы пікір
-									қалдыра аламын👍
-									Бағасы мен сапасы керемет. 1-2 кунде жеткізіп береді қалаған жеріне.
-								</p>
-							</div>
-							<div class="slide-reviews__client">
-								<div class="slide-reviews__img-ibg">
-									<picture>
-										<source srcset="{% static 'img/reviews/03.webp' %}" type="image/webp">
-										<img src="{% static 'img/reviews/03.jpeg' %}" alt="">
-									</picture>
-								</div>
-								<div class="slide-reviews__name">Клиент: Sanzhar</div>
-								<div class="slide-reviews__company">Отзыв из карточки в 2ГИС</div>
-							</div>
-						</div>
-						<div class="slider-reviews__slide slide-reviews swiper-slide">
-							<div class="slide-reviews__text-box">
-								<p class="slide-reviews__text">
-									Быстрая и качественная доставка! Теперь будем обращаться в эту компанию,
-									когда
-									потребуется экспресс доставка.
-									Отдельное спасибо менеджерам, всегда на связи 24/7
-								</p>
-							</div>
-							<div class="slide-reviews__client">
-								<div class="slide-reviews__img-ibg">
-									<picture>
-										<source srcset="{% static 'img/reviews/04.webp' %}" type="image/webp">
-										<img src="{% static 'img/reviews/04.jpeg' %}" alt="">
-									</picture>
-								</div>
-								<div class="slide-reviews__name">Клиент: Nursultan</div>
-								<div class="slide-reviews__company">Отзыв и карточки в 2ГИС </div>
-							</div>
-						</div>
-						<div class="slider-reviews__slide slide-reviews swiper-slide">
-							<div class="slide-reviews__text-box">
-								<p class="slide-reviews__text">
-									Отличная курьерская служба! Быстро доставили. Обязательно обратимся ещё!)
-								</p>
-							</div>
-							<div class="slide-reviews__client">
-								<div class="slide-reviews__img-ibg">
-									<picture>
-										<source srcset="{% static 'img/reviews/05.webp' %}" type="image/webp">
-										<img src="{% static 'img/reviews/05.jpeg' %}" alt="">
-									</picture>
-								</div>
-								<div class="slide-reviews__name">Клиент: Saule</div>
-								<div class="slide-reviews__company">Отзыв из карточки в 2ГИС</div>
-							</div>
-						</div>
+						{% endfor %}
+
 					</div>
 					<div class="swiper-pagination"></div>
 				</div>
@@ -548,7 +270,7 @@
 		<div class="contacts__container">
 			<div class="contacts__map">
 				<iframe
-					src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4052.4799099252273!2d76.95346631709342!3d43.22592727038433!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x38836f05ab142227%3A0x81f4ce3652ed85fe!2sSamal-3%2C%20Almaty%20050000!5e0!3m2!1sen!2skz!4v1643555300946!5m2!1sen!2skz"
+					src='https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2905.445468066386!2d76.92736801532821!3d43.263042479136615!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x38836eaf59b3d30f%3A0xfb064fc72f2389e6!2z0JEv0KYgItCQ0LzQsNC90LDRgiI!5e0!3m2!1sen!2skz!4v1653130739958!5m2!1sen!2skz'
 					width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
 
 			</div>

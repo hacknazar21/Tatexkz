@@ -1,16 +1,24 @@
 from datetime import datetime
 import json
+import locale
 from django.http import Http404, HttpResponse, JsonResponse
 from django.shortcuts import render
 import openpyxl
 from django.views.decorators.csrf import csrf_exempt
+import xml.etree.ElementTree as ET
+import requests
 
 from Tatexkz.apps.promo.models import Promo
 
 with open("static/files/countries.min.json", "r", encoding='utf-8') as read_file:
     countries = json.load(read_file)
 
-
+countiesRoot = ET.parse('static/files/counties-codes.xml')
+countriesCodes = {}
+for country in countiesRoot.iter('country'):
+    for name in country.iter('name'):
+        for alpha2 in country.iter('alpha2'):
+            countriesCodes[name.text] = alpha2.text
 @csrf_exempt
 def tariff(request):
     if request.method == "POST":
@@ -22,9 +30,54 @@ def tariff(request):
         fromCountry = jsonReq.get('from_country', '')
         whereCountry = jsonReq.get('where_country', '')
         promo = jsonReq.get('promo', '')
-
+        postIndexSender = jsonReq.get('postIndexSender', '000000')
+        postIndexRecipient = jsonReq.get('postIndexRecipient', '000000')
+        DlvyDateTime = ''
         promoResp = calcPromo(promo)
+        if(fromCountry != ''):
+            fromCountryCode = countriesCodes[fromCountry]
+            whereCountryCode = countriesCodes[whereCountry]
+            dateSend = datetime.strptime(jsonReq.get(
+                'date', ''), '%d/%m/%Y').strftime("%Y-%m-%d")
+            
+            tree = ET.parse('static/files/req_date.xml')
+            root = tree.getroot()
+            i = 0
+            for ShipmentWeight in root.iter('ShipmentWeight'):
+                ShipmentWeight.text = str(weight)
+            for Date in root.iter('Date'):
+                Date.text = dateSend
+            for CountryCode in root.iter('CountryCode'):
+                if not i:
+                    CountryCode.text = fromCountryCode
+                else:
+                    CountryCode.text = whereCountryCode
+                    i = 0
+                    break
+                i += 1
+            postIndexSender = ''.join(i for i in postIndexSender if not i.isalpha())
+            postIndexRecipient = ''.join(i for i in postIndexRecipient if not i.isalpha())
+            for PostalCode in root.iter('Postalcode'):
+                if not i:
+                    PostalCode.text = str(postIndexSender)
+                else:
+                    PostalCode.text = str(postIndexRecipient)
+                    i = 0
+                    break
+                i += 1
+            tree.write('static/files/req_date.xml', 'UTF-8')
+            with open('static/files/req_date.xml') as inputfile:
+                xml_file = inputfile.read()
+            response = requests.post(
+                'http://xmlpi-ea.dhl.com/XMLShippingServlet?isUTF8Support=true', data=xml_file)
+            tree = ET.ElementTree(ET.fromstring(response.text))
 
+            root = tree.getroot()
+            for DlvyDateTime in root.iter('DlvyDateTime'):
+                DlvyDateTime = DlvyDateTime.text
+            locale.setlocale(locale.LC_ALL, 'ru_RU')
+            DlvyDateTime = datetime.strptime(DlvyDateTime, 
+                        '%Y-%m-%d %H:%M:%S').strftime("%d %B %Y")
         if fromCountry == '' and whereCountry == '':
             for country in countries:
                 for city in countries[country]:
@@ -53,7 +106,7 @@ def tariff(request):
         else:
             return JsonResponse({'error':  True, 'errorText': promoResp['error']})
         if isint(calculatedTariff):
-            return JsonResponse({'error':  False, 'oldPrice': oldPrice, 'price':  calculatedTariff, 'percent': promoResp['percent']})
+            return JsonResponse({'error':  False, 'oldPrice': oldPrice, 'price':  calculatedTariff, 'percent': promoResp['percent'], 'DlvyDateTime': DlvyDateTime})
         else:
             return JsonResponse({'error':  True, 'errorText': calculatedTariff})
 

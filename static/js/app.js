@@ -4826,7 +4826,7 @@
                         if (window.location.hash) {
                             this._openToHash()
                         };
-                        
+
                     }.bind(this));
                 }
             }
@@ -4928,7 +4928,7 @@
             _openToHash() {
                 let classInHash = document.querySelector(`.${window.location.hash.replace("#", "")}`) ? `.${window.location.hash.replace("#", "")}` : document.querySelector(`${window.location.hash}`) ? `${window.location.hash}` : null;
                 const buttons = document.querySelector(`[${this.options.attributeOpenButton} = "${classInHash}"]`) ? document.querySelector(`[${this.options.attributeOpenButton} = "${classInHash}"]`) : document.querySelector(`[${this.options.attributeOpenButton} = "${classInHash.replace(".", "#")}"]`);
-                
+
                 if (buttons && classInHash) this.open(classInHash);
             }
             _setHash() {
@@ -5453,10 +5453,12 @@
                 const selectOptionsItems = selectOptions.querySelectorAll(`.${this.selectClasses.classSelectOption}`);
                 const _this = this;
                 selectInput.addEventListener("input", (function () {
+                    
                     selectOptionsItems.forEach((selectOptionsItem => {
-                        if (selectOptionsItem.textContent.toUpperCase().indexOf(selectInput.value.toUpperCase()) >= 0) selectOptionsItem.hidden = false; else selectOptionsItem.hidden = true;
+                        console.log(selectOptionsItem.textContent.toUpperCase().startsWith(selectInput.value.toUpperCase()))
+                        if (selectOptionsItem.textContent.toUpperCase().startsWith(selectInput.value.toUpperCase())) selectOptionsItem.style.display = 'initial'; else selectOptionsItem.style.display = 'none';
                     }));
-                    true === selectOptions.hidden ? _this.selectAction(selectItem) : null;
+                    
                 }));
             }
             selectCallback(selectItem, originalSelect) {
@@ -9084,7 +9086,7 @@
                         const noHeader = gotoLink.hasAttribute("data-goto-header") ? true : false;
                         const gotoSpeed = gotoLink.dataset.gotoSpeed ? gotoLink.dataset.gotoSpeed : 500;
                         const offsetTop = gotoLink.dataset.gotoTop ? parseInt(gotoLink.dataset.gotoTop) : 0;
-                        if(gotoBlock(gotoLinkSelector, noHeader, gotoSpeed, offsetTop)){
+                        if (gotoBlock(gotoLinkSelector, noHeader, gotoSpeed, offsetTop)) {
                             e.preventDefault();
                         }
                     }
@@ -9294,6 +9296,14 @@
                     data.lengthbox = length.value;
                     data.widthbox = width.value;
                     data.promo = promo.value;
+
+                    const volumeWeight = parseInt(data.heightbox) * parseInt(data.lengthbox) * parseInt(data.widthbox) / 5000
+                    if (volumeWeight > parseFloat(data.weight))
+                        form.querySelector('button').insertAdjacentHTML('beforeBegin', `<h3 style="color: #090a0a; font-weight: 700;">Объемный вес ${volumeWeight}кг > Фактический вес ${parseFloat(data.weight)}кг</h3>`)
+                    else if (volumeWeight == parseFloat(data.weight))
+                        form.querySelector('button').insertAdjacentHTML('beforeBegin', `<h3 style="color: #090a0a; font-weight: 700;">Объемный вес ${volumeWeight}кг = Фактический вес ${parseFloat(data.weight)}кг</h3>`)
+                    else
+                        form.querySelector('button').insertAdjacentHTML('beforeBegin', `<h3 style="color: #090a0a; font-weight: 700;">Объемный вес ${volumeWeight}кг < Фактический вес ${parseFloat(data.weight)}кг</h3>`)
                 }
             }));
             let response = await fetch("/order/tariff/", {
@@ -9312,9 +9322,9 @@
                 deliveryDate.setDate(deliveryDate.getDate());
                 deliveryDate = deliveryDate.getDate() + '.' + (deliveryDate.getMonth() + 1) + '.' + deliveryDate.getFullYear()
                 let percent = ''
-                if (result['percent'] > -1)
-                    percent = `Скидка ${result['percent']}`
-                const templatePrice = `\n<div class="first-screen-calc__promo">${percent}%</div>\n                <div class="first-screen-calc__info">\n                    <div class="first-screen-calc__info-box doc-summ">\n                        <div class="doc-summ__title">Стоимость <br>доставки</div>\n                        <div name="price" class="doc-summ__value">${deliveryPrice}</div>\n                        <div class="doc-summ__text"> Тенге</div>\n                    </div>\n                    <div class="first-screen-calc__info-box doc-date">\n                        <div class="doc-date__title">Ориентировочная <br> дата доставки</div>\n                        <div class="doc-date__value">${deliveryDate}</div>\n                    </div>\n                </div>\n`;
+                if (result['percent'] > -1 && result['percent'] != 0)
+                    percent = `Скидка ${result['percent']}%`
+                const templatePrice = `\n<div class="first-screen-calc__promo">${percent}</div>\n                <div class="first-screen-calc__info">\n                    <div class="first-screen-calc__info-box doc-summ">\n                        <div class="doc-summ__title">Стоимость <br>доставки</div>\n                        <div name="price" class="doc-summ__value">${deliveryPrice}</div>\n                        <div class="doc-summ__text"> Тенге</div>\n                    </div>\n`;
                 if (form.querySelector('.errorMsg'))
                     form.querySelector('.errorMsg').remove()
 
@@ -9469,7 +9479,9 @@
                 const picker = new datepicker_min(".calendar", {
                     startDay: 1,
                     formatter: (input, date, instance) => {
-                        const value = `${date.getDate()}/${date.getMonth() + 1}/${date.getFullYear()}`;
+                        const value = ('0' + date.getDate()).slice(-2) + '/'
+                            + ('0' + (date.getMonth() + 1)).slice(-2) + '/'
+                            + date.getFullYear();
                         input.value = value;
                     },
                     noWeekends: true,
@@ -9507,7 +9519,7 @@
                     if (el.classList.contains("hover")) {
                         const span = document.createElement("span");
                         span.classList.add("hover-span");
-                        span.innerHTML = "К сожалению, в выходные дни курьер не сможет осуществить забор груза, пожалуйста, выберите другую дату";
+                        span.innerHTML = "На указанную вами дату невозможно осуществить вызов курьера";
                         el.style.position = "relative";
                         el.insertAdjacentElement("afterbegin", span);
                     } else if (el.querySelector(".hover-span")) el.querySelector(".hover-span").remove();
@@ -9520,6 +9532,9 @@
                     document.querySelector('form [class*="__type"]').insertAdjacentElement("afterend", dataforList.data[index]);
                 }
                 radiobutton.addEventListener("click", (event => {
+                    if (document.querySelector('[data-btncalc]').innerText == 'Оформить') {
+                        window.location.reload()
+                    }
                     if (event.target.checked) {
                         document.querySelector(".radio.active").classList.remove("active");
                         radiobutton.classList.add("active");
@@ -9571,6 +9586,32 @@
                         evt.target.parentElement.style.borderColor = border;
                     })
                 }, true)
+            }
+            const formDocument = document.querySelector('[data-for="document"]');
+            if (formDocument) {
+                const inputWeight = formDocument.querySelector('input[name="weight"]');
+
+                let buffer = 0;
+                inputWeight.addEventListener('input', (event) => {
+                    const errorLabel = document.createElement('label')
+                    if (event.target.value != '' && parseFloat(event.target.value) > 0.3) {
+                        event.target.value = buffer
+                        if (formDocument.querySelector('input[name="weight"] + label') === null) {
+                            errorLabel.innerText = 'Максимально допустимый вес документа 0,3 кг'
+                            errorLabel.classList.add('error')
+
+                            event.target.insertAdjacentElement(
+                                'afterend',
+                                errorLabel
+                            )
+                        }
+                    }
+                    else {
+                        buffer = parseFloat(event.target.value)
+                        if (formDocument.querySelector('input[name="weight"] + label'))
+                            formDocument.querySelector('input[name="weight"] + label').remove()
+                    }
+                })
             }
         };
         window["FLS"] = true;

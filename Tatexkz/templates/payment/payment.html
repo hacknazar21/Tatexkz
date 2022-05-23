@@ -29,14 +29,6 @@
 				</button>
 				<div class="payment__way payment-way">
 					<div class="payment-way__img">
-						<img src="{% static 'img/payment/unionpay.svg' %}" alt="unionpay">
-					</div>
-					<div class="payment-way__body">
-						<div class="payment-way__body-title">UnionPay</div>
-					</div>
-				</div>
-				<div class="payment__way payment-way">
-					<div class="payment-way__img">
 						<img src="{% static 'img/payment/timer.svg' %}" alt="nal">
 					</div>
 					<div class="payment-way__body">
@@ -86,7 +78,7 @@
 
 <script>
 	var token = ''
-	const invoiceID = '564886'
+	const invoiceID = '{{ID}}'
 	const amount = '{{price}}'
 	const client_id = "TATEX.KZ"
 	const client_secret = "kms)(xZ(y$o(HxbH6"
@@ -124,15 +116,15 @@
 	halykResp()
 	function pay() {
 
-
+		console.log(location)
 		var paymentObject = {
 			invoiceId: invoiceID,
-			backLink: "/#popup_success",
-			failureBackLink: "/",
-			postLink: "/",
-			failurePostLink: "/",
+			backLink: `${location.origin}/#popup_success`,
+			failureBackLink: `${location.origin}/payment`,
+			postLink: `${location.origin}`,
+			failurePostLink: `${location.origin}`,
 			language: "RU",
-			description: "Оплата в интернет магазине",
+			description: "Оплата доставки на Tatex.kz",
 			terminal: terminal_id,
 			amount: amount,
 			currency: "KZT",
@@ -141,8 +133,13 @@
 		paymentObject.auth = token;
 
 
-		halyk.showPaymentWidget(paymentObject, { success: true });
+		console.log(halyk.showPaymentWidget(paymentObject, callback));
 
+	}
+	function callback({ success }) {
+		if (success) {
+			location.replace(`${location.origin}/#popup_success`);
+		}
 	}
 </script>
 

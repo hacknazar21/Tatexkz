@@ -1,0 +1,36 @@
+<ns0:DCTRequest xmlns:ns0="http://www.dhl.com" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" schemaVersion="2.0" xsi:schemaLocation="http://www.dhl.com DCT-req.xsd ">
+	<GetQuote>
+		<Request>
+			<ServiceHeader>
+				<MessageTime>2022-02-22T11:28:56.000-08:00</MessageTime>
+				<MessageReference>1234567890123456789012345678901</MessageReference>
+				<SiteID>v62_tBTTUgPMKT</SiteID>
+				<Password>y3vOe4xj9h</Password>
+			</ServiceHeader>
+			<MetaData>
+				<SoftwareName>3PV</SoftwareName> 
+			    <SoftwareVersion>10</SoftwareVersion> 
+			</MetaData>
+		</Request>
+		<From>
+			<CountryCode>KZ</CountryCode>
+			<Postalcode>050000</Postalcode>
+		</From>
+		<BkgDetails>
+			<PaymentCountryCode>KZ</PaymentCountryCode>
+			<Date>2022-05-24</Date>
+			<ReadyTime>PT17H02M</ReadyTime>
+			<DimensionUnit>CM</DimensionUnit>
+			<WeightUnit>KG</WeightUnit>
+			<NumberOfPieces>1</NumberOfPieces>
+			<ShipmentWeight>0.1</ShipmentWeight>
+			<IsDutiable>N</IsDutiable>
+			<NetworkTypeCode>AL</NetworkTypeCode>
+		</BkgDetails>
+		<To>
+			<CountryCode>KZ</CountryCode>
+			<Postalcode>010000</Postalcode>
+			<City />
+		</To>
+	</GetQuote>
+</ns0:DCTRequest>

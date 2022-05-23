@@ -1,3 +1,4 @@
+from datetime import datetime
 from django.db import models
 
 # Create your models here.
@@ -6,9 +7,9 @@ from django.db import models
 class Order(models.Model):
     typePackage = models.CharField(max_length=30, verbose_name='Тип посылки')
     trackcode = models.CharField(max_length=10,
-                                 verbose_name='Номер накладной', default='0000000000')
+                                 verbose_name='Номер накладной', default='0000000000', blank=True)
     date = models.CharField(
-        max_length=50, verbose_name='Время подтверждения', null=True)
+        max_length=50, verbose_name='Время подтверждения', null=True, blank=True)
     weight = models.FloatField(max_length=30, verbose_name='Вес')
     sendersName = models.CharField(
         max_length=30, verbose_name='Имя отправителя')
@@ -33,9 +34,9 @@ class Order(models.Model):
     recipientAddress = models.CharField(
         max_length=30, verbose_name='Адрес получателя')
     postIndexSender = models.CharField(
-        max_length=30, verbose_name='Почтовый индекс отправителя')
+        max_length=6, verbose_name='Почтовый индекс отправителя')
     postIndexRecipient = models.CharField(
-        max_length=30, verbose_name='Почтовый индекс получателя')
+        max_length=6, verbose_name='Почтовый индекс получателя')
     dataSend = models.CharField(
         max_length=30, verbose_name='Дата забора')
     sendersTel = models.CharField(
@@ -44,10 +45,15 @@ class Order(models.Model):
         max_length=30, verbose_name='Телефон получателя')
     email = models.EmailField(max_length=30, verbose_name='Email')
     comment = models.TextField(
-        max_length=300, null=True, verbose_name='Комментарий')
+        max_length=300, null=True, verbose_name='Подробное содержимое груза', blank=True)
+    instruction = models.TextField(
+        max_length=300, null=True, verbose_name='Инструкция для курьера', blank=True)
     printNeed = models.BooleanField(null=True, verbose_name='Печать')
     apply = models.BooleanField(
         verbose_name='Подтвердить', default=False, null=True)
+    invoiceID = models.IntegerField(default=0, blank=True, editable=False)
+    shipmentDate = models.DateTimeField(
+        verbose_name='Дата и время передачи в DHL', blank=True, default=datetime.now)
 
     def __str__(self):
         return self.sendersName
