@@ -75,9 +75,9 @@ def tariff(request):
             root = tree.getroot()
             for DlvyDateTime in root.iter('DlvyDateTime'):
                 DlvyDateTime = DlvyDateTime.text
-            locale.setlocale(locale.LC_ALL, 'ru_RU')
+            
             DlvyDateTime = datetime.strptime(DlvyDateTime, 
-                        '%Y-%m-%d %H:%M:%S').strftime("%d %B %Y")
+                        '%Y-%m-%d %H:%M:%S').strftime("%d %m %Y")
         if fromCountry == '' and whereCountry == '':
             for country in countries:
                 for city in countries[country]:
