@@ -422,6 +422,15 @@
                 data.postIndexSender = postIndexSender.value;
                 data.postIndexRecipient = postIndexRecipient.value;
                 data.promo = promo.value;
+                const volumeWeight = parseInt(data.heightbox) * parseInt(data.lengthbox) * parseInt(data.widthbox) / 5000
+                if (volumeWeight > parseFloat(data.weight)){
+                    data.weight = volumeWeight
+                    document.querySelector('.form-order__danger').insertAdjacentHTML('beforeBegin', `<h3 style="color: #090a0a; font-weight: 700;">Объемный вес ${volumeWeight}кг > Фактический вес ${parseFloat(data.weight)}кг</h3>`)
+                }else if (volumeWeight == parseFloat(data.weight))
+                    document.querySelector('.form-order__danger').insertAdjacentHTML('beforeBegin', `<h3 style="color: #090a0a; font-weight: 700;">Объемный вес ${volumeWeight}кг = Фактический вес ${parseFloat(data.weight)}кг</h3>`)
+                else
+                    document.querySelector('.form-order__danger').insertAdjacentHTML('beforeBegin', `<h3 style="color: #090a0a; font-weight: 700;">Объемный вес ${volumeWeight}кг < Фактический вес ${parseFloat(data.weight)}кг</h3>`)
+            
             }
         }));
         let response = await fetch("/order/tariff/", {
@@ -439,15 +448,7 @@
         
         if (!result["error"]) {
             const isPrint = form.querySelector('input[name="print"]:checked')
-            const volumeWeight = parseInt(data.heightbox) * parseInt(data.lengthbox) * parseInt(data.widthbox) / 5000
-            if (volumeWeight > parseFloat(data.weight)){
-                data.weight = volumeWeight
-                document.querySelector('.form-order__danger').insertAdjacentHTML('beforeBegin', `<h3 style="color: #090a0a; font-weight: 700;">Объемный вес ${volumeWeight}кг > Фактический вес ${parseFloat(data.weight)}кг</h3>`)
-            }else if (volumeWeight == parseFloat(data.weight))
-                document.querySelector('.form-order__danger').insertAdjacentHTML('beforeBegin', `<h3 style="color: #090a0a; font-weight: 700;">Объемный вес ${volumeWeight}кг = Фактический вес ${parseFloat(data.weight)}кг</h3>`)
-            else
-                document.querySelector('.form-order__danger').insertAdjacentHTML('beforeBegin', `<h3 style="color: #090a0a; font-weight: 700;">Объемный вес ${volumeWeight}кг < Фактический вес ${parseFloat(data.weight)}кг</h3>`)
-        
+            
             if(isPrint.value.toString() === "True"){
                 document.querySelector('.form-order__danger').insertAdjacentHTML('beforeBegin', `
                     <div class="form-order__danger">
