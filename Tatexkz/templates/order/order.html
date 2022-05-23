@@ -432,32 +432,43 @@
             body: JSON.stringify(data)
         });
 
-        const isPrint = form.querySelector('input[name="print"]:checked')
         
-        if(isPrint.value.toString() === "True"){
-            document.querySelector('.form-order__danger').insertAdjacentHTML('beforeBegin', `
-                <div class="form-order__danger">
-                    Накладная будет отправлена на Вашу почту после оформления заказа, ее нужно будет распечатать и передать курьеру вместе с Вашей посылкой
-                </div>
-            `)
-        }
-        else {
-            document.querySelector('[name="instruction"]').value = `
-                Принести с собой накладную
-            `
-        }
         let result = await response.json();
         
         let percent = ''
-        if(result['DlvyDateTime'] != '')
-        form.querySelector(".form-order__price").insertAdjacentHTML("beforeBegin", `<h2 style="color: #23262f; margin-bottom: 10px;">Ориентировочная дата доставки: ${result['DlvyDateTime']}</h2>`);
+        
+        if (!result["error"]) {
+            const isPrint = form.querySelector('input[name="print"]:checked')
+            const volumeWeight = parseInt(data.heightbox) * parseInt(data.lengthbox) * parseInt(data.widthbox) / 5000
+            if (volumeWeight > parseFloat(data.weight)){
+                data.weight = volumeWeight
+                form.querySelector('button').insertAdjacentHTML('beforeBegin', `<h3 style="color: #090a0a; font-weight: 700;">Объемный вес ${volumeWeight}кг > Фактический вес ${parseFloat(data.weight)}кг</h3>`)
+            }else if (volumeWeight == parseFloat(data.weight))
+                form.querySelector('button').insertAdjacentHTML('beforeBegin', `<h3 style="color: #090a0a; font-weight: 700;">Объемный вес ${volumeWeight}кг = Фактический вес ${parseFloat(data.weight)}кг</h3>`)
+            else
+                form.querySelector('button').insertAdjacentHTML('beforeBegin', `<h3 style="color: #090a0a; font-weight: 700;">Объемный вес ${volumeWeight}кг < Фактический вес ${parseFloat(data.weight)}кг</h3>`)
+        
+            if(isPrint.value.toString() === "True"){
+                document.querySelector('.form-order__danger').insertAdjacentHTML('beforeBegin', `
+                    <div class="form-order__danger">
+                        Накладная будет отправлена на Вашу почту после оформления заказа, ее нужно будет распечатать и передать курьеру вместе с Вашей посылкой
+                    </div>
+                `)
+            }
+            else {
+                document.querySelector('[name="instruction"]').value = `
+                    Принести с собой накладную
+                `
+            }
+            if(result['DlvyDateTime'] != '')
+            form.querySelector(".form-order__price").insertAdjacentHTML("beforeBegin", `<h2 style="color: #23262f; margin-bottom: 10px;">Ориентировочная дата доставки: ${result['DlvyDateTime']}</h2>`);
 
-        if (result['percent'] > -1 && result['percent'] != 0) {
-            percent = `<div class="first-screen-calc__promo">Скидка: ${result['percent']}%</div>`
-            form.querySelector(".form-order__price").insertAdjacentHTML("afterBegin", percent);
-
+            if (result['percent'] > -1 && result['percent'] != 0) {
+                percent = `<div class="first-screen-calc__promo">Скидка: ${result['percent']}%</div>`
+                form.querySelector(".form-order__price").insertAdjacentHTML("afterBegin", percent);
+            }
+            return result;
         }
-        if (!result["error"]) return result;
 
         else {
             const errorMsg = `<span class='errorMsg' style = 'color: red; padding: 1rem 0'>${result['errorText']}</span>`
