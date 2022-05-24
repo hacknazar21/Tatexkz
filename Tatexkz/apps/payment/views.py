@@ -64,7 +64,7 @@ def payment(request):
         send_mail(
             'Создана новая заявка Tatex.kz',
             msg,
-            'mailkz@medstandard.kz',
+            'tatex@onedev.kz',
             ['n.kultayev@aues.kz'],
             fail_silently=False,
         )

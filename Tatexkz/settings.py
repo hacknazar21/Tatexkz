@@ -126,7 +126,7 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 EMAIL_USE_SSL = True
-EMAIL_HOST = 'medstandard.kz'
+EMAIL_HOST = 'onedev.kz'
 EMAIL_PORT = 465
-EMAIL_HOST_USER = 'mailkz@medstandard.kz'
-EMAIL_HOST_PASSWORD = '%b52Zaw19'
+EMAIL_HOST_USER = 'tatex@onedev.kz'
+EMAIL_HOST_PASSWORD = 'Xx4q6i51$'
