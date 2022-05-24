@@ -77,7 +77,7 @@ def tariff(request):
                 DlvyDateTime = DlvyDateTime.text
             
             DlvyDateTime = datetime.strptime(DlvyDateTime, 
-                        '%Y-%m-%d %H:%M:%S').strftime("%d %m %Y")
+                        '%Y-%m-%d %H:%M:%S').strftime("%d.%m.%Y")
         if fromCountry == '' and whereCountry == '':
             for country in countries:
                 for city in countries[country]:
