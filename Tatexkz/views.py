@@ -150,7 +150,11 @@ def dhl(request):
         else:
             typeCode = 'YP'
             GlobalProductCodeType = 'P'
-        accountNumber = '967710648'
+        accountNumber = '376165440'
+        if fromCountryCode == 'KZ':
+            accountNumber = '376165440'
+        else:
+            accountNumber = '967710648'
         if whereCountry == fromCountry:
             GlobalProductCodeType = 'N'
 
