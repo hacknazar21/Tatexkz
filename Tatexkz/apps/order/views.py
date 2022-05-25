@@ -34,7 +34,7 @@ def tariff(request):
         postIndexRecipient = jsonReq.get('postIndexRecipient', '000000')
         DlvyDateTime = ''
         promoResp = calcPromo(promo)
-        if(fromCountry != ''):
+        """ if(fromCountry != ''):
             fromCountryCode = countriesCodes[fromCountry]
             whereCountryCode = countriesCodes[whereCountry]
             dateSend = datetime.strptime(jsonReq.get(
@@ -77,7 +77,7 @@ def tariff(request):
                 DlvyDateTime = DlvyDateTime.text
             
             DlvyDateTime = datetime.strptime(DlvyDateTime, 
-                        '%Y-%m-%d %H:%M:%S').strftime("%d.%m.%Y")
+                        '%Y-%m-%d %H:%M:%S').strftime("%d.%m.%Y") """
         if fromCountry == '' and whereCountry == '':
             for country in countries:
                 for city in countries[country]:
@@ -106,7 +106,7 @@ def tariff(request):
         else:
             return JsonResponse({'error':  True, 'errorText': promoResp['error']})
         if isint(calculatedTariff):
-            return JsonResponse({'error':  False, 'oldPrice': oldPrice, 'price':  calculatedTariff, 'percent': promoResp['percent'], 'DlvyDateTime': DlvyDateTime})
+            return JsonResponse({'error':  False, 'oldPrice': oldPrice, 'price':  calculatedTariff, 'percent': promoResp['percent'], 'DlvyDateTime': 'DlvyDateTime'})
         else:
             return JsonResponse({'error':  True, 'errorText': calculatedTariff})
 

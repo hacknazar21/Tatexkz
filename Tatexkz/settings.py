@@ -38,7 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'Tatexkz.apps.payment.apps.PaymentConfig',
     'Tatexkz.apps.promo.apps.PromoConfig',
-    'Tatexkz.apps.home.apps.HomeConfig'
+    'Tatexkz.apps.home.apps.HomeConfig',
+    'Tatexkz.apps.coop.apps.CoopConfig'
 ]
 
 MIDDLEWARE = [

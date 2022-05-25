@@ -3,4 +3,5 @@ from django.apps import AppConfig
 
 class CoopConfig(AppConfig):
     default_auto_field = 'django.db.models.BigAutoField'
-    name = 'coop'
+    name = 'Tatexkz.apps.coop'
+    verbose_name = 'Заявки на сотрудничество'

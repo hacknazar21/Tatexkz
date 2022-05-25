@@ -9432,6 +9432,7 @@
                 const error = document.createElement("span");
                 error.classList.add("error");
                 error.innerHTML = "Поле заполнено неверно!";
+                formcalc.querySelectorAll('input').foreach()
                 formcalc.addEventListener("submit", (event => {
                     if (!flag) {
                         event.preventDefault();
@@ -9440,6 +9441,10 @@
                             const input = event.target.querySelectorAll("input[required]")[index];
                             input.addEventListener("focusout", (() => {
                                 if (null != formcalc.querySelector(".error")) formcalc.querySelector(".error").remove();
+                            
+                            }));
+                            input.addEventListener("input", (() => {
+                                    window.location.reload()
                             }));
                             if (!validateInput(input)) {
                                 input.focus();
@@ -9547,8 +9552,8 @@
             }));
             if (0 != checkboxes.length) checkboxes.forEach((checkbox => {
                 checkbox.addEventListener("click", (event => {
-                    console.log(event.target);
-                    if (event.target.checked) { event.target.classList.add("active"); event.target.value = "True" } else if (event.target.classList.contains("active")) { event.target.classList.remove("active"); event.target.value = "False" }
+                    
+                    if (event.target.checked) { event.target.classList.add("active");  } else if (event.target.classList.contains("active")) { event.target.classList.remove("active");  }
                 }));
             }));
             inputs.forEach((input => {

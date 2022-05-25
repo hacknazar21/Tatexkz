@@ -42,6 +42,7 @@ def payment(request):
             recipientTel=request.POST.get('full_recipientTel', ''),
             email=request.POST.get('email', ''),
             comment=request.POST.get('comment', ''),
+            instruction=request.POST.get('instruction', ''),
             printNeed=request.POST.get('print')
         ).save()
 
@@ -60,12 +61,26 @@ def payment(request):
             calculatedTariff = calculatedTariff - \
                 calculatedTariff*(promoResp['percent']/100)
         msg = ''
-        msg += 'Отправитель: ' + request.POST.get('sendersName', '') + '\n'
-        msg += 'Номер телефона: ' + request.POST.get('full_sendersTel', '') + '\n'
+        msg += 'Вес: ' + str(weight) + '\n'
+        msg += 'Город отправителя: ' + request.POST.get('from', '') + '\n'
+        msg += 'Адрес отправителя: ' + request.POST.get('sendersAddress', '') + '\n'
+        msg += 'Почтовый индекс отправителя: ' + postIndexSender + '\n'
+        msg += 'Город получателя: ' + request.POST.get('where', '') + '\n'
+        msg += 'Адрес получателя: ' + request.POST.get('recipientAddress', '') + '\n'
+        msg += 'Почтовый индекс получателя: ' + postIndexRecipient + '\n'
+        msg += 'Дата забора: ' + request.POST.get('dataSend', '') + '\n'
+        msg += 'Имя отправителя: ' + request.POST.get('sendersName', '') + '\n'
+        msg += 'Телефон отправителя: ' + request.POST.get('full_sendersTel', '') + '\n'
+        msg += 'Имя получателя: ' + request.POST.get('recipientName', '') + '\n'
+        msg += 'Телефон получателя: ' + request.POST.get('full_recipientTel', '') + '\n'
+        msg += 'К оплате: ' + str(calculatedTariff) + '\n'
+        msg += 'Вид груза: ' + request.POST.get('type', '') + '\n'
+        msg += 'Комментарий для курьера: ' + request.POST.get('instruction', '') + '\n'
+        msg += 'Подробное содержимое груза: ' + request.POST.get('comment', '') + '\n'
         message = EmailMessage(
             'Создана новая заявка Tatex.kz',
             msg,
-            to=['n.kultayev@aues.kz']
+            to=['info@tatex.kz']
         )
         message.send(fail_silently=False)
         return render(

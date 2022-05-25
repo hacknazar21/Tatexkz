@@ -196,7 +196,7 @@
                                     <div class="form-order__input-title _nessesary">Почтовый индекс отправителя
                                     </div>
                                     <div class="input">
-                                        <input data-inputmask="'mask': '999999', 'placeholder': 'x'" required
+                                        <input data-inputmask="'mask': '999999', 'placeholder': ''" required
                                             autocomplete="off" type="text" name="postIndexSender" data-error="Ошибка"
                                             placeholder="Почтовый индекс" class="form-order__input">
                                     </div>
@@ -204,7 +204,7 @@
                                 <div class="form-order__input-box">
                                     <div class="form-order__input-title _nessesary">Почтовый индекс получателя</div>
                                     <div class="input">
-                                        <input data-inputmask="'mask': '999999', 'placeholder': 'x'" required
+                                        <input data-inputmask="'mask': '999999', 'placeholder': ''" required
                                             autocomplete="off" type="text" name="postIndexRecipient" data-error="Ошибка"
                                             placeholder="Почтовый индекс" class="form-order__input">
                                     </div>
@@ -457,7 +457,7 @@
                 `)
             }
             else {
-                document.querySelector('[name="instruction"]').value = `
+                document.querySelector('textarea[name="instruction"]').value = `
                     Принести с собой накладную
                 `
             }

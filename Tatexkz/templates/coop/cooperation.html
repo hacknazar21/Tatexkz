@@ -20,35 +20,36 @@
 					</div>
 				</div>
 				<div class="coop__form-box">
-					<form action="#" class="coop__form coop-form">
+					<form action="/coop/coopadd/" method="post" class="coop__form coop-form">
+						{% csrf_token %}
 						<div class="coop-form__block">
 							<h3 class="coop-form__personal-title">Личные данные</h3>
 							<div class="coop-form__personal coop_grid">
 								<div class="coop-form__input-box">
 									<div class="coop-form__input-title _nessesary">ФИО</div>
 									<div class="input">
-										<input type="text" name="form[]" value="" data-error="Ошибка" placeholder="ФИО"
+										<input required type="text" name="name" value="" data-error="Ошибка" placeholder="ФИО"
 											class="coop-form__input">
 									</div>
 								</div>
 								<div class="coop-form__input-box">
 									<div class="coop-form__input-title _nessesary">Контактный телефон</div>
 									<div class="input">
-										<input type="tel" data-phone class="coop-form__input"
+										<input required type="tel" name="tel" data-phone class="coop-form__input"
 											data-inputmask-clearmaskonlostfocus="true" placeholder="Номер телефона">
 									</div>
 								</div>
 								<div class="coop-form__input-box">
 									<div class="coop-form__input-title _nessesary">E-mail</div>
 									<div class="input">
-										<input type="text" name="form[]" value="" data-error="Ошибка"
+										<input required type="text" name="email" value="" data-error="Ошибка"
 											placeholder="E-mail" class="coop-form__input ">
 									</div>
 								</div>
 								<div class="coop-form__input-box">
 									<div class="coop-form__input-title _nessesary">Название компании</div>
 									<div class="input">
-										<input type="text" name="form[]" value="" data-error="Ошибка"
+										<input required type="text" name="company" value="" data-error="Ошибка"
 											placeholder="Название компании" class="coop-form__input ">
 									</div>
 								</div>
@@ -60,7 +61,7 @@
 								<div class="coop-form__input-box">
 									<div class="coop_grid__checkbox checkbox">
 										<input id="c_1" data-error="Ошибка" class="checkbox__input" type="checkbox"
-											value="1" name="form[]">
+											value="Доставка почты" name="services[]">
 										<label for="c_1" class="checkbox__label">
 											<span></span>
 											<span class="checkbox__text">Доставка почты</span>
@@ -68,7 +69,7 @@
 									</div>
 									<div class="coop_grid__checkbox checkbox">
 										<input id="c_2" data-error="Ошибка" class="checkbox__input" type="checkbox"
-											value="1" name="form[]">
+											value="Доставка груза" name="services[]">
 										<label for="c_2" class="checkbox__label">
 											<span></span>
 											<span class="checkbox__text">Доставка груза</span>
@@ -76,7 +77,7 @@
 									</div>
 									<div class="coop_grid__checkbox checkbox">
 										<input id="c_3" data-error="Ошибка" class="checkbox__input" type="checkbox"
-											value="1" name="form[]">
+											value="Доставка для интернет магазинов" name="services[]">
 										<label for="c_3" class="checkbox__label">
 											<span></span>
 											<span class="checkbox__text">Доставка для интернет магазинов</span>
@@ -86,7 +87,7 @@
 								<div class="coop-form__input-box">
 									<div class="coop_grid__checkbox checkbox">
 										<input id="c_4" data-error="Ошибка" class="checkbox__input" type="checkbox"
-											value="1" name="form[]">
+											value="Доставка по времени" name="services[]">
 										<label for="c_4" class="checkbox__label">
 											<span></span>
 											<span class="checkbox__text">Доставка по времени</span>
@@ -99,7 +100,7 @@
 										месяц)
 									</div>
 									<div class="input">
-										<input type="text" name="form[]" value="" data-error="Ошибка"
+										<input required type="text" name="volume" value="" data-error="Ошибка"
 											placeholder="Ожидаемый объем отправлений (шт в месяц)"
 											class="coop-form__input ">
 									</div>
@@ -108,7 +109,7 @@
 									<div class="coop-form__input-title _nessesary"> Характер груза
 									</div>
 									<div class="input">
-										<input type="text" name="form[]" value="" data-error="Ошибка"
+										<input required type="text" name="cargo" value="" data-error="Ошибка"
 											placeholder="Характер груза" class="coop-form__input ">
 									</div>
 								</div>
@@ -120,7 +121,7 @@
 								<div class="coop-form__input-box">
 									<div class="coop_grid__checkbox checkbox">
 										<input id="geo_kz" data-error="Ошибка" class="checkbox__input" type="checkbox"
-											value="1" name="geo_kz">
+											value="По Казахстану" name="geo[]">
 										<label for="geo_kz" class="checkbox__label">
 											<span></span>
 											<span class="checkbox__text">По Казахстану</span>
@@ -128,7 +129,7 @@
 									</div>
 									<div class="coop_grid__checkbox checkbox">
 										<input id="geo_sng" data-error="Ошибка" class="checkbox__input" type="checkbox"
-											value="1" name="geo_sng">
+											value="СНГ и дальнее зарубежье" name="geo[]">
 										<label for="geo_sng" class="checkbox__label">
 											<span></span>
 											<span class="checkbox__text">СНГ и дальнее зарубежье</span>
@@ -138,7 +139,7 @@
 								<div class="coop-form__input-box">
 									<div class="coop_grid__checkbox checkbox">
 										<input id="geo_import" data-error="Ошибка" class="checkbox__input"
-											type="checkbox" value="1" name="geo_import">
+											type="checkbox" value="Импорт" name="geo[]">
 										<label for="geo_import" class="checkbox__label">
 											<span></span>
 											<span class="checkbox__text">Импорт</span>
@@ -158,8 +159,9 @@
 		</section>
 	</main>
 </div>
+{% endblock %}
 {% block popup %}
-<div id="popup_success" aria-hidden="true" class="popup">
+<div id="popup_success_coop" aria-hidden="true" class="popup">
 	<div class="popup__wrapper">
 		<div class="popup__content">
 			<button data-close type="button" class="popup__close"></button>
@@ -170,17 +172,14 @@
 					<span></span>
 					<span></span>
 				</div>
-				<div class="popup__title">Заявка оформлена </div>
+				<div class="popup__title">Ваша заявка на сотрудничество успешно отправлена</div>
 				<div class="popup__text">
-					В течении 10 минут вам на почту придёт письмо с трек-номером
-					для отслеживания заказа и накладная по Вашему отправлению, ее нужно распечатать и передать
-					курьеру
-					вместе с Вашей посылкой
+					В ближайшее время с Вами свяжется специалист отдела продаж для выяснения подробной информации
 				</div>
 			</div>
 			<a href="/" class="popup__button button">Вернуться на главную</a>
 		</div>
 	</div>
 </div>
-{% endblock %}
+<button type="hidden" data-popup="#popup_success_coop"></button>
 {% endblock %}
