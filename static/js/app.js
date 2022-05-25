@@ -9432,8 +9432,9 @@
                 const error = document.createElement("span");
                 error.classList.add("error");
                 error.innerHTML = "Поле заполнено неверно!";
-                formcalc.querySelectorAll('input').foreach()
+                
                 formcalc.addEventListener("submit", (event => {
+                    
                     if (!flag) {
                         event.preventDefault();
                         let badValidate = false;
@@ -9444,7 +9445,7 @@
                             
                             }));
                             input.addEventListener("input", (() => {
-                                    window.location.reload()
+                                window.location.reload()
                             }));
                             if (!validateInput(input)) {
                                 input.focus();
@@ -9458,6 +9459,7 @@
                                 if (success) {
                                     formcalc.querySelector("[data-btncalc]").innerHTML = "Оформить";
                                     flag = true;
+                                    
                                 }
                             })
 
