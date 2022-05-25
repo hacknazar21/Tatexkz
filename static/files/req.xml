@@ -1,7 +1,7 @@
 <ns0:ShipmentRequest xmlns:ns0="http://www.dhl.com" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.dhl.com ship-val-global-req.xsd" schemaVersion="10.0"> 
 	<Request>
 		<ServiceHeader>
-			<MessageTime>2022-05-23T08:57:05.889277</MessageTime>
+			<MessageTime>2022-05-25T06:47:39.478083</MessageTime>
 			<MessageReference>Shipmnt_AP_CN_wth_62_40000000001</MessageReference>
 			<SiteID>v62_tBTTUgPMKT</SiteID>
 			<Password>y3vOe4xj9h</Password>
@@ -20,16 +20,16 @@
 	</Billing>
 	<Consignee>
 		<CompanyName>TATEX</CompanyName>
-		<AddressLine1>Testovaja, 15</AddressLine1> 
+		<AddressLine1>sgsge</AddressLine1> 
 		<AddressLine2>.</AddressLine2>
 		<AddressLine3>.</AddressLine3>
-		<City>Almaty</City>
-		<PostalCode>050000</PostalCode>
+		<City>Nur-Sultan</City>
+		<PostalCode>010000</PostalCode>
 		<CountryCode>KZ</CountryCode>
 		<CountryName>Kazahstan</CountryName>
 		<Contact>
-			<PersonName>Eren</PersonName>
-			<PhoneNumber>+78787878979</PhoneNumber> 
+			<PersonName>ewgwe</PersonName>
+			<PhoneNumber>+77789878798</PhoneNumber> 
 		</Contact>
 	</Consignee>
 	<Reference>
@@ -38,7 +38,7 @@
 	<ShipmentDetails>
 		<Pieces> 
           <Piece>  
-            <Weight>0.1</Weight> 
+            <Weight>0.3</Weight> 
             <Width>1</Width> 
             <Height>1</Height> 
             <Depth>1</Depth> 
@@ -47,7 +47,7 @@
 		<WeightUnit>K</WeightUnit>
 		<GlobalProductCode>N</GlobalProductCode>
 		<LocalProductCode>N</LocalProductCode>
-		<Date>2022-05-26</Date>
+		<Date>2022-05-24</Date>
 		<Contents>document</Contents>
 		<DimensionUnit>C</DimensionUnit>
 		<PackageType>DC</PackageType>
@@ -57,15 +57,15 @@
 	<Shipper>
 		<ShipperID>600015482</ShipperID>
 		<CompanyName>DHL International Kazakhstan LLP</CompanyName>
-		<AddressLine1>Testovaja, 12</AddressLine1> 
-		<City>Astana</City>
-		<PostalCode>010000</PostalCode>
+		<AddressLine1>dsgdsgsdg</AddressLine1> 
+		<City>Almaty</City>
+		<PostalCode>050000</PostalCode>
 		<CountryCode>KZ</CountryCode>
 		<CountryName>Kazahstan</CountryName>
 		<Contact>
-			<PersonName>Armin</PersonName>
-			<PhoneNumber>+78789787879</PhoneNumber>
-			<Email>armincoloss@gmail.com</Email>
+			<PersonName>gwge</PersonName>
+			<PhoneNumber>+77897987987</PhoneNumber>
+			<Email>ewg@ewf.weg</Email>
 		</Contact>
 	</Shipper>
 	<LabelImageFormat>PDF</LabelImageFormat>

@@ -119,14 +119,18 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
 STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
+STATICFILES_DIRS = (
 
+os.path.join(BASE_DIR, 'static'),
+
+)
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
-
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+DEFAULT_FROM_EMAIL = 'tatex@gtautofest.kz'
+SERVER_EMAIL = 'tatex@gtautofest.kz'
 EMAIL_USE_SSL = True
-EMAIL_HOST = 'onedev.kz'
+EMAIL_HOST = 'gtautofest.kz'
 EMAIL_PORT = 465
-EMAIL_HOST_USER = 'tatex@onedev.kz'
-EMAIL_HOST_PASSWORD = 'Xx4q6i51$'
+EMAIL_HOST_USER = 'tatex@gtautofest.kz'
+EMAIL_HOST_PASSWORD = 'Ie427h*7f'

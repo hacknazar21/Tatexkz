@@ -54,7 +54,8 @@ class Order(models.Model):
     invoiceID = models.IntegerField(default=0, blank=True, editable=False)
     shipmentDate = models.DateTimeField(
         verbose_name='Дата и время передачи в DHL', blank=True, default=datetime.now)
-
+    isPay = models.BooleanField(
+        verbose_name='Оплачено', default=False)
     def __str__(self):
         return self.sendersName
 

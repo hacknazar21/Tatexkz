@@ -9,6 +9,7 @@ class OrderAdmin(admin.ModelAdmin):
                     'sendersAddress', 'recipientAddress', 'applyButton', 'downloadDocs']
 
     def applyButton(self, obj):
+        print(obj.shipmentDate)
         if obj.apply:
             return format_html(
                 """
@@ -72,10 +73,10 @@ class OrderAdmin(admin.ModelAdmin):
         if obj.apply:
             return format_html(
                 """ 
-                    <a target="_blank" class="button" href="/static/files/{0}/Receipt.pdf"> Скачать накладную </a>
+                    <a target="_blank" class="button" href="/static/files/{0}/Receipt.pdf"> Скачать квитанцию </a>
                     <br/>
                     <br/>
-                    <a  class="button" target="_blank" href="/static/files/{0}/Details.pdf"> Скачать DOM </a>
+                    <a  class="button" target="_blank" href="/static/files/{0}/Details.pdf"> Скачать накладную </a>
                 """, obj.trackcode
             )
         else:

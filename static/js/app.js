@@ -9300,11 +9300,11 @@
                     const volumeWeight = parseInt(data.heightbox) * parseInt(data.lengthbox) * parseInt(data.widthbox) / 5000
                     if (volumeWeight > parseFloat(data.weight)){
                         data.weight = volumeWeight
-                        form.querySelector('button').insertAdjacentHTML('beforeBegin', `<h3 style="color: #090a0a; font-weight: 700;">Объемный вес ${volumeWeight}кг > Фактический вес ${parseFloat(data.weight)}кг</h3>`)
+                        form.querySelector('button').insertAdjacentHTML('beforeBegin', `<h3 style="color: #090a0a; font-weight: 700;">Объемный вес ${volumeWeight}кг</h3>`)
                     }else if (volumeWeight == parseFloat(data.weight))
-                        form.querySelector('button').insertAdjacentHTML('beforeBegin', `<h3 style="color: #090a0a; font-weight: 700;">Объемный вес ${volumeWeight}кг = Фактический вес ${parseFloat(data.weight)}кг</h3>`)
+                        form.querySelector('button').insertAdjacentHTML('beforeBegin', `<h3 style="color: #090a0a; font-weight: 700;">Объемный вес ${volumeWeight}кг</h3>`)
                     else
-                        form.querySelector('button').insertAdjacentHTML('beforeBegin', `<h3 style="color: #090a0a; font-weight: 700;">Объемный вес ${volumeWeight}кг < Фактический вес ${parseFloat(data.weight)}кг</h3>`)
+                        form.querySelector('button').insertAdjacentHTML('beforeBegin', `<h3 style="color: #090a0a; font-weight: 700;">Объемный вес ${volumeWeight}кг</h3>`)
                 }
             }));
             let response = await fetch("/order/tariff/", {

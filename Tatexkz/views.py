@@ -12,7 +12,7 @@ from django.db import models
 from Tatexkz.apps.payment.models import Order
 from transliterate import translit
 from pathlib import Path
-import xml.dom.minidom
+from django.core.mail import EmailMessage
 
 countiesRoot = ET.parse('static/files/counties-codes.xml')
 countriesCodes = {}
@@ -228,6 +228,7 @@ def dhl(request):
             widthXML.text = width
         for Date in root.iter('Date'):
             Date.text = dateSend
+            print(dateSend)
         for PackageType in root.iter('PackageType'):
             PackageType.text = typeCode
         for Contents in root.iter('Contents'):
@@ -244,7 +245,7 @@ def dhl(request):
         tree.write('static/files/req.xml', 'UTF-8')
         with open('static/files/req.xml') as inputfile:
             xml_file = inputfile.read()
-
+        
         response = requests.post(
             'http://xmlpi-ea.dhl.com/XMLShippingServlet?isUTF8Support=true', data=xml_file)
         with open('static/files/resp.xml', 'w') as outfile:
@@ -268,7 +269,21 @@ def dhl(request):
         person.trackcode = trackcode
         person.date = datetime.utcnow().strftime("%d.%m.%Y")
         person.save()
-
+        msg = ''
+        msg += 'Накладная от Tatex.kz, если вы выбрали, что Вам удобно распечатать накладную, то необходимо распечать её и передать вместе с посылкой\n'
+        msg += 'Ваш трек-код для отслеживания '
+        msg += trackcode
+        msg += '\n'
+        theme =  'Накладная на заказ '
+        theme += personID
+        message = EmailMessage(
+            theme,
+            msg,
+            to=[email]
+        )
+        filePath = 'static/files/' + trackcode + '/Details.pdf'
+        message.attach_file(filePath)
+        message.send()
         return JsonResponse({'Response': response.text})
 
     return JsonResponse({'dfd': 2})

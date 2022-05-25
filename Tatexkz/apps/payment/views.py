@@ -1,13 +1,14 @@
 import json
 import re
 from django.http import HttpResponseRedirect
+from django.http import Http404
 from django.shortcuts import render
 from Tatexkz.apps.order.views import calcPromo, calcTariff
 
 from Tatexkz.apps.payment.models import Order
 from Tatexkz.apps.payment.views import calcTariff
 from django.views.decorators.csrf import csrf_exempt
-from django.core.mail import send_mail
+from django.core.mail import EmailMessage
 
 
 
@@ -19,7 +20,7 @@ def payment(request):
             'weight', 'Не найдено').replace(' (кг)', ''))
         postIndexSender = ''.join(i for i in request.POST.get('postIndexSender', '') if not i.isalpha())
         postIndexRecipient = ''.join(i for i in request.POST.get('postIndexRecipient', '') if not i.isalpha())
-           
+
         Order(
             typePackage=request.POST.get('type', ''),
             fromCity=request.POST.get('from', ''),
@@ -61,19 +62,19 @@ def payment(request):
         msg = ''
         msg += 'Отправитель: ' + request.POST.get('sendersName', '') + '\n'
         msg += 'Номер телефона: ' + request.POST.get('full_sendersTel', '') + '\n'
-        send_mail(
+        message = EmailMessage(
             'Создана новая заявка Tatex.kz',
             msg,
-            'tatex@onedev.kz',
-            ['n.kultayev@aues.kz'],
-            fail_silently=False,
+            to=['n.kultayev@aues.kz']
         )
+        message.send(fail_silently=False)
         return render(
             request, 'payment/payment.html', {
                 'error': False,
                 'email': request.POST.get('email', ''),
-                'price': calculatedTariff,
-                'ID': person.id + 1000000
+                'price': 1, #calculatedTariff
+                'ID': person.id + 1000000,
+                'ids': person.id
             }
         )
     else:
@@ -86,3 +87,13 @@ def payment(request):
                 'ID': '109600746892'
             }
         )
+@csrf_exempt
+def createorder(request):
+    if request.method == "POST":
+        person_id = request.POST.get('id', -1)
+        if(person_id != -1):
+            payPerson = Order.objects.get(id=person_id)
+            payPerson.isPay = True
+            payPerson.save()
+    else:
+        raise Http404('Извините, страница не найдена. No Found :(')

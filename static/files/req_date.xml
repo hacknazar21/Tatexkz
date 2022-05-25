@@ -18,12 +18,12 @@
 		</From>
 		<BkgDetails>
 			<PaymentCountryCode>KZ</PaymentCountryCode>
-			<Date>2022-05-24</Date>
+			<Date>2022-05-25</Date>
 			<ReadyTime>PT17H02M</ReadyTime>
 			<DimensionUnit>CM</DimensionUnit>
 			<WeightUnit>KG</WeightUnit>
 			<NumberOfPieces>1</NumberOfPieces>
-			<ShipmentWeight>0.1</ShipmentWeight>
+			<ShipmentWeight>0.3</ShipmentWeight>
 			<IsDutiable>N</IsDutiable>
 			<NetworkTypeCode>AL</NetworkTypeCode>
 		</BkgDetails>

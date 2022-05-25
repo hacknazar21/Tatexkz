@@ -136,9 +136,28 @@
 		console.log(halyk.showPaymentWidget(paymentObject, callback));
 
 	}
+	 function createOrder(){
+		const data = {
+			id: '{{ids}}'
+		}
+
+		const dataform = new FormData()
+		for (var key in data) {
+			// добавление поля
+			dataform.append(key, data[key])
+		}
+		var xhr = new XMLHttpRequest();
+		xhr.open("POST", `${location.origin}/payment/createorder/`);
+
+		xhr.onreadystatechange = function () {
+			if (this.readyState != 4) return;
+			location.replace(`${location.origin}/#popup_success`);
+		}
+		xhr.send(dataform);
+	}
 	function callback({ success }) {
 		if (success) {
-			location.replace(`${location.origin}/#popup_success`);
+			createOrder()
 		}
 	}
 </script>

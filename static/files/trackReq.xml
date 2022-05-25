@@ -1,13 +1,13 @@
 <ns0:KnownTrackingRequest xmlns:ns0="http://www.dhl.com" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.dhl.com TrackingRequestKnown.xsd" schemaVersion="1.0">
 	<Request>
 		<ServiceHeader>
-            <MessageTime>2022-05-20T05:42:04.085044</MessageTime>
+            <MessageTime>2022-05-25T06:53:13.794706</MessageTime>
             <MessageReference>1234567890123456789012345678901</MessageReference>
 			<SiteID>v62_tBTTUgPMKT</SiteID>
 			<Password>y3vOe4xj9h</Password>
         </ServiceHeader>
 	</Request>
 	<LanguageCode>RU</LanguageCode>
-	<AWBNumber>7561895040</AWBNumber>
+	<AWBNumber>7544774274</AWBNumber>
 	<LevelOfDetails>ALL_CHECK_POINTS</LevelOfDetails>
 </ns0:KnownTrackingRequest>
