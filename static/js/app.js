@@ -9280,7 +9280,7 @@
             };
             form.querySelectorAll('input[type="radio"]').forEach((radio => {
                 if (radio.checked && "document" == radio.value) {
-                    data.type = 'documnet'
+                    data.type = 'document'
                     const from = form.querySelector('[name="from"]'), where = form.querySelector('[name="where"]'), weight = form.querySelector('[name="weight"]'), promo = form.querySelector('[name="promo"]');
                     data.from = from.value;
                     data.where = where.value;
@@ -9459,7 +9459,6 @@
                                 if (success) {
                                     formcalc.querySelector("[data-btncalc]").innerHTML = "Оформить";
                                     flag = true;
-                                    
                                 }
                             })
 
