@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'Tatexkz.apps.payment.apps.PaymentConfig',
+    'Tatexkz.apps.order.apps.OrderConfig',
     'Tatexkz.apps.promo.apps.PromoConfig',
     'Tatexkz.apps.home.apps.HomeConfig',
     'Tatexkz.apps.coop.apps.CoopConfig'

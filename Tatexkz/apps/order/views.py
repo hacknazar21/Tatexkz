@@ -7,6 +7,7 @@ import openpyxl
 from django.views.decorators.csrf import csrf_exempt
 import xml.etree.ElementTree as ET
 import requests
+from Tatexkz.apps.order.models import Tariff
 
 from Tatexkz.apps.promo.models import Promo
 
@@ -135,7 +136,8 @@ def calcTariff(typePackage, fromcity, wherecity, fromCountry, whereCountry, weig
         tariffType = 'import'
     if weight > 300:
         return 'Слишком большой груз'
-    wb_obj = openpyxl.load_workbook('static/files/tariff.xlsx')
+    tariffFile = Tariff.objects.latest('tariffFile')
+    wb_obj = openpyxl.load_workbook(tariffFile.tariffFile.path)
     zonesSheet = wb_obj.get_sheet_by_name("zones")
     zones = {}
     zone = ''

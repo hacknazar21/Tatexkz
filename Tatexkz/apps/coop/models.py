@@ -21,3 +21,13 @@ class Coop(models.Model):
     class Meta:
         verbose_name = "Заявка"
         verbose_name_plural = "Заявки"
+
+class CoopSettings(models.Model):
+    title = models.CharField(max_length=100, verbose_name='Заголовок')
+    text = models.TextField(max_length=10000, verbose_name='Текст')
+    def __str__(self):
+        return self.title
+    
+    class Meta:
+        verbose_name = "Настройки сотрудничества"
+        verbose_name_plural = "Настройки сотрудничества"

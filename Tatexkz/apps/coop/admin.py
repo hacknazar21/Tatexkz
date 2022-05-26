@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from Tatexkz.apps.coop.models import Coop
+from Tatexkz.apps.coop.models import Coop, CoopSettings
 
 class CoopAdmin(admin.ModelAdmin):
     list_display = ['name', 'tel',
@@ -9,3 +9,4 @@ class CoopAdmin(admin.ModelAdmin):
                           'email', 'company', 'date']
 # Register your models here.
 admin.site.register(Coop, CoopAdmin)
+admin.site.register(CoopSettings)

@@ -2,14 +2,16 @@ from django.http import HttpResponseRedirect
 from django.shortcuts import render
 from django.core.mail import EmailMessage
 
-from Tatexkz.apps.coop.models import Coop
+from Tatexkz.apps.coop.models import Coop, CoopSettings
 
 # Create your views here.
 
 
 def index(request):
+    title = CoopSettings.objects.latest('title').title
+    text = CoopSettings.objects.latest('text').text
     return render(
-        request, 'coop/cooperation.html'
+        request, 'coop/cooperation.html', {'title': title, 'text': text}
     )
 def coopadd(request):
     if(request.POST):
