@@ -1,8 +1,10 @@
 {% extends 'base.html' %}
 {% load static %}
+{% load i18n %}
 
-{% block title %}Главная{% endblock %}
+{% block title %}{% trans 'Главная' %}{% endblock %}
 {% block content %}
+
 <main class="page">
 	<section class="page__first-screen first-screen">
 		<div class="first-screen__box">
@@ -15,7 +17,7 @@
 							<div class="offer__text">{{slide.text}}</div>
 						</div>
 						<div class="swiper-slide__img-ibg">
-							<img src="{{slide.img}}" alt="Слайд {{slide.id}}">
+							<img src="/{{slide.img}}" alt="Слайд {{slide.id}}">
 						</div>
 					</div>
 					{% endfor %}
@@ -23,20 +25,20 @@
 				<div class="swiper-pagination"></div>
 			</div>
 			<div class="first-screen__calc-box">
-				<form data-formcalc method="get" action="/order" class="first-screen__calc first-screen-calc">
+				<form data-formcalc method="get" action="{% if LANGUAGE_CODE != 'ru' %}/{{ LANGUAGE_CODE }}{% endif %}/order" class="first-screen__calc first-screen-calc">
 					<div class="first-screen-calc__type">
 						<input checked type="radio" class="first-screen-calc__type-btn button radio" id="typedocument"
 							name="type" value="document">
-						<label class="first-screen-calc__label" for="typedocument">Документ</label>
+						<label class="first-screen-calc__label" for="typedocument">{% trans 'Документ' %}</label>
 						<input type="radio" class="first-screen-calc__type-btn button radio" id="typepackage"
 							name="type" value="package">
-						<label class="first-screen-calc__label" for="typepackage">Посылка</label>
+						<label class="first-screen-calc__label" for="typepackage">{% trans 'Посылка' %}</label>
 					</div>
 					<div data-for="document" class="first-screen-calc__params doc-params">
 						<div class="first-screen-calc__input-box">
 							<div class="first-screen-calc__input input _icon-map-arrow">
 								<input data-inputcity required autocomplete="off" type="text" name="from"
-									id="from_input" placeholder="Откуда" class="first-screen-calc__fromwhere">
+									id="from_input" placeholder="{% trans 'Откуда' %}" class="first-screen-calc__fromwhere">
 							</div>
 							<div class="first-screen-calc__favorite-distance-box">
 								<a href="" data-tip="from_input" class="first-screen-calc__favorite-link">Алматы</a>
@@ -48,7 +50,7 @@
 						<div class="first-screen-calc__input-box">
 							<div class="first-screen-calc__input input _icon-location">
 								<input data-inputcity required autocomplete="off" type="text" name="where"
-									id="where_input" data-error="Ошибка" placeholder="Куда"
+									id="where_input" data-error="Ошибка" placeholder="{% trans 'Куда' %}"
 									class="first-screen-calc__where">
 							</div>
 							<div class="first-screen-calc__favorite-distance-box">
@@ -63,13 +65,13 @@
 								<input value="0.3" data-inputnumber required autocomplete="off" type="text" name="weight"
 									data-error="Ошибка" data-inputmask-clearmaskonlostfocus="true"
 									data-inputmask="'inputmode': 'decimal', 'substitutes': {',': '.'}, 'mask': '9{+|1}\\.|\\,9 (кг)', 'greedy' : false, 'placeholder': '0'"
-									placeholder="Вес (кг)" class="first-screen-calc__weight">
+									placeholder="{% trans 'Вес (кг)' %}" class="first-screen-calc__weight">
 							</div>
 						</div>
 						<div class="first-screen-calc__input-box">
 							<div style="margin: 0; padding:0;" class="promo-input first-screen-calc__input input">
 								<input hidden name="promo" data-inputnumber autocomplete="off" type="text"
-									data-error="Ошибка" placeholder="Промокод" class="first-screen-calc__weight">
+									data-error="Ошибка" placeholder="{% trans 'Промокод' %}" class="first-screen-calc__weight">
 							</div>
 						</div>		
 					</div>
@@ -77,7 +79,7 @@
 						<div class="first-screen-calc__input-box">
 							<div class="first-screen-calc__input input _icon-map-arrow">
 								<input data-inputcity id="from_input" name="from" required
-									class="first-screen-calc__fromwhere" placeholder="Откуда">
+									class="first-screen-calc__fromwhere" placeholder="{% trans 'Откуда' %}">
 							</div>
 							<div class="first-screen-calc__favorite-distance-box">
 								<a href="" data-tip="from_input" class="first-screen-calc__favorite-link">Алматы</a>
@@ -89,7 +91,7 @@
 						<div class="first-screen-calc__input-box">
 							<div class="first-screen-calc__input input _icon-location">
 								<input name="where" data-inputcity id="where_input" required
-									class="first-screen-calc__where" placeholder="Куда">
+									class="first-screen-calc__where" placeholder="{% trans 'Куда' %}">
 							</div>
 							<div class="first-screen-calc__favorite-distance-box">
 								<a data-tip="where_input" href="" class="first-screen-calc__favorite-link">Алматы</a>
@@ -103,7 +105,7 @@
 								<input data-inputnumber required autocomplete="off" type="text" name="weight"
 									data-error="Ошибка" data-inputmask-clearmaskonlostfocus="true"
 									data-inputmask="'inputmode': 'decimal', 'substitutes': {',': '.'}, 'mask': '9{+|1}\\.|\\,9 (кг)', 'greedy' : false, 'placeholder': '0'"
-									placeholder="Вес (кг)"    class="first-screen-calc__weight">
+									placeholder="{% trans 'Вес(кг)' %}"    class="first-screen-calc__weight">
 							</div>
 						</div>
 						<div class="first-screen-calc__input-box ">
@@ -111,20 +113,20 @@
 								<div class="first-screen-calc__inputs">
 									<input name="height" required data-inputmask-clearmaskonlostfocus=" true"
 										data-inputmask="'mask': '9{+|1} (см)', 'greedy' : false"
-										class="first-screen-calc__height" placeholder="Высота (см)">
+										class="first-screen-calc__height" placeholder="{% trans 'Высота(см)' %}">
 									<input name="length" required data-inputmask-clearmaskonlostfocus="true"
 										data-inputmask="'mask': '9{+|1} (см)', 'greedy' : false"
-										class="first-screen-calc__lebgth" placeholder="Длина (см)">
+										class="first-screen-calc__lebgth" placeholder="{% trans 'Длина(см)' %}">
 									<input name="width" required data-inputmask-clearmaskonlostfocus="true"
 										data-inputmask="'mask': '9{+|1} (см)', 'greedy' : false"
-										class="first-screen-calc__width" placeholder="Ширина  (см)">
+										class="first-screen-calc__width" placeholder="{% trans 'Ширина(см)' %}">
 								</div>
 							</div>
 						</div>
 						<div class="first-screen-calc__input-box">
 							<div  style="margin: 0; padding:0; " class="promo-input first-screen-calc__input input">
 								<input hidden name="promo" data-inputnumber autocomplete="off" type="text"
-									data-error="Ошибка" placeholder="Промокод" class="first-screen-calc__weight">
+									data-error="Ошибка" placeholder="{% trans 'Промокод' %}" class="first-screen-calc__weight">
 							</div>
 						</div>
 					</div>
@@ -134,12 +136,12 @@
 									value="False">
 							<label style="font-size: 16px;" class="form-order__label checkbox__label" for="promo">
 								<span></span>
-								<span class="checkbox__text">У меня есть промокод</span>
+								<span class="checkbox__text">{% trans 'У меня есть промокод' %}</span>
 							</label>
 						</div>
 					</div>
 					<button data-btncalc class="first-screen-calc__btn button calc-submit-button">
-						Рассчитать стоимость
+						{% trans 'Рассчитать стоимость' %}
 					</button>
 				</form>
 			</div>
@@ -154,7 +156,7 @@
 				</div>
 			</div>
 			<div class="about-us__img-box-ibg">
-				<img src="{{about.img}}" alt="{{about.title}}" class="about-us__img">
+				<img src="/{{about.img}}" alt="{{about.title}}" class="about-us__img">
 
 			</div>
 		</div>
@@ -162,7 +164,7 @@
 	<section class="page__our-benefits our-benefits">
 		<div class="our-benefits__container">
 			<div class="our-benefits__header">
-				<h2 class="our-benefits__title">Наши преимущества</h2>
+				<h2 class="our-benefits__title">{{pref_title}}</h2>
 				<button type="button" class="swiper-button-prev"></button>
 				<button type="button" class="swiper-button-next"></button>
 			</div>
@@ -173,7 +175,7 @@
 					{% for slide in pref_slides %}
 					<div class="our-benefits__slide swiper-slide">
 						<div class="swiper-slide__img">
-							<img src="{{slide.img}}" alt="Слайд {{slide.id}}">
+							<img src="/{{slide.img}}" alt="Слайд {{slide.id}}">
 						</div>
 						<div class="swiper-slide__title">{{slide.title}}</div>
 						<div class="swiper-slide__text">
@@ -190,7 +192,7 @@
 	</section>
 	<section class="page__questions questions">
 		<div data-tabsbox class="questions__container">
-			<div class="questions__title">Часто задаваемые вопросы</div>
+			<div class="questions__title">{{q_title}}</div>
 			<div class="questions__type">
 				{% for key in questions %}
 				{% if key == first_q %}
@@ -234,7 +236,7 @@
 	</section>
 	<section class="reviews__page reviews">
 		<div class="reviews__container">
-			<h2 class="reviews__title">Отзывы наших клиентов</h2>
+			<h2 class="reviews__title">{{rev_title}}</h2>
 			<div class="reviews__slider slider-reviews">
 				<div class="slider-reviews__slider swiper-reviews">
 					<div class="slider-reviews__wrapper swiper-wrapper">
@@ -247,7 +249,7 @@
 							</div>
 							<div class="slide-reviews__client">
 								<div class="slide-reviews__img-ibg">
-									<img src="{{slide.img}}" alt="Слайд {{slide.id}}">
+									<img src="/{{slide.img}}" alt="Слайд {{slide.id}}">
 								</div>
 								<div class="slide-reviews__name">
 									{{slide.name}}
@@ -271,10 +273,9 @@
 				<iframe
 					src='https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2905.445468066386!2d76.92736801532821!3d43.263042479136615!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x38836eaf59b3d30f%3A0xfb064fc72f2389e6!2z0JEv0KYgItCQ0LzQsNC90LDRgiI!5e0!3m2!1sen!2skz!4v1653130739958!5m2!1sen!2skz'
 					width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
-
 			</div>
 			<div class="contacts__info-box">
-				<div class="contacts__title">Наши контакты</div>
+				<div class="contacts__title">{% trans 'Наши контакты' %}</div>
 				<a href="tel:+77057774600" class="contacts__tel">+7(705)777-46-00</a>
 				<a target="_blank" href="mailto:info@tatex.kz" class="contacts__email">info@tatex.kz</a>
 				<div class="contacts__social-media-box">
@@ -292,54 +293,6 @@
 		</div>
 	</section>
 </main>
-{% block popup %}
-<div id="popup_success" aria-hidden="true" class="popup popup_success">
-	<div class="popup__wrapper">
-		<div class="popup__content">
-			<button data-close type="button" class="popup__close"></button>
-			<div class="popup__header">
-				<div class="popup__circle">
-					<span></span>
-					<span></span>
-					<span></span>
-					<span></span>
-				</div>
-				<div class="popup__title">Заявка оформлена </div>
-				<div class="popup__text">
-					В течении 10 минут вам на почту придёт письмо с трек-номером
-					для отслеживания заказа и накладная по Вашему отправлению, ее нужно распечатать и передать
-					курьеру
-					вместе с Вашей посылкой
-				</div>
-			</div>
-			<a href="/" class="popup__button button">Вернуться на главную</a>
-		</div>
-	</div>
-</div>
-<div id="popup_error" aria-hidden="true" class="popup">
-	<div class="popup__wrapper">
-		<div class="popup__content">
-			<button data-close type="button" class="popup__close"></button>
-			<div class="popup__header">
-				<div class="popup__circle">
-					<span></span>
-					<span></span>
-					<span></span>
-					<span></span>
-				</div>
-				<div class="popup__title">Что-то пошло не так</div>
-				<div class="popup__text">
-					Возможно данного трек-кода пока нет в нашей базе, попробуйте позже
-				</div>
-			</div>
-			<a href="/" class="popup__button button">Вернуться на главную</a>
-		</div>
-	</div>
-</div>
-
-<button type="hidden" data-popup='#popup_success'></button>
-<button type="hidden" data-popup='#popup_error'></button>
-{% endblock %}
 
 <script src="{% static 'js/search-input.js' %}"></script>
 

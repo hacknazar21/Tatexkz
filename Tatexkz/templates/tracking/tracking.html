@@ -1,11 +1,11 @@
 {% extends 'base.html' %}
 
-{% block title %}Отслеживание{% endblock %}
+{% block title %}{% trans 'Отслеживание' %}{% endblock %}
 {% block content %}
 <main class="page">
 	{% if not error %}
 	<section class="page__name page-name">
-		<h1 class="page-name__title"><a href="/">Отслеживание</a></h1>
+		<h1 class="page-name__title"><a href="/">{% trans 'Отслеживание' %}</a></h1>
 	</section>
 	<section class="page__tracking tracking">
 		<div class="tracking__search search">
@@ -15,39 +15,39 @@
 				<button class="tracking__search-btn search-btn"></button>
 			</form>
 		</div>
-		<h2 class="tracking__title">Посылка № {{trackcode}}</h2>
+		<h2 class="tracking__title">{% trans 'Посылка' %} № {{trackcode}}</h2>
 
 		<div class="tracking__body">
 			<div class="tracking__data data-tracking tracking-body">
-				<h3 class="data-tracking__title">Данные о посылке</h3>
+				<h3 class="data-tracking__title">{% trans 'Данные о посылке' %}</h3>
 				<div class="data-tracking__row">
 					<div class="data-tracking__item">
-						<div class="data-tracking__item-title">Номер заказа</div>
+						<div class="data-tracking__item-title">{% trans 'Номер заказа' %}</div>
 						<div class="data-tracking__item-value">{{trackcode}}</div>
 					</div>
 					<div class="data-tracking__item">
-						<div class="data-tracking__item-title">Адрес доставки</div>
+						<div class="data-tracking__item-title">{% trans 'Адрес доставки' %}</div>
 						<div class="data-tracking__item-value">{{addressStr}}</div>
 					</div>
 				</div>
 				<div class="data-tracking__row">
 					<div class="data-tracking__item">
-						<div class="data-tracking__item-title">Дата отправки</div>
+						<div class="data-tracking__item-title">{% trans 'Дата отправки' %}</div>
 						<div class="data-tracking__item-value">{{dateShipment}}</div>
 					</div>
 					<div class="data-tracking__item">
-						<div class="data-tracking__item-title">Тип доставки</div>
-						<div class="data-tracking__item-value">От двери до двери</div>
+						<div class="data-tracking__item-title">{% trans 'Тип доставки' %}</div>
+						<div class="data-tracking__item-value">{% trans 'От двери до двери' %}</div>
 					</div>
 				</div>
 			</div>
 			<div class="tracking__status status-tracking tracking-body">
-				<h3 class="status-tracking__title">Статус</h3>
+				<h3 class="status-tracking__title">{% trans 'Статус' %}</h3>
 				<div class="status-tracking__list">
 					<div class="status-tracking__item _blue-indicator">
 						<span></span>
 						<div class="status-tracking__body">
-							<div class="status-tracking__body-title">Заказ подтвержден</div>
+							<div class="status-tracking__body-title">{% trans 'Заказ подтвержден' %}</div>
 							<div class="status-tracking__body-value">{{dateApply}}</div>
 						</div>
 					</div>
@@ -72,29 +72,4 @@
 	</div>
 	{% endif %}
 </main>
-{% block popup %}
-<div id="popup_success" aria-hidden="true" class="popup">
-	<div class="popup__wrapper">
-		<div class="popup__content">
-			<button data-close type="button" class="popup__close"></button>
-			<div class="popup__header">
-				<div class="popup__circle">
-					<span></span>
-					<span></span>
-					<span></span>
-					<span></span>
-				</div>
-				<div class="popup__title">Заявка оформлена </div>
-				<div class="popup__text">
-					В течении 10 минут вам на почту придёт письмо с трек-номером
-					для отслеживания заказа и накладная по Вашему отправлению, ее нужно распечатать и передать
-					курьеру
-					вместе с Вашей посылкой
-				</div>
-			</div>
-			<a href="/" class="popup__button button">Вернуться на главную</a>
-		</div>
-	</div>
-</div>
-{% endblock %}
 {% endblock %}

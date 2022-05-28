@@ -9300,11 +9300,12 @@
                     const volumeWeight = parseInt(data.heightbox) * parseInt(data.lengthbox) * parseInt(data.widthbox) / 5000
                     if (volumeWeight > parseFloat(data.weight)){
                         data.weight = volumeWeight
-                        form.querySelector('button').insertAdjacentHTML('beforeBegin', `<h3 style="color: #090a0a; font-weight: 700;">Объемный вес ${volumeWeight}кг</h3>`)
+                        
+                        form.querySelector('button').insertAdjacentHTML('beforeBegin', `<h3 style="color: #090a0a; font-weight: 700;">${weightText} ${volumeWeight}кг</h3>`)
                     }else if (volumeWeight == parseFloat(data.weight))
-                        form.querySelector('button').insertAdjacentHTML('beforeBegin', `<h3 style="color: #090a0a; font-weight: 700;">Объемный вес ${volumeWeight}кг</h3>`)
+                        form.querySelector('button').insertAdjacentHTML('beforeBegin', `<h3 style="color: #090a0a; font-weight: 700;">${weightText} ${volumeWeight}кг</h3>`)
                     else
-                        form.querySelector('button').insertAdjacentHTML('beforeBegin', `<h3 style="color: #090a0a; font-weight: 700;">Объемный вес ${volumeWeight}кг</h3>`)
+                        form.querySelector('button').insertAdjacentHTML('beforeBegin', `<h3 style="color: #090a0a; font-weight: 700;">${weightText} ${volumeWeight}кг</h3>`)
                 }
             }));
             let response = await fetch("/order/tariff/", {
@@ -9323,9 +9324,17 @@
                 deliveryDate.setDate(deliveryDate.getDate());
                 deliveryDate = deliveryDate.getDate() + '.' + (deliveryDate.getMonth() + 1) + '.' + deliveryDate.getFullYear()
                 let percent = ''
+                
                 if (result['percent'] > -1 && result['percent'] != 0)
                     percent = `Скидка ${result['percent']}%`
-                const templatePrice = `\n<div class="first-screen-calc__promo">${percent}</div>\n                <div class="first-screen-calc__info">\n                    <div class="first-screen-calc__info-box doc-summ">\n                        <div class="doc-summ__title">Стоимость <br>доставки</div>\n                        <div name="price" class="doc-summ__value">${deliveryPrice}</div>\n                        <div class="doc-summ__text"> Тенге</div>\n                    </div>\n`;
+                const templatePrice = `\n
+                <div class="first-screen-calc__promo">${percent}</div>\n                  
+                <div class="first-screen-calc__info">\n                    
+                    <div class="first-screen-calc__info-box doc-summ">\n                        
+                    <div class="doc-summ__title">${message}</div>\n                        
+                    <div name="price" class="doc-summ__value">${deliveryPrice}</div>\n                        
+                    <div class="doc-summ__text">${valute}</div>\n                    
+                </div>\n`;
                 if (form.querySelector('.errorMsg'))
                     form.querySelector('.errorMsg').remove()
 
@@ -9431,7 +9440,8 @@
             if (null != formcalc) {
                 const error = document.createElement("span");
                 error.classList.add("error");
-                error.innerHTML = "Поле заполнено неверно!";
+                
+                error.innerHTML = textErr;
                 
                 formcalc.addEventListener("submit", (event => {
                     
@@ -9457,7 +9467,8 @@
                         if (!badValidate) {
                             calculatePrice(formcalc).then((success) => {
                                 if (success) {
-                                    formcalc.querySelector("[data-btncalc]").innerHTML = "Оформить";
+                                    
+                                    formcalc.querySelector("[data-btncalc]").innerHTML = textBtn;
                                     flag = true;
                                 }
                             })
@@ -9472,11 +9483,13 @@
                 selectOption.addEventListener("click", (e => {
                     const select = selectOption.parentElement.parentElement.parentElement.querySelector("select");
                     const selectCity = document.querySelector(`select[name=${select.dataset.country}]`);
-                    const selectPlaceholder = selectCity.firstElementChild;
-                    while (selectCity.lastElementChild != selectPlaceholder) selectCity.removeChild(selectCity.lastElementChild);
-                    fetch(`/order/${selectOption.dataset.value}`).then((response => response.json())).then((data => {
-                        for (const city of data.cities) selectCity.insertAdjacentHTML("beforeend", `<option value="${city}">${city}</option>`);
-                    }));
+                    if(selectCity){
+                        const selectPlaceholder = selectCity.firstElementChild;
+                        while (selectCity.lastElementChild != selectPlaceholder) selectCity.removeChild(selectCity.lastElementChild);
+                        fetch(`/order/${selectOption.dataset.value}`).then((response => response.json())).then((data => {
+                            for (const city of data.cities) selectCity.insertAdjacentHTML("beforeend", `<option value="${city}">${city}</option>`);
+                        }));
+                    }
                 }));
             }));
             if (0 != calendares.length) {
@@ -9526,7 +9539,8 @@
                     if (el.classList.contains("hover")) {
                         const span = document.createElement("span");
                         span.classList.add("hover-span");
-                        span.innerHTML = "На указанную вами дату невозможно осуществить вызов курьера";
+                        
+                        span.innerHTML = datemissed;
                         el.style.position = "relative";
                         el.insertAdjacentElement("afterbegin", span);
                     } else if (el.querySelector(".hover-span")) el.querySelector(".hover-span").remove();
@@ -9539,7 +9553,7 @@
                     document.querySelector('form [class*="__type"]').insertAdjacentElement("afterend", dataforList.data[index]);
                 }
                 radiobutton.addEventListener("click", (event => {
-                    if (document.querySelector('[data-btncalc]').innerText == 'Оформить') {
+                    if (document.querySelector('[data-btncalc]').innerText == textBtn) {
                         window.location.reload()
                     }
                     if (event.target.checked) {
@@ -9604,7 +9618,8 @@
                     if (event.target.value != '' && parseFloat(event.target.value) > 0.3) {
                         event.target.value = buffer
                         if (formDocument.querySelector('input[name="weight"] + label') === null) {
-                            errorLabel.innerText = 'Максимально допустимый вес документа 0,3 кг'
+                            
+                            errorLabel.innerText = maxWeightText
                             errorLabel.classList.add('error')
 
                             event.target.insertAdjacentElement(

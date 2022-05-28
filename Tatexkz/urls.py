@@ -16,8 +16,14 @@ Including another URLconf
 from . import views
 from django.contrib import admin
 from django.urls import path, include
+from django.conf.urls.i18n import i18n_patterns
+from django.views.i18n import JavaScriptCatalog
 
 urlpatterns = [
+    path('admin/', admin.site.urls),
+] + i18n_patterns(
+    path('jsi18n/', JavaScriptCatalog.as_view(), name='javascript-catalog'),
+    path('i18n/', include('django.conf.urls.i18n')),
     path('', include('Tatexkz.apps.home.urls')),
     path('tracking/', views.tracking, name="tracking"),
     path('oferta/', views.oferta, name="oferta"),
@@ -27,5 +33,5 @@ urlpatterns = [
     path('coop/', include('Tatexkz.apps.coop.urls')),
     path('order/', include('Tatexkz.apps.order.urls')),
     path('promo/', include('Tatexkz.apps.promo.urls')),
-    path('admin/', admin.site.urls),
-]
+    prefix_default_language=False,
+)

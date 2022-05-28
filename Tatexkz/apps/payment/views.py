@@ -87,7 +87,7 @@ def payment(request):
             request, 'payment/payment.html', {
                 'error': False,
                 'email': request.POST.get('email', ''),
-                'price': 1, #calculatedTariff
+                'price': calculatedTariff, #1
                 'ID': person.id + 1000000,
                 'ids': person.id
             }

@@ -1,10 +1,22 @@
 {% extends 'base.html' %}
 
-{% block title %}Оферта{% endblock %}
+{% block title %}
+{% if LANGUAGE_CODE == 'en' %} 
+Privacy policy
+{% elif LANGUAGE_CODE == 'kk' %} 
+Құпиялылық саясаты
+{% elif LANGUAGE_CODE == 'ru' %} 
+Политика конфиденциальности
+{% endif %}
+
+{% endblock %}
+
+
 {% block content %}
+{% if LANGUAGE_CODE == 'ru' %}
 <main class="page">
     <section class="page__name page-name">
-        <h1 class="page-name__title"><a href="/">Политика конфиденциальности</a></h1>
+        <h1 class="page-name__title"><a href="{% if LANGUAGE_CODE != 'ru' %}/{{ LANGUAGE_CODE }}{% endif %}">Политика конфиденциальности</a></h1>
     </section>
     <div class="oferta__container">
         <style>
@@ -186,5 +198,239 @@
         </div>
     </div>
 </main>
+{% elif LANGUAGE_CODE == 'en' %}
+
+<main class="page">
+    <section class="page__name page-name">
+        <h1 class="page-name__title"><a href="{% if LANGUAGE_CODE != 'ru' %}/{{ LANGUAGE_CODE }}{% endif %}">Политика конфиденциальности</a></h1>
+    </section>
+    <div class="oferta__container">
+        <style>
+            .oferta__container a {
+                color: rgb(25, 0, 255);
+            }
+
+            .oferta__container strong {
+                font-size: 1.6rem;
+            }
+        </style>
+        <div class="t-col t-col_12 ">
+            <div field="text" class="t-text t-text_md " style="font-size: 1.2rem;color: #000; padding-bottom: 1.5rem;">
+                <div style="text-align:left;" data-customstyle="yes"><strong> Privacy policy and payment terms
+                    </strong><br><br> <strong> I.</strong> <strong>Payments.</strong><br><br>
+                    <strong>1.</strong> <strong>Payment by bank card online</strong> <br><br> Service tatex.kz is connected to Internet acquiring, and you can pay for the Service with a bank card of international payment systems. After confirming the selected Tariff, a secure window will open with the payment page of the SB «Sberbank» JSC processing center.
+                    <br><br> 
+                    You need to enter your bank card details. For additional authentication of the cardholder, the 3-D Secure protocol is used. If your issuing Bank supports this technology, you will be redirected to its server for additional identification. For information about the rules and methods of additional identification, please contact the authorized issuing Bank.
+                    <br><br> 
+                    In the fields on the payment page, you need to enter the card number, the name of the cardholder, the expiration date of the card, a three-digit security code (CVV2 for VISA or CVC2 for MasterCard). All the necessary data is displayed on the surface of the bank card.
+                    CVV2/CVC2 is a three-digit security code located on the back of the card.
+                    <br><br> 
+                    Next, the page of your issuing bank will open in the same window to enter the 3-D Secure code. If you do not have a static 3-D Secure configured, it will be sent to your phone number via SMS. If the 3-D Secure code has not come to you, then you should contact your issuing bank.
+                    <br><br> 
+                    3-D Secure is the most modern technology for ensuring the security of card payments on the Internet. Allows you to uniquely identify the authenticity of the cardholder performing the operation and minimize the risk of fraudulent card transactions.
+                    <br><br> <br><br> <strong>2.</strong> <strong>Security guarantees</strong>
+                    <br><br> 
+                    SB «Sberbank» JSC processing center protects and processes your bank card data according to the PCI DSS 3.0 security standard. Information is transferred to the payment gateway using SSL encryption technology. Further transmission of information takes place over closed banking networks with the highest level of reliability. SB «Sberbank» JSC does not transfer your card data to other third parties. For additional authentication of the cardholder, the 3-D Secure protocol is used.
+                    <br><br>
+                    If you have any questions about the completed payment, you can contact the customer support service of the payment service directly by e-mail 
+                    <a href="mailto:info@tatex.kz">info@tatex.kz</a> 
+                    <br><br> <br><br> 
+                    <strong>3.</strong>
+                    <strong>Online payment security</strong> <br><br> 
+                    The personal information you provide (name, address, phone number, e-mail, credit card number) is confidential and not subject to disclosure. Your credit card data is transmitted only in encrypted form and is not stored on the service tatex.kz.
+                    <br><br> 
+                    The security of online payment processing is guaranteed by IP Pavlov. All transactions with payment cards take place in accordance with the requirements of international payment systems. 
+                    <br><br> When transmitting information, specialized security technologies for online card payments are used, data processing is carried out on a secure high-tech server of a processing company.
+                    Payment by payment cards is safe because: The authorization system guarantees the buyer that the payment details of his payment card (number, expiration date, CVV2/CVC2) will not fall into the hands of fraudsters, since these data are not stored on the authorization server and cannot be stolen.                    
+                    <br><br> 
+                    The buyer enters his payment data directly in the SB «Sberbank» JSC authorization system, and not in the application tatex.kz, therefore, the payment details of the buyer's card will not be available to third parties.
+                    <br><br> <br><br> <strong>4.</strong> <strong>Rules for the purchase of services
+                    </strong> 
+                    <br><br> 
+                    By paying the selected tariff on the service tatex.kz, you confirm your agreement with the public offer agreement located at  
+                    <a href="/oferta">https://tatex.kz/oferta</a>. <br><br> <br><br>
+                    <strong>5.</strong> <strong>Refund of funds</strong> 
+                    <br><br> 
+                    To return funds to a bank card, it is necessary to fill out an « Application for refund of funds», which is sent by the company to the e-mail address upon request, and send it along with a copy of the identity document attached to the address 
+                    <a href="mailto:info@tatex.kz">info@tatex.kz</a>. 
+                    <br><br>
+                    The refund will be made to the bank card within 10 working days from the date of receipt of the «Application for refund of funds» by the Company if there are reasonable claims for the provision of services.
+                    <br><br> 
+                    In order to refund funds for transactions carried out with errors, it is necessary to apply with a written application and attach a copy of the identity document and receipts/receipts confirming the erroneous write-off. This application must be sent to 
+                    <a href="mailto:support@1fit.app">info@tatex.kz</a> 
+                    <br><br> 
+                    The refund amount will be equal to the purchase amount minus the cost of services rendered. The term for consideration of the Application and refund of funds begins to be calculated from the moment the Company receives the Application and is calculated in working days excluding holidays / weekends.
+                    <br><br> <br><br>
+                    <strong>6.</strong> <strong>Reasons for refusal to make a payment:</strong> 
+                    <br><br> 
+                    the bank card is not intended for making payments via the Internet, as you can find out by contacting your issuing Bank;
+                    <br><br> 
+                    there are not enough funds to pay on a bank card. You can find out more about the availability of funds on the payment card by contacting the bank that issued the bank card;
+                    <br><br> 
+                    the bank card data is entered incorrectly; 
+                    <br><br> 
+                    the bank card has expired. The validity period of the card is usually indicated on the front side of the card (this is the month and year until which the card is valid). You can find out more about the validity period of the card by contacting the issuing bank.
+                    <br><br> 
+                    For payment by bank card and other issues related to the operation of the service tatex.kz, You can contact by phone: <a href="tel:+77057774600">+77057774600</a> 
+                    <br><br><br> II.
+                    <strong>Privacy</strong> <br><br> <strong>1.</strong> 
+                    <strong>General provisions</strong>
+                    <br><br> 
+                    The provisions of this Privacy Policy (hereinafter referred to as the Policy) apply to any information (personal data) that may become known to the Service and its Administration during the use of the Service by Users, including during their registration procedure and/or during any other use of the functionality of the Service, through protected pages. Activity of the service tatex.kz 
+                    <em></em> is open in nature. The use of the Service (in any volume, form, etc.) means the full consent of such a User to the terms of this Privacy Policy and the procedure for processing personal data of such a User. 
+                    The acceptance of this Privacy Policy is the passage of the registration procedure in the Service, as well as any other actions that are aimed at familiarizing with the Service and / or using its functionality available without registration, as well as actions that may be perceived by the Administration of the Service as those aimed at using the Service or its functionality. 
+                    If the User does not agree with the provisions contained in the rules of the Privacy Policy, he is obliged to stop using the Service. 
+                    Any use of the Service by the User means his full consent and acceptance of all the provisions of this Privacy Policy. 
+                    This Privacy Policy applies only to the Service. 
+                    The Administration of the Service does not control and is not responsible for the Internet resources of third parties to which the User can click on the links available in the Service. 
+                    The Administration of the Service does not verify the accuracy of the personal data provided by the User to the Service, but reserves the right to monitor the reliability of such personal data. 
+                    If one or more provisions of this Privacy Policy lose their force or become invalid or unenforceable, this does not affect the validity or applicability of the remaining provisions of this Privacy Policy.
+                    The User is personally responsible for checking this Privacy Policy for changes in it. 
+                    The Administration of the Service reserves the right, at its sole discretion, to change or supplement this Privacy Policy at any time without prior and subsequent notice. 
+                    The Policy is an integral part of the Rules for the provision of services tatex.kz. 
+                    Capitalized words are used in the same meaning as in the Rules for the provision of services. tatex.kz has the right to make changes to the Policy at any time. 
+                    The amended version of the Policy comes into force from the moment it is posted on the website of the company IP Pavlov. 
+                    The date of placement is indicated in the document. The data that is transmitted due to the general principles of connections implemented on the Internet and contained in system logs (for example, IP address) is used by the Service tatex.kz for technical purposes related to the administration of our service. 
+                    In addition, IP addresses are used to collect statistical and demographic data (for example, about the region from which the connection is implemented). 
+                    Website <a href="/">https://tatex.kz</a>
+                    <em></em> may use cookies to provide services and content in accordance with individual needs and interests. 
+                    Disabling cookies in the browser generally will not block the use of our services, but may cause certain difficulties. Cookies are also used to collect statistical information about the use of our services.
+                    <br><br> <br><br>
+                    RIGHT TO REVIEW, CHANGE AND DELETE DATA RESTRICTIONS
+                    <br><br> 
+                    The User or Partner has the right to view their data at any time, and also has the opportunity to update or delete them in agreement with the Company IP Pavlov. In order to avoid re-registration of persons whose participation on the site 
+                    <a href="/">https://tatex.kz</a> has been terminated due to the misuse of our services, we may refuse to delete the data necessary to block the possibility of re-registration. 
+                    Refusal to delete data may also take place in cases provided for by law. 
+                    In cases where this is permitted by law, IP Pavlov 
+                    <em></em> may also disclose certain User or Partner data to third parties if this is related to the protection of copyright (or other) rights of these third parties (but only on the written application of the copyright holder), or on the basis of an agreement between IP Pavlov and a third party in relation to the Service (such the contract must contain a condition on ensuring confidentiality and security by a third party). 
+                    The copyright holder who submitted such an application is obliged to provide documentary evidence of the fact of possession of copyright (or other) rights to the content/product/service. There should also be a clear suspicion of a violation of these rights. IP Pavlov can also open access to the User's data available to her at the request or with the consent of the User himself, or at the request of state bodies that have the right to receive data on the basis of a regulatory legal act. Electronic messages sent to the company IP Pavlov are archived (stored) and can in certain cases be used as evidence. Service tatex.kz 
+                    <em></em> relies on the fact that all data provided by Users during registration and subsequently is reliable and Users independently correct incorrect or outdated data. Users also guarantee that they report only their own data, or have received the duly executed consent of a third party - the data subject to the communication of his data. For violation of these rules by Users, IP Pavlov 
+                    <em></em> is not responsible.
+                    <br><br> LINKS TO OTHER INTERNET SITES <br><br> Service  tatex.kz 
+                    <em></em> is not responsible for the data protection policy that is applied by the owners or administrators of other sites (including Partner sites) to which the User clicks on links posted on the Service tatex.kz. We recommend that you familiarize yourself with the content of the data protection statements posted on the relevant websites before entering your data. The User or Partner is solely responsible for the content that is on the site to which the leads link posted by them on the Service tatex.kz.
+                    <br><br> INFORMATION (messages, notifications) THAT ARE SENT TO THE USER OR PARTNER
+                    <br><br> Service tatex.kz <em></em> reserves the right to send all Users emails (push notifications) with information about important changes and improvements in the Service, as well as other content directly related to the operation of the service. tatex.kz may also send commercial electronic messages, in particular advertising messages. Advertising and other commercial messages may also be attached to electronic messages sent to or sent from the system account.
+                    <br><br> Limitation of liability <br><br> We do our best to comply with this privacy policy, however, we cannot guarantee the safety of information in case of exposure to factors. beyond our influence, the result of which will be the disclosure of information. Website 
+                    <a href="/">https://tatex.kz</a>
+                    and all information posted on it are presented on an "as is" basis without any guarantees. We are not responsible for adverse consequences, as well as for any losses caused as a result of restricting access to the Service site.
+                    <br><br> DISPUTE RESOLUTION <br><br> Before filing a lawsuit on disputes arising from the relationship between the User and the Administration of the Service, the mandatory conditions are 1) negotiations. If the dispute has not been resolved, then 2) submission of a written proposal for a voluntary settlement of the dispute. The recipient of the claim within 30 calendar days from the date of receipt of the claim, notifies the applicant of the claim in writing about the results of the consideration of the claim. Claim letters are sent by the parties by courier, or by registered mail with a notification of the delivery of the latter to the addressee at the location of the parties. It is not allowed for the parties to send claim letters by other means. If an agreement is not reached, the dispute will be referred to the judicial authority in accordance with the current legislation of the Republic of Kazakhstan. The current legislation of the Republic of Kazakhstan applies to this Policy and the relationship between the User and the Administration of the Service.
+                    <br><br> <strong>2.</strong> <strong>Contacts</strong> <br><br> For questions regarding this policy, please contact <a
+                        href="mailto:info@tatex.kz">info@tatex.kz</a> <br><br> <br><br>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+
+{% elif LANGUAGE_CODE == 'kk' %}
+<main class="page">
+    <section class="page__name page-name">
+        <h1 class="page-name__title"><a href="{% if LANGUAGE_CODE != 'ru' %}/{{ LANGUAGE_CODE }}{% endif %}">Құпиялылық саясаты</a></h1>
+    </section>
+    <div class="oferta__container">
+        <style>
+            .oferta__container a {
+                color: rgb(25, 0, 255);
+            }
+
+            .oferta__container strong {
+                font-size: 1.6rem;
+            }
+        </style>
+        <div class="t-col t-col_12 ">
+            <div field="text" class="t-text t-text_md " style="font-size: 1.2rem;color: #000; padding-bottom: 1.5rem;">
+                <div style="text-align:left;" data-customstyle="yes"><strong> Құпиялылық саясаты және төлем шарттары
+                    </strong><br><br> <strong> I.</strong> <strong>Төлемдер.</strong><br><br>
+                    <strong>1.</strong> <strong>Банк картасымен онлайн төлеу</strong> <br><br> tatex.kz сервисі интернет-эквайрингке қосылған және Сіз Қызметті халықаралық төлем жүйелерінің банк картасымен төлей аласыз. Таңдалған тариф расталғаннан кейін «Сбербанк» АҚ ЕБ процессингтік орталығының төлем беті бар қорғалған терезесі ашылады.
+                    <br><br> 
+                    Сіз өзіңіздің банктік картаңыздың мәліметтерін енгізуіңіз керек. Карта ұстаушысын қосымша сәйкестендіру үшін 3-D Secure хаттамасы қолданылады. Егер сіздің эмитент-банкіңіз осы технологияны қолдаса, Сіз қосымша сәйкестендіруден өту үшін оның серверіне қайта бағытталасыз. Қосымша сәйкестендірудің ережелері мен әдістері туралы ақпаратты уәкілетті банк - эмитенттен нақтылаңыз.                     
+                    <br><br> 
+                    Онлайн-төлем қызметі Халықаралық төлем жүйелерінің ережелеріне сәйкес төлемнің құпиялылығы мен қауіпсіздігі қағидаттарына сәйкес жүзеге асырылады, бұл үшін жабық байланыс арналары арқылы деректерді тексерудің, шифрлаудың және берудің ең өзекті әдістері қолданылады. Банк картасының деректерін енгізу процессингтік орталықтың төлем бетіндегі қорғалған терезеде жүзеге асырылады.
+                    Төлем бетіндегі өрістерге картаның нөмірін, карта иесінің атын, картаның жарамдылық мерзімін, үш таңбалы қауіпсіздік кодын (VISA үшін CVV2 немесе MasterCard үшін CVC2) енгізу қажет. Барлық қажетті деректер банк картасының бетінде көрсетіледі.
+                    CVV2 / CVC2 — бұл картаның артқы жағында орналасқан үш таңбалы қауіпсіздік коды.
+                    <br><br> 
+                    Бұдан әрі сол терезеде 3-D Secure кодын енгізу үшін Сіздің эмитент-банкіңіздің беті ашылады. Егер сізде статикалық 3-D Secure орнатылмаған болса, ол сіздің телефон нөміріңізге SMS арқылы жіберіледі. Егер 3-D Secure коды сізге келмесе, онда сіз өзіңіздің эмитент-банкіңізге жүгінуіңіз керек.                    
+                    <br><br> 
+                    3-D Secure — бұл интернет желісіндегі карталар бойынша төлемдердің қауіпсіздігін қамтамасыз етудің ең заманауи технологиясы. Операцияны жүзеге асыратын карта ұстаушының түпнұсқалығын бірегей сәйкестендіруге және карта бойынша алаяқтық операциялардың тәуекелін барынша азайтуға мүмкіндік береді.
+                    <br><br> <br><br> <strong>2.</strong> <strong>Қауіпсіздік кепілдіктері</strong>
+                    <br><br> 
+                    «Сбербанк» АҚ ЕБ процессингтік орталығы PCI DSS 3.0 қауіпсіздік стандарты бойынша Сіздің банктік картаңыздың деректерін қорғайды және өңдейді. Төлем шлюзіне ақпарат беру SSL шифрлау технологиясын қолдану арқылы жүзеге асырылады. Ақпаратты одан әрі беру ең жоғары сенімділік деңгейі бар жабық банктік желілер арқылы жүзеге асырылады. «Сбербанк» АҚ ЕБ сіздің картаңыздың деректерін өзге үшінші тұлғаларға бермейді. Карта ұстаушысын қосымша сәйкестендіру үшін 3-D Secure хаттамасы қолданылады.                    <br><br>
+                    Егер Сізде жасалған төлем бойынша сұрақтарыңыз болса, Сіз төлем сервисінің клиенттерін қолдау қызметіне info@tatex.kz электрондық пошта арқылы тікелей жүгіне аласыз                     <a href="mailto:info@tatex.kz">info@tatex.kz</a> 
+                    <br><br> <br><br> 
+                    <strong>3.</strong>
+                    <strong>Онлайн төлем қауіпсіздігі</strong> <br><br> 
+                    Сіз ұсынатын жеке ақпарат (аты, мекен-жайы, телефоны, e-mail, несие картасының нөмірі) құпия болып табылады және жария етуге жатпайды. Сіздің несие картаңыздың деректері тек шифрланған түрде беріледі және tatex.kz сервисінде сақталмайды.
+                    <br><br> 
+                    Интернет-төлемдерді өңдеу қауіпсіздігіне ЖК Павлов кепілдік береді. Төлем карталарымен жасалатын барлық операциялар халықаралық төлем жүйелерінің талаптарына сәйкес жүргізіледі. Ақпаратты беру кезінде карталық онлайн-төлемдер қауіпсіздігінің мамандандырылған технологиялары пайдаланылады, деректерді өңдеу процессингтік компанияның қауіпсіз жоғары технологиялық серверінде жүргізіледі.
+                    <br><br> 
+                    Төлем карталарымен төлеу қауіпсіз, себебі: Авторизациялау жүйесі сатып алушыға оның төлем картасының төлем деректемелері (нөмірі, қолданылу мерзімі, CVV2/CVC2) алаяқтардың қолына түспейтініне кепілдік береді, өйткені бұл деректер авторизациялау серверінде сақталмайды және ұрлануы мүмкін емес.                    
+                    <br><br> 
+                    Сатып алушы өзінің төлем деректерін tatex.kz қосымшада емес, «Сбербанк» АҚ ЕБ авторизациялау жүйесіне енгізеді, демек, сатып алушының карточкасының төлем деректемелері үшінші тұлғаларға қол жетімді болмайды.
+                    <br><br> <br><br> <strong>4.</strong> <strong>Қызметті сатып алу ережелері
+                    </strong> 
+                    <br><br> 
+                    tatex.kz. сервисінде таңдалған тарифті төлей отырып сіз осы   
+                    <a href="/oferta">https://tatex.kz/oferta</a> мекенжайы бойынша орналасқан жария оферта шартымен келісетініңізді растайсыз. 
+                    <br><br> <br><br>
+                    <strong>5.</strong> <strong>Ақшалай қаражатты қайтару</strong> 
+                    <br><br> 
+                    Ақша қаражатын банк картасына қайтару үшін «Ақша қаражатын қайтару туралы өтінішті» толтыру қажет, оны компания талап етуі бойынша электрондық мекенжайға жібереді және оны жеке басын куәландыратын құжаттың көшірмесімен бірге  
+                    <a href="mailto:info@tatex.kz">info@tatex.kz</a> мекенжайына жібереді. 
+                    <br><br>
+                    Ақшалай қаражатты қайтару компания «Ақшалай қаражатты қайтару туралы өтінішті» алған күннен бастап 10 жұмыс күні ішінде қызмет көрсету бойынша негізделген наразылықтары болған жағдайда банк картасына жүзеге асырылады.
+                    <br><br> 
+                    Қателермен жүргізілген операциялар бойынша ақша қаражатын қайтару үшін жазбаша өтінішпен және жеке басын куәландыратын құжаттың көшірмесін және қате есептен шығарылғанын растайтын чектерді/түбіртектерді қоса беру қажет. Бұл өтінішті  
+                    <a href="mailto:support@1fit.app">info@tatex.kz</a>  мекенжайына жолдау қажет
+                    <br><br> 
+                    Қайтару сомасы көрсетілген қызметтердің құнын шегергендегі сатып алу сомасына тең болады. Өтінішті қарау және ақшаны қайтару мерзімі Компания Өтінішті алған сәттен бастап есептеледі және мереке/демалыс күндерін есептемегенде жұмыс күндерімен есептеледі.
+                    <br><br> <br><br>
+                    <strong>6.</strong> <strong>Төлем жасаудан бас тарту себептері:</strong> 
+                    <br><br> 
+                    банк картасы интернет арқылы төлемдер жасауға арналмаған, бұл туралы сіздің эмитент-банкке жүгіну арқылы білуге болады;
+                    <br><br> 
+                    банк картасында төлем жасау үшін қаражат жеткіліксіз. Төлем картасында қаражаттың бар-жоғы туралы толығырақ ақпаратты Сіз банк картасын шығарған банкке хабарласып біле аласыз; 
+                    <br><br> 
+                    банк картасының деректері қате енгізілді;  
+                    <br><br> 
+                    банк картасының мерзімі аяқталды. Картаның жарамдылық мерзімі, әдетте, картаның алдыңғы жағында көрсетілген (бұл осы мерзімге дейін карта жарамды ай мен жыл). Картаның әрекет ету мерзімі туралы толығырақ Сіз эмитент-банкке жүгіну арқылы біле аласыз.
+                    <br><br> 
+                    Банк картасы арқылы төлем жасау және tatex.kz. сервисінің жұмысына байланысты басқа да мәселелер бойынша сіз мына телефон бойынша хабарласа аласыз:  <a href="tel:+77057774600">+77057774600</a> 
+                    <br><br><br> II.
+                    <strong>Құпиялылық</strong> <br><br> <strong>1.</strong> 
+                    <strong>Жалпы ережелер</strong>
+                    <br><br> 
+                    Осы құпиялылық Саясатының нормалары (бұдан әрі-Саясат) Пайдаланушылар Сервисті пайдалану процесінде, оның ішінде олардың тіркеу рәсімінен өту процесінде және/немесе қорғалған беттер арқылы Сервис функционалын кез келген басқа пайдалану кезінде Сервиске және оның Әкімшілігіне белгілі болуы мүмкін кез келген ақпаратқа (дербес деректерге) қатысты қолданылады. tatex.kz  
+                    <em></em> сервисінің қызметі ашық. The use of the Service (in any volume, form, etc.) means the full consent of such a User to the terms of this Privacy Policy and the procedure for processing personal data of such a User. 
+                    Қызметті пайдалану (кез келген көлемде, нысанда және т.б.) осындай пайдаланушының осы құпиялылық Саясатының шарттарымен және осындай Пайдаланушының дербес деректерін өңдеу тәртібімен толық келісуін білдіреді. Осы құпиялылық Саясатының акцепті қызметте тіркеу рәсімінен өту, сондай-ақ сервиспен танысуға және/немесе тіркеусіз қолжетімді оның функционалын пайдалануға бағытталған кез келген басқа да іс-әрекеттер, сондай-ақ Сервис Әкімшілігі Сервисті немесе оның функционалын пайдалануға бағытталған іс-әрекеттер ретінде қабылдауы мүмкін іс-әрекеттер болып табылады. Егер Пайдаланушы құпиялылық Саясатының нормаларында қамтылған ережелермен келіспесе, ол Сервисті пайдалануды тоқтатуға міндетті. Пайдаланушының Сервисті кез келген пайдалануы оның толық келісуін және осы құпиялылық Саясатының барлық ережелерін қабылдауын білдіреді. Бұл құпиялылық Саясаты тек Сервиске қолданылады. Сервис Әкімшілігі Пайдаланушы қызметте қолжетімді сілтемелер бойынша өтуі мүмкін үшінші тұлғалардың Интернет-ресурстарын бақыламайды және олар үшін жауап бермейді. Сервис Әкімшілігі Пайдаланушы Сервиске ұсынатын жеке деректердің дұрыстығын тексермейді, бірақ мұндай жеке деректердің дұрыстығын бақылау құқығын өзіне қалдырады. Егер осы құпиялылық Саясатының бір немесе бірнеше ережелері өз күшін жоғалтса немесе жарамсыз болып шықса немесе заңдық күші болмаса, бұл осы құпиялылық Саясатының қалған ережелерінің жарамдылығына немесе қолданылуына әсер етпейді. Пайдаланушы осы құпиялылық Саясатын ондағы өзгерістердің бар-жоғын тексеру үшін дербес жауапты болады. Сервис Әкімшілігі алдын ала және кейінгі ескертусіз кез келген уақытта осы құпиялылық Саясатын өзгертуге немесе толықтыруға өз қалауы бойынша құқылы. Саясат tatex.kz қызмет көрсету Ережелерінің ажырамас бөлігі болып табылады. Бас әріппен жазылған сөздер қызмет көрсету Ережелеріндегідей мағынада қолданылады. tatex.kz саясатқа кез келген уақытта өзгерістер енгізуге құқылы. Саясаттың өзгертілген редакциясы оны Павлов ЖК компаниясының сайтында орналастырған сәттен бастап күшіне енеді. Орналастыру күні құжатта көрсетіледі. Интернетте жүзеге асырылатын және жүйелік журналдарда (мысалы, IP мекенжайы) қамтылған қосылыстардың жалпы қағидаларына байланысты берілетін деректерді tatex.kz Сервисі пайдаланады, біздің сервисті әкімшілендіруге байланысты техникалық мақсаттарда. Сонымен қатар, IP мекенжайлары статистикалық және демографиялық деректерді жинау үшін қолданылады (мысалы, байланыс жүзеге асырылатын аймақ туралы). 
+                    <a href="/">https://tatex.kz</a>
+                    <em></em> сайты cookies-ті жеке қажеттіліктер мен мүдделерге сәйкес қызметтер мен контент ұсыну үшін пайдалана алады.  
+                    Браузерде cookies-ті өшіру негізінен біздің қызметтерімізді пайдалануға тосқауыл болмайды, бірақ белгілі бір қиындықтар тудыруы мүмкін. Cookies сонымен қатар біздің сервистерімізді пайдалану туралы статистикалық мәліметтерді жинау үшін қолданылады.
+                    <br><br> <br><br>
+                    ШЕКТЕУ ДЕРЕКТЕРІН ТЕКСЕРУ, ӨЗГЕРТУ ЖӘНЕ ЖОЮ ҚҰҚЫҒЫ
+                    <br><br> 
+                    Пайдаланушы немесе Серіктес өз деректерін кез келген уақытта қарауға құқылы, сондай-ақ ЖК Павлов компаниясының келісімі бойынша оларды жаңарту немесе жою мүмкіндігі бар. 
+                    <a href="/">https://tatex.kz</a> сайтында қатысатын тұлғалардың қайта тіркелуін болдырмау үшін біздің қызметтерімізді заңсыз пайдалану себебінен тоқтатылды, біз қайта тіркеу мүмкіндігін бұғаттау үшін қажетті деректерді жоюдан бас тарта аламыз. Деректерді жоюдан бас тарту заңнамада көзделген жағдайларда да орын алуы мүмкін. Бұған заңнамада рұқсат етілген жағдайларда, ЖК Павлов  
+                    <em></em> үшінші тұлғаларға пайдаланушының немесе серіктестің белгілі бір деректерін аша алады, егер бұл үшінші тұлғалардың авторлық (немесе басқа) құқықтарын қорғаумен байланысты болса (бірақ тек құқық иесінің жазбаша өтініші бойынша), немесе ЖК Павлов компаниясы мен үшінші тұлғаның арасындағы Сервиске қатысты шарт негізінде (мысалы, меншік иесінің жазбаша өтініші бойынша) шартта үшінші тұлғаның құпиялылық пен қауіпсіздікті қамтамасыз етуі туралы талап міндетті түрде қамтылады).  
+                    Мұндай өтініш берген Құқық иеленуші контентке/өнімге/қызметке авторлық (немесе басқа) құқықтарды иелену фактісінің құжаттық дәлелдемелерін ұсынуға міндетті. Сондай-ақ, бұл құқықтардың бұзылуына нақты күдік туындауы керек. ЖК Павлов пайдаланушының өз қалауы бойынша немесе пайдаланушының келісімімен, немесе нормативтік-құқықтық акт негізінде деректерді алуға құқығы бар мемлекеттік органдардың талабы бойынша өзінде бар пайдаланушы деректеріне қолжетімділік аша алады. ЖК Павлов компаниясына жіберілетін электрондық хабарламалар мұрағатталады (сақталады) және белгілі бір жағдайларда дәлел ретінде пайдаланылуы мүмкін. tatex.kz сервисі 
+                    <em></em> пайдаланушылар тіркеу кезінде және одан кейін берілген барлық деректер сенімді және пайдаланушылар қате немесе ескірген деректерді өз бетінше түзететініне сүйенеді. Сондай - ақ, Пайдаланушылар өздерінің жеке деректерін ғана хабарлауға немесе үшінші тұлғаның-деректер субъектісінің оның деректерін хабарлауға тиісті түрде ресімделген келісімін алуға кепілдік береді. ЖК Павлов  
+                    <em></em> Пайдаланушылары осы ережелерді бұзғаны үшін жауап бермейді.
+                    <br><br> БАСҚА ИНТЕРНЕТ-САЙТТАРҒА СІЛТЕМЕЛЕР <br><br> tatex.kz сервисі  
+                    <em></em>  tatex.kz Сервисінде орналасқан сілтемелер бойынша пайдаланушы ауысатын басқа сайттардың (оның ішінде Серіктестер сайттарының) иелері немесе әкімшілері қолданатын деректерді қорғау саясаты үшін жауапты емес. Біз өз деректерімізді енгізгенге дейін тиісті сайттарда орналастырылған деректерді қорғау туралы өтініштердің мазмұнымен танысуды ұсынамыз. Пайдаланушы немесе Серіктес tatex.kz Сервисінде орналастырылған сілтеме жүргізілетін сайттағы мазмұн үшін толық жауапты болады. 
+                    <br><br> ПАЙДАЛАНУШЫҒА НЕМЕСЕ СЕРІКТЕСКЕ ЖІБЕРІЛЕТІН МӘЛІМЕТТЕР  (хабарламалар, хабарламалар)
+                    <br><br> tatex.kz сервисі  <em></em> tatex.kz сервисіндегі маңызды өзгерістер мен жақсартулар туралы, сондай-ақ сервистің жұмысына тікелей қатысты өзге де мазмұн туралы ақпараты бар электрондық хаттарды (push хабарландыруларды) барлық пайдаланушыларға жіберу құқығын өзіне қалдырады, сондай-ақ коммерциялық сипаттағы электрондық хабарламаларды, атап айтқанда жарнамалық хабарламаларды жібере алады. Коммерциялық сипаттағы жарнамалық және басқа да хабарламалар жүйенің есептік жазбасына жіберілген немесе одан жіберілген электрондық хабарламаларға қоса берілуі мүмкін. 
+                    <br><br> Жауапкершілікті шектеу <br><br> Біз осы құпиялылық саясатын сақтау үшін қолдан келгеннің бәрін жасаймыз, алайда факторлардың әсері кезінде ақпараттың сақталуына кепілдік бере алмаймыз. біздің әсерімізден тыс, оның нәтижесі ақпаратты ашу болады. 
+                    <a href="/">https://tatex.kz</a> 
+                    сайты онда орналастырылған барлық ақпарат ешқандай кепілдіксіз «сол сияқты» қағидаты бойынша ұсынылған. Біз қолайсыз салдарлар үшін, сондай-ақ Сервис сайтына кіруді шектеу салдарынан келтірілген кез келген залалдар үшін жауап бермейміз. 
+                    <br><br> ДАУЛАРДЫ ШЕШУ <br><br> Пайдаланушы мен Сервис әкімшілігі арасындағы қатынастардан туындайтын даулар бойынша талап арызбен сотқа жүгінгенге дейін міндетті шарттар болып табылады 1) келіссөздер. Егер даулы жағдайды шешуге қол жеткізілмесе, онда 2) дауды ерікті түрде реттеу туралы жазбаша ұсыныс беру. Кінә қоюды алушы кінә қоюды алған күннен бастап күнтізбелік 30 күн ішінде кінә қоюды қарау нәтижелері туралы өтініш берушіге жазбаша хабарлайды. Тараптар наразылық хаттарын тараптардың орналасқан жері бойынша адресатқа соңғысының табыс етілгені туралы хабарлай отырып, курьермен не тапсырысты пошта жөнелтілімімен жібереді. Тараптардың наразылық хаттарын өзге тәсілдермен жолдауына жол берілмейді. Келісімге қол жеткізілмеген жағдайда дау ҚР қолданыстағы заңнамасына сәйкес сот органының қарауына берілетін болады. Осы Саясатқа және Пайдаланушы мен Сервис әкімшілігі арасындағы қатынастарға ҚР қолданыстағы заңнамасы қолданылады.
+                    <br><br> <strong>2.</strong> <strong>Байланыстар</strong> <br><br> Осы саясатқа қатысты мәселелер бойынша, мына  <a
+                        href="mailto:info@tatex.kz">info@tatex.kz</a> мекен-жайына хабарласуыңызды сұраймыз. <br><br> <br><br>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+
+{% endif %}
+
 
 {% endblock %}

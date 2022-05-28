@@ -1,4 +1,5 @@
 {% load static %}
+{% load i18n %}
 
 <!DOCTYPE html>
 <html lang="en">
@@ -24,44 +25,60 @@
         <header class="header" data-scroll-show data-scroll="1">
             <div class="header__container">
                 <div data-da=".menu__block-1, 767.98" class="header__links links-header">
-                    <a href="/#about-us" class="links-header__link" data-goto=".about-us">О компании</a>
-                    <a href="/#questions" class="links-header__link" data-goto=".questions">Частые вопросы</a>
-                    <a href="/coop" class="links-header__link">Сотрудничество</a>
+                    <a href="{% if LANGUAGE_CODE != 'ru' %}/{{ LANGUAGE_CODE }}{% endif %}#about-us" class="links-header__link" data-goto=".about-us">{% trans 'О компании' %}</a>
+                    <a href="{% if LANGUAGE_CODE != 'ru' %}/{{ LANGUAGE_CODE }}{% endif %}#questions" class="links-header__link" data-goto=".questions">{% trans 'Частые вопросы' %}</a>
+                    <a href="{% if LANGUAGE_CODE != 'ru' %}/{{ LANGUAGE_CODE }}{% endif %}/coop" class="links-header__link">{% trans 'Сотрудничество' %}</a>
                 </div>
+                
                 <div data-da=".menu__block-0, 767.98" class="header__right-side">
-
-                    <a href="tel:+77057774600" class="header__number">
+                    
+                    <a href="tel:{{settings.tel_href}}" class="header__number">
                         <span class="_icon-tel"></span>
                         <span>+7 (705) 777-46-00</span>
                     </a>
                     <a target="_blank" href="https://www.instagram.com/tatex.kz/"
-                        class="header__number _icon-instagram"> <span>Наш Инстаграм</span></a>
-                    <a target="_blank" href="https://t.me/tatexkz" class="header__number _icon-telegram"><span>Наш
-                            Телеграм</span></a>
+                        class="header__number _icon-instagram"> <span>{% trans 'Наш Инстаграм' %}</span></a>
+                    <a target="_blank" href="https://t.me/tatexkz" class="header__number _icon-telegram">
+                        <span>{% trans 'Наш Телеграм' %}</span></a>
                     <a target="_blank"
-                        href="https://api.whatsapp.com/send?phone=77057774600&text=%D0%94%D0%BE%D0%B1%D1%80%D1%8B%D0%B9%20%D0%B4%D0%B5%D0%BD%D1%8C%2C%20%D1%8F%20%D1%81%20%D1%81%D0%B0%D0%B9%D1%82%D0%B0%20Tatex.kz%20"
+                        href="https://api.whatsapp.com/send?phone={{settings.tel_href}}&text=%D0%94%D0%BE%D0%B1%D1%80%D1%8B%D0%B9%20%D0%B4%D0%B5%D0%BD%D1%8C%2C%20%D1%8F%20%D1%81%20%D1%81%D0%B0%D0%B9%D1%82%D0%B0%20Tatex.kz%20"
                         class="header__number">
                         <img width="24px" style="margin-right: 0.5rem;" src="{% static 'img/whatsapp.svg' %}" alt="">
-                        <span>Начать
-                            чат в Whatsapp</span></a>
-
+                        <span>{% trans 'Начать чат в Whatsapp' %}</span></a>
                 </div>
             </div>
+            
             <div class="header__container">
-                <a href="/" class="header__logo-ibg">
+                <a href="{% if LANGUAGE_CODE != 'ru' %}/{{ LANGUAGE_CODE }}{% endif %}" class="header__logo-ibg">
                     <img src="{% static 'img/logo.svg' %}" alt="tatex">
                 </a>
+                
                 <div class="header__search header-search search">
                     <form action="/tracking" method="get" class="header-search__form search-form">
                         <input type="text" name="trackcode" class="header-search__input search-input"
-                            placeholder="Введите трек-код">
+                            placeholder="{% trans 'Введите трек-код' %}">
                         <button class="header-search__btn search-btn"></button>
                     </form>
                 </div>
+                
                 <div data-da=".menu__block-2, 767.98" class="header__right-side header__menu-box">
-                    <a href="/order" class="header__questions-btn button header-button">Оформить
-                        заявку</a>
+                    <form action="{% url 'set_language' %}" method="post">{% csrf_token %}
+                        <input name="next" type="hidden" value="{{ redirect_to }}">
+                        <select data-submit class="select" name="language">
+                            {% get_current_language as LANGUAGE_CODE %}
+                            {% get_available_languages as LANGUAGES %}
+                            {% get_language_info_list for LANGUAGES as languages %}
+                            {% for language in languages %}
+                                <option value="{{ language.code }}"{% if language.code == LANGUAGE_CODE %} selected{% endif %}>
+                                    {{ language.name_local }} ({{ language.code }})
+                                </option>
+                            {% endfor %}
+                        </select>
+                        <noscript><input type="submit" value="Submit"></noscript>
+                    </form>
+                    <a href="{% if LANGUAGE_CODE != 'ru' %}/{{ LANGUAGE_CODE }}{% endif %}/order" class="header__questions-btn button header-button">{% trans 'Оформить заявку' %}</a>
                 </div>
+                
                 <div class="header__menu menu">
                     <div class="menu__open-header">
                         <button type="button" class="menu__icon icon-menu"></button>
@@ -74,7 +91,7 @@
                     </div>
                 </div>
             </div>
-
+            
         </header>
         {% endblock %}
         {% block content %}{% endblock %}
@@ -86,7 +103,7 @@
                         <img src="{% static 'img/logof.svg' %}" alt="tatex">
                     </div>
                     <div class="footer__copyright">
-                        Copyright © Все права защищены
+                        Copyright © {% trans 'Все права защищены' %}
                     </div>
                 </div>
                 <div class="footer__info-box">
@@ -99,33 +116,86 @@
                             class="footer-social-media__img _icon-telegram"></a>
                     </div>
                     <div class="footer__links footer-link">
-                        <a href="/oferta/" class="footer-link__box">
-                            <div class="footer-link__text">Оферта</div>
+                        <a href="{% if LANGUAGE_CODE != 'ru' %}/{{ LANGUAGE_CODE }}{% endif %}/oferta/" class="footer-link__box">
+                            <div class="footer-link__text">{% trans 'Оферта' %}</div>
                         </a>
-                        <a href="/#about-us" data-goto=".about-us" class="footer-link__box">
-                            <div class="footer-link__text">О нас</div>
+                        <a href="{% if LANGUAGE_CODE != 'ru' %}/{{ LANGUAGE_CODE }}{% endif %}#about-us" data-goto=".about-us" class="footer-link__box">
+                            <div class="footer-link__text">{% trans 'О нас' %}</div>
                         </a>
-                        <a href="/#reviews" data-goto=".reviews" class="footer-link__box">
-                            <div class="footer-link__text">Отзывы</div>
+                        <a href="{% if LANGUAGE_CODE != 'ru' %}/{{ LANGUAGE_CODE }}{% endif %}#reviews" data-goto=".reviews" class="footer-link__box">
+                            <div class="footer-link__text">{% trans 'Отзывы' %}</div>
                         </a>
-                        <a href="/#questions" data-goto=".questions" class="footer-link__box">
+                        <a href="{% if LANGUAGE_CODE != 'ru' %}/{{ LANGUAGE_CODE }}{% endif %}#questions" data-goto=".questions" class="footer-link__box">
                             <div class="footer-link__text">FAQ</div>
                         </a>
-                        <a href="/privacy/" data-goto=".reviews" class="footer-link__box">
-                            <div class="footer-link__text">Политика приватности</div>
+                        <a href="{% if LANGUAGE_CODE != 'ru' %}/{{ LANGUAGE_CODE }}{% endif %}/privacy/" class="footer-link__box">
+                            <div class="footer-link__text">{% trans 'Политика приватности' %}</div>
                         </a>
                     </div>
                 </div>
             </div>
         </footer>
         {% endblock %}
-        {% block popup %}
         
+        {% block popup %}
+        <div id="popup_success" aria-hidden="true" class="popup popup_success">
+            <div class="popup__wrapper">
+                <div class="popup__content">
+                    <button data-close type="button" class="popup__close"></button>
+                    <div class="popup__header">
+                        <div class="popup__circle">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </div>
+                        <div class="popup__title">{% trans 'Заявка оформлена' %}</div>
+                        <div class="popup__text">
+                            {% trans 'В течении 10 минут вам на почту придёт письмо с трек-номером для отслеживания заказа и накладная по Вашему отправлению, ее нужно распечатать и передать курьеру вместе с Вашей посылкой' %}
+                        </div>
+                    </div>
+                    <a href="{% if LANGUAGE_CODE != 'ru' %}/{{ LANGUAGE_CODE }}{% endif %}" class="popup__button button">{% trans 'Вернуться на главную' %}</a>
+                </div>
+            </div>
+        </div>
+        <div id="popup_error" aria-hidden="true" class="popup">
+            <div class="popup__wrapper">
+                <div class="popup__content">
+                    <button data-close type="button" class="popup__close"></button>
+                    <div class="popup__header">
+                        <div class="popup__circle">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </div>
+                        <div class="popup__title">{% trans 'Что-то пошло не так' %}</div>
+                        <div class="popup__text">
+                            {% trans 'Возможно данного трек-кода пока нет в нашей базе, попробуйте позже' %}
+                        </div>
+                    </div>
+                    <a href="{% if LANGUAGE_CODE != 'ru' %}/{{ LANGUAGE_CODE }}{% endif %}" class="popup__button button">{% trans 'Вернуться на главную' %}</a>
+                </div>
+            </div>
+        </div>
+
+        <button type="hidden" data-popup='#popup_success'></button>
+        <button type="hidden" data-popup='#popup_error'></button>
         {% endblock %}
     </div>
+    <script>
+        const textErr = "{% trans 'Поле заполнено неверно!' %}"
+        const textBtn = "{% trans 'Оформить' %}"
+        const datemissed = "{% trans 'На указанную вами дату невозможно осуществить вызов курьера' %}"
+        const maxWeightText = "{% trans 'Максимально допустимый вес документа 0,3 кг' %}"
+        const weightText = "{% trans 'Объемный вес' %}"
+        const message = "{% trans 'Стоимость доставки' %}"
+        const valute = "{% trans 'Тенге' %}"
+    </script>
+    <script src="{% url 'javascript-catalog' %}"></script>
     <script src="{% static 'js/app.js' %}"></script>
     <script src="{% static 'js/additional.js' %}"></script>
-
+    
 </body>
 
 </html>

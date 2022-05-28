@@ -1,11 +1,11 @@
 {% extends 'base.html' %}
-
-{% block title %}Сотрудничество{% endblock %}
+{% load i18n %}
+{% block title %}{% trans 'Сотрудничество' %}{% endblock %}
 {% block content %}
 <div class="wrapper">
 	<main class="page">
 		<section class="page__name page-name">
-			<h1 class="page-name__title"><a href="/">Сотрудничество</a></h1>
+			<h1 class="page-name__title"><a href="{% if LANGUAGE_CODE != 'ru' %}/{{ LANGUAGE_CODE }}{% endif %}">{% trans 'Сотрудничество' %}</a></h1>
 		</section>
 		<section class="page__coop coop">
 			<div class="coop__container">
@@ -16,23 +16,23 @@
 					</div>
 				</div>
 				<div class="coop__form-box">
-					<form action="/coop/coopadd/" method="post" class="coop__form coop-form">
+					<form action="{% if LANGUAGE_CODE != 'ru' %}/{{ LANGUAGE_CODE }}{% endif %}/coop/coopadd/" method="post" class="coop__form coop-form">
 						{% csrf_token %}
 						<div class="coop-form__block">
-							<h3 class="coop-form__personal-title">Личные данные</h3>
+							<h3 class="coop-form__personal-title">{% trans 'Личные данные' %}</h3>
 							<div class="coop-form__personal coop_grid">
 								<div class="coop-form__input-box">
-									<div class="coop-form__input-title _nessesary">ФИО</div>
+									<div class="coop-form__input-title _nessesary">{% trans 'ФИО' %}</div>
 									<div class="input">
-										<input required type="text" name="name" value="" data-error="Ошибка" placeholder="ФИО"
+										<input required type="text" name="name" value="" data-error="Ошибка" placeholder="{% trans 'ФИО' %}"
 											class="coop-form__input">
 									</div>
 								</div>
 								<div class="coop-form__input-box">
-									<div class="coop-form__input-title _nessesary">Контактный телефон</div>
+									<div class="coop-form__input-title _nessesary">{% trans 'Контактный телефон' %}</div>
 									<div class="input">
 										<input required type="tel" name="tel" data-phone class="coop-form__input"
-											data-inputmask-clearmaskonlostfocus="true" placeholder="Номер телефона">
+											data-inputmask-clearmaskonlostfocus="true" placeholder="{% trans 'Номер телефона' %}">
 									</div>
 								</div>
 								<div class="coop-form__input-box">
@@ -43,10 +43,10 @@
 									</div>
 								</div>
 								<div class="coop-form__input-box">
-									<div class="coop-form__input-title _nessesary">Название компании</div>
+									<div class="coop-form__input-title _nessesary">{% trans 'Название компании' %}</div>
 									<div class="input">
 										<input required type="text" name="company" value="" data-error="Ошибка"
-											placeholder="Название компании" class="coop-form__input ">
+											placeholder="{% trans 'Название компании' %}" class="coop-form__input ">
 									</div>
 								</div>
 							</div>
@@ -57,88 +57,89 @@
 								<div class="coop-form__input-box">
 									<div class="coop_grid__checkbox checkbox">
 										<input id="c_1" data-error="Ошибка" class="checkbox__input" type="checkbox"
-											value="Доставка почты" name="services[]">
+											value="{% trans 'Доставка почты' %}" name="services[]">
 										<label for="c_1" class="checkbox__label">
 											<span></span>
-											<span class="checkbox__text">Доставка почты</span>
+											<span class="checkbox__text">{% trans 'Доставка почты' %}</span>
 										</label>
 									</div>
 									<div class="coop_grid__checkbox checkbox">
 										<input id="c_2" data-error="Ошибка" class="checkbox__input" type="checkbox"
-											value="Доставка груза" name="services[]">
+											value="{% trans 'Доставка груза' %}" name="services[]">
 										<label for="c_2" class="checkbox__label">
 											<span></span>
-											<span class="checkbox__text">Доставка груза</span>
+											<span class="checkbox__text">{% trans 'Доставка груза' %}</span>
 										</label>
 									</div>
 									<div class="coop_grid__checkbox checkbox">
 										<input id="c_3" data-error="Ошибка" class="checkbox__input" type="checkbox"
-											value="Доставка для интернет магазинов" name="services[]">
+											value="{% trans 'Доставка для интернет магазинов' %}" name="services[]">
 										<label for="c_3" class="checkbox__label">
 											<span></span>
-											<span class="checkbox__text">Доставка для интернет магазинов</span>
+											<span class="checkbox__text">{% trans 'Доставка для интернет магазинов' %}</span>
 										</label>
 									</div>
 								</div>
 								<div class="coop-form__input-box">
 									<div class="coop_grid__checkbox checkbox">
 										<input id="c_4" data-error="Ошибка" class="checkbox__input" type="checkbox"
-											value="Доставка по времени" name="services[]">
+											value="{% trans 'Доставка по времени' %}" name="services[]">
 										<label for="c_4" class="checkbox__label">
 											<span></span>
-											<span class="checkbox__text">Доставка по времени</span>
+											<span class="checkbox__text">{% trans 'Доставка по времени' %}</span>
 										</label>
 									</div>
 									
 								</div>
 								<div class="coop-form__input-box">
-									<div class="coop-form__input-title _nessesary">Ожидаемый объем отправлений (шт в
-										месяц)
+									<div class="coop-form__input-title _nessesary">
+										{% trans 'Ожидаемый объем отправлений (шт в месяц)' %}
 									</div>
 									<div class="input">
 										<input required type="text" name="volume" value="" data-error="Ошибка"
-											placeholder="Ожидаемый объем отправлений (шт в месяц)"
+											placeholder="{% trans 'Ожидаемый объем отправлений (шт в месяц)' %}"
 											class="coop-form__input ">
 									</div>
 								</div>
 								<div class="coop-form__input-box">
-									<div class="coop-form__input-title _nessesary"> Характер груза
+									<div class="coop-form__input-title _nessesary">
+										{% trans 'Характер груза' %}
 									</div>
 									<div class="input">
 										<input required type="text" name="cargo" value="" data-error="Ошибка"
-											placeholder="Характер груза" class="coop-form__input ">
+											placeholder="{% trans 'Характер груза' %}" class="coop-form__input ">
 									</div>
 								</div>
 							</div>
 						</div>
 						<div class="coop-form__block">
-							<h3 class="coop-form__personal-title">География отправок</h3>
+							<h3 class="coop-form__personal-title">{% trans 'География отправок' %}</h3>
 							<div class="coop-form__personal coop_grid">
 								<div class="coop-form__input-box">
 									<div class="coop_grid__checkbox checkbox">
 										<input id="geo_kz" data-error="Ошибка" class="checkbox__input" type="checkbox"
-											value="По Казахстану" name="geo[]">
+											value="{% trans 'По Казахстану' %}" name="geo[]">
 										<label for="geo_kz" class="checkbox__label">
 											<span></span>
-											<span class="checkbox__text">По Казахстану</span>
+											<span class="checkbox__text">{% trans 'По Казахстану' %}</span>
 										</label>
 									</div>
 									<div class="coop_grid__checkbox checkbox">
 										<input id="geo_sng" data-error="Ошибка" class="checkbox__input" type="checkbox"
-											value="СНГ и дальнее зарубежье" name="geo[]">
+											value="{% trans 'СНГ и дальнее зарубежье' %}" name="geo[]">
 										<label for="geo_sng" class="checkbox__label">
 											<span></span>
-											<span class="checkbox__text">СНГ и дальнее зарубежье</span>
+											<span class="checkbox__text">{% trans 'СНГ и дальнее зарубежье' %}</span>
 										</label>
 									</div>
 								</div>
 								<div class="coop-form__input-box">
 									<div class="coop_grid__checkbox checkbox">
 										<input id="geo_import" data-error="Ошибка" class="checkbox__input"
-											type="checkbox" value="Импорт" name="geo[]">
+											type="checkbox" value="{% trans 'Импорт' %}" name="geo[]">
 										<label for="geo_import" class="checkbox__label">
 											<span></span>
-											<span class="checkbox__text">Импорт</span>
+											<span class="checkbox__text">{% trans 'Импорт' %}</span>
 										</label>
 									</div>
 								</div>
@@ -146,8 +147,8 @@
 						</div>
 
 						<div class="coop-form__submit-box">
-							<a href="/" class="coop-form__cancel coop-btn">Отмена</a>
-							<button type="submit" class="coop-form__submit coop-btn">Отправить</button>
+							<a href="{% if LANGUAGE_CODE != 'ru' %}/{{ LANGUAGE_CODE }}{% endif %}" class="coop-form__cancel coop-btn">{% trans 'Отмена' %}</a>
+							<button type="submit" class="coop-form__submit coop-btn">{% trans 'Отправить' %}</button>
 						</div>
 					</form>
 				</div>
@@ -168,12 +169,12 @@
 					<span></span>
 					<span></span>
 				</div>
-				<div class="popup__title">Ваша заявка на сотрудничество успешно отправлена</div>
+				<div class="popup__title">{% trans 'Ваша заявка на сотрудничество успешно отправлена' %}</div>
 				<div class="popup__text">
-					В ближайшее время с Вами свяжется специалист отдела продаж для выяснения подробной информации
+					{% trans 'В ближайшее время с Вами свяжется специалист отдела продаж для выяснения подробной информации' %}
 				</div>
 			</div>
-			<a href="/" class="popup__button button">Вернуться на главную</a>
+			<a href="{% if LANGUAGE_CODE != 'ru' %}/{{ LANGUAGE_CODE }}{% endif %}" class="popup__button button">{% trans 'Вернуться на главную' %}</a>
 		</div>
 	</div>
 </div>

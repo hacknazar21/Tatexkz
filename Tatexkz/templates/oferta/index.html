@@ -1,10 +1,18 @@
 {% extends 'base.html' %}
+{% block title %}
+{% if LANGUAGE_CODE == 'en' %} 
+Offer
+{% else %} 
+Оферта
+{% endif %}
 
-{% block title %}Оферта{% endblock %}
+{% endblock %}
+
 {% block content %}
+{% if LANGUAGE_CODE == 'ru' %}
 <main class="page">
     <section class="page__name page-name">
-        <h1 class="page-name__title"><a href="/">Оферта</a></h1>
+        <h1 class="page-name__title"><a href="{% if LANGUAGE_CODE != 'ru' %}/{{ LANGUAGE_CODE }}{% endif %}">Оферта</a></h1>
     </section>
     <div class="oferta__container">
         <style>
@@ -324,4 +332,310 @@
     </div>
 </main>
 
+{% elif LANGUAGE_CODE == 'en' %}
+
+<main class="page">
+    <section class="page__name page-name">
+        <h1 class="page-name__title"><a href="/">Offer</a></h1>
+    </section>
+    <div class="oferta__container">
+        <style>
+            .oferta__container a {
+                color: rgb(25, 0, 255);
+            }
+
+            .oferta__container strong {
+                font-size: 1.6rem;
+            }
+        </style>
+        <div class="t-col t-col_12 " style="font-size: 1.2rem;color: #000; padding-bottom: 1.5rem;">
+            <div field="text" class="t-text t-text_md " style="">
+                <div style="text-align:left;" data-customstyle="yes"> <strong>Public offer of the service</strong>
+                    <strong>Tatex</strong><strong>.</strong><strong>kz </strong><strong>on the provision of services for placing orders for the dispatch of correspondence or small-sized cargo.
+                    </strong> <br><br> <br><br> Republic of Kazakhstan, Almaty city, <br><br> Date of publication of the offer: 04.09.2021
+                     <br><br> <br><br> 1. GENERAL PROVISIONS <br><br> Basic concepts <br><br> <strong>IP Pavlov or the Site Administration</strong> –
+                     is a legal entity registered in the Republic of Kazakhstan <br><br> <strong>An order</strong> —
+                     is a duly executed request from the Sender for the delivery of correspondence or small—sized cargo to the address indicated by him/by means of a Transport company selected on the Website.
+                      <br><br> <strong>Service 
+                        «</strong><strong>tatex.</strong><strong>kz»</strong> — an Internet site owned by IP Pavlov, located on the Internet at 
+                    <a href="/">https://tatex.kz</a>, where it is possible to place Orders of Senders, as well as payment terms and delivery of correspondence (cargo) to Recipients.
+                    <br><br> <strong>Sender</strong> — The User who placed the Order on the Internet platform tatex.kz; <br><br> 
+                    <strong>A transport company</strong> – is a legal entity,
+                    that provides services to the Sender for the transportation (delivery) of correspondence and cargo. <br><br>
+                    <strong>Recipient </strong> – a natural or legal person specified as the recipient of the Shipment. <br><br>
+                    <strong>User </strong> — an individual who accepts the terms of this Agreement and wants to place Orders on the Internet platform 
+                    <a href="/">https://tatex.kz</a> ;
+                    <br><br>
+                    <strong>Site Visitor</strong> — the person who visited the site <a href="/">https://tatex.kz</a> without the purpose of placing an order; <br><br>
+                    <strong>Shipments</strong> — letters, documents, as well as other correspondence or items, movable property.
+                    <br><br> 1.1. The Internet platform tatex.kz provides an opportunity to send correspondence and implement the relationship between the Sender and the Transport Company when accepting and executing an Order.
+                    <br><br> 1.2. By placing an Order through the Online Platform, the Sender agrees to the terms of Order placement and delivery of correspondence and cargo set out below (hereinafter referred to as the «Terms of Order Execution»). 
+                    By posting your personal data and other information necessary for the provision of services for the delivery of correspondence (cargo) The Sender agrees to the Terms of execution of the Order. In case of disagreement with this User agreement (hereinafter referred to as the «Agreement/Public offer») 
+                    The user is obliged to immediately stop using the service and leave the site <a href="/">https://tatex.kz</a>. 
+                    <br><br> 1.3.
+                    This Agreement may be changed unilaterally by the Site Administration without notifying the User. The new version of the Agreement comes into force from the moment it is posted on the Internet at the address specified in this paragraph. 
+                    The current version is always on the page at: <a
+                        href="/">https://tatex.kz/oferta</a>. 
+                    <br><br> 
+                    1.4. The Public Offer 
+                    is recognized as accepted by the Sender from the moment the Visitor registers on the Site.
+                    <br><br> 
+                    The contract for the provision of services for the delivery of correspondence or cargo is considered concluded from the moment the Order is accepted for execution.
+                    <br><br>
+                    By notifying his e-mail and phone number when placing an Order, the Sender consents to the use of these means of communication by the courier of the transport company, as well as the Site Administration in order to inform about the transfer of the order for delivery and acceptance, as well as other information directly related to the fulfillment of the obligations of the Transport Company under this Public Offer.
+                    <br><br> 
+                    1.5. The Site administration 
+                    is the owner of an Internet platform where the possibility of placing and executing Orders of Senders, as well as payment terms and delivery terms of correspondence (cargo) to Recipients is realized. 
+                    All rights and obligations under the Service Agreement concluded between the Sender and the Transport Company arise directly from the Transport Company, while the Sender, accepting this Offer, fully understands and agrees that the Site Administration is not a party to this agreement and does not bear obligations related to its execution.
+                    <br><br> 
+                    1.6. The user can place an order on the Internet platform tatex.kz 24 hours a day, 7 days a week, except for periods of Site work or technical failures. 
+                    The User uses the Site at his own risk. 
+                    Taking into account the principles of the construction and functioning of the Internet, the functionality of the Site is provided "as is".
+                    tatex.kz does not assume any responsibility, including for the compliance of the Site with the User's goals. 
+                    The Site Administration provides Users with access to the Site and maintains the proper functioning of the Site, promptly restores its operability in case of technical failures and interruptions. 
+                    However, the Site Administration does not provide guarantees of uninterrupted operation of the Site and compliance with any deadlines for restoring the Site's operability in case of interruptions in operation. 
+                    The Site Administration does not guarantee that the Site meets / will meet the requirements and expectations of the User, as well as that the functionality of the Site will be provided continuously, quickly, reliably and without errors. 
+                    The Site Administration takes the necessary measures to provide Users with high-quality service, including during technical interruptions in the operation of the Site. 
+                    We ask you to immediately report any technical failures and errors of the system to the e-mail address of the technical support of the Site.
+                    <br><br> 
+                    The Site Administration is not responsible for non-fulfillment or improper fulfillment of its obligations due to failures in telecommunications and energy networks, the actions of malicious programs, as well as unscrupulous actions of third parties aimed at unauthorized access and / or disabling of the software and /or hardware complex of the Service.
+                    <br><br> 
+                    The Site Administration is not responsible for any kind of User losses resulting from the User's use of the Site or its separate functionality.
+                    <br><br> 
+                    In case of claims or requests to the Site Administration, as well as in case of detection of any alleged violation of property or personal non-property intellectual rights, as well as other personal non-property rights of third parties in connection with the content posted on the Site, the User must notify the Site Administration of his claim or alleged violation by sending a statement or notification to by 
+                    <a href="mailto:help@gdesemena.ru">info@tatex.kz</a>. <br><br> 
+                    The term for consideration of the claim by the Site Administration is 7 (seven) working days, unless another special response period is directly provided for by the legislation of the Republic of Kazakhstan.
+                    <br><br> <br><br> 2. SUBJECT OF THE AGREEMENT
+                    <br><br> 2.1. The subject of this Agreement is the provision of the possibility of sending correspondence or small-sized cargo and the implementation of the relationship between the Sender and the Transport Company in the implementation of the acceptance and execution of the Order through the Internet platform tatex.kz. 
+                    <br><br> 2.2. This Agreement applies to all types of Orders placed on the Site.
+                    <br><br> <br><br> 3. THE PROCESS OF PLACING AN ORDER. 
+                    <br><br> 3.1. The formation and placement of an Order is carried out by the User in accordance with the functionality of placing an Order through the Website.
+                    <br><br> 3.2. The Order is considered to be placed from the moment the Order is accepted for execution and paid by the User. 
+                    <br><br> 3.3. When making the order placement procedure, the user confirms that he is an adult and fully capable individual, capable of performing any actions related to the use of the Site, its functionality and services, as well as to conclude a corresponding contract in case of Order execution.
+                    <br><br>
+                    3.4. The Site Administration reserves the right to require the User to confirm the data specified when placing an order and to request, in this regard, at any time supporting documents, the failure of which, at the discretion of the Site Administration, may be equated to providing false information and entail appropriate consequences. If the User's data specified in the documents provided by him does not correspond to the data specified when placing an order, as well as in the case when the data specified when placing an order does not allow identifying the User, the Site Administration has the right to refuse the User to use the functionality and services of the Site.
+                    <br><br>
+                    3.5.
+                    The Site Administration is not responsible for the accuracy and correctness of the information provided by the User when placing an order.
+                    <br><br> <br><br> 
+                    4. ORDER DELIVERY 
+                    <br><br> 
+                    4.1. The cost of delivery of each Order is calculated individually, based on information about its subject, weight and shape, region and method of delivery and is indicated on the Website at the last stage of Order acceptance. Payment for the Shipment is made by the User directly upon acceptance of the Order for execution. 
+                    <br><br> 
+                    4.2. When accepting a Shipment from a Transport company, the Recipient is obliged to inspect the delivered Shipment and check the contents for completeness, compliance with the Order, as well as check the integrity of the package. If there are no claims to the delivered Shipment, the Recipient signs the corresponding document (invoice) provided by the courier of the Transport Company. The signature in the delivery documents indicates that the Recipient has not declared any claims against the Transport Company and the Site Administration has fully and properly fulfilled its obligations to provide services for the delivery of correspondence (cargo).
+                    <br><br> <br><br> 
+                    5. ORDER DELIVERY  
+                    <br><br> 
+                    5.1. The Site Administration is not responsible for the damage caused by the Transport Company as a result of improper fulfillment of its obligations assumed on the Internet site.
+                    <br><br> 
+                    5.2. The Site Administration is not responsible for the content of the Order and the attachment of correspondence (cargo), which were accepted by the Transport Company for delivery via the Internet platform. 
+                    <br><br> 
+                    5.3. The Site Administration is not responsible for the fulfillment by the Transport Company of its obligations to transfer correspondence (cargo) to the Recipient within the agreed time frame, the complete completeness of the Order issued by the Sender. Sender/The Recipient hereby agrees that any claims regarding the quantity and completeness of the correspondence (cargo), as well as the delivery time, are subject to referral exclusively to the Transport Company. At the same time, the Site Administration undertakes to assist Senders/Recipients in resolving their claims against the Transport Company by providing all the information available to the Site Administration that is essential for resolving such claims, which is at the disposal of the Site Administration and is not confidential by virtue of law or contract. 
+                    <br><br>
+                    5.4.
+                    The sender bears full independent responsibility for the contents of the sent attachments and correspondence and assumes all the consequences associated with the establishment of any violations of the current legislation of the Republic of Kazakhstan and the rights of third parties.
+                    <br><br>
+                    5.5. The contents of correspondence or cargo prohibited for transportation in accordance with the current legislation of the Republic of Kazakhstan and international agreements are not accepted for shipment.
+                    <br><br> <br><br> 
+                    6. CONFIDENTIALITY AND INFORMATION PROTECTION 
+                    <br><br>
+                    6.1.
+                    User's personal data/The Recipient is processed and protected in accordance with the current legislation of the Republic of Kazakhstan
+                    <br><br> 
+                    6.2. 
+                    When placing an order on the Website, the User provides the following information: Surname, First Name, Patronymic, contact phone number, email address (for the sender and for the recipient).
+                    <br><br> 
+                    6.3. 
+                    By submitting their personal data to the Site Administration, the Site Visitor/The User agrees to their processing by the Site Administration, including in order for the Site Administration to fulfill its obligations to the Site Visitor/By the User within the framework of this Public Offer, monitoring User satisfaction/The Recipient, as well as the quality of services provided by the Site Administration.
+                    <br><br> 
+                    The processing of personal data means any action (operation) or a set of actions (operations) performed with or without the use of automation tools with personal data, including collection, recording, systematization, accumulation, storage, clarification (updating, modification) extraction, use, transfer (including transfer to third parties, not excluding cross-border transfer, if the need for it arose in the course of fulfilling obligations), depersonalization, blocking, deletion, destruction of personal data.
+                    <br><br> 6.4. 
+                    The Site Administration collects and stores only the personal information that is necessary to provide the functions of the Site and provide its services to Users, except in cases where the legislation provides for the mandatory storage of personal information for a period specified by law.
+                    <br><br> 6.5. Withdrawal of consent to the processing of personal data is carried out by revoking the acceptance of this Public Offer.
+                    <br><br> 6.6. The Site Administration is not responsible for the information provided by the User on the Site in a publicly available form.
+                    <br><br><br><br> 
+                    7. EXCLUSIVE RIGHTS <br><br> 
+                    7.1. 
+                    All objects available on the Site, including design elements, text, graphics, illustrations, databases and other objects (hereinafter referred to as the content of the Site), as well as any content posted on the Site, are objects of the exclusive rights of the Site Administration.
+                    <br><br> 7.2. 
+                    The use of the content of the site, as well as any other elements of the Site, is possible only within the framework of the functionality offered by the Site. No elements of the Site may be used in any other way without the prior permission of the copyright holder. Exceptions are cases directly provided for by applicable law or the terms of use of a specific functionality of the Site.
+                    <br><br> 7.3. 
+                    When uploading/adding any reviews to the Site, the User is responsible for the compliance of the content posted by the User with the requirements of current legislation, including liability to third parties in cases where the content of reviews violates the rights and legitimate interests of third parties, including personal non-property rights, other intellectual rights of third parties, and/or encroaches on intangible goods belonging to them.
+                    <br><br> 
+                    When using the Site, the User does not have the right to leave reviews that are illegal, malicious, defamatory, violate intellectual property rights and copyrights.
+                    <br><br> 7.4. 
+                    The User acknowledges and agrees that the Site Administration does not check the reviews uploaded by the User through the Site. The User understands and agrees that he must independently assess all the risks associated with posting reviews on the Site, as well as reimburse all losses to the Site Administration in case the Site Administration makes any claims in connection with the reviews left by the User on the Site.
+                    <br><br>
+                    7.5. 
+                    In order to ensure the functioning of the Site, the exercise of the legitimate rights and interests of the Site Administration, including the implementation of the legal protection of the relevant objects, as well as for marketing purposes, the User grants the Site Administration a perpetual gratuitous right to use the reviews uploaded by Users in any way during the entire term of the exclusive right and this Agreement.
+                    <br><br> <br><br> 
+                    8. VALIDITY PERIOD OF THE PUBLIC OFFER
+                    <br><br> 
+                    8.1. This Public Offer comes into force from the moment of its acceptance by the User/By the Sender and is valid until the moment of revocation of the acceptance of the Public Offer.
+                    <br><br> <br><br> 
+                    9. ADDITIONAL CONDITIONS
+                    <br><br>
+                    9.1.
+                    The Internet platform and the services provided may be temporarily partially or completely unavailable due to preventive or other work or for any other technical reasons. The Technical Service of the Site Administration has the right to periodically carry out the necessary preventive or other work with or without prior notification of Users.
+                    <br><br> 9.2. The provisions of the civil legislation of the Republic of Kazakhstan apply to the relations between the Sender and the Transport Company.
+                    <br><br>
+                    9.3. In case of questions and complaints from the Sender/He has the right to contact the Recipient by phone, posted on the Website or in any other accessible way.
+                    <br><br> 9.4. The court's recognition of the invalidity of any provision of this Agreement does not entail the invalidity of its remaining provisions.
+                    <br>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+
+{% elif LANGUAGE_CODE == 'kk' %}
+<main class="page">
+    <section class="page__name page-name">
+        <h1 class="page-name__title"><a href="{% if LANGUAGE_CODE != 'ru' %}/{{ LANGUAGE_CODE }}{% endif %}">Оферта</a></h1>
+    </section>
+    <div class="oferta__container">
+        <style>
+            .oferta__container a {
+                color: rgb(25, 0, 255);
+            }
+
+            .oferta__container strong {
+                font-size: 1.6rem;
+            }
+        </style>
+        <div class="t-col t-col_12 " style="font-size: 1.2rem;color: #000; padding-bottom: 1.5rem;">
+            <div field="text" class="t-text t-text_md " style="">
+                <div style="text-align:left;" data-customstyle="yes"> <strong>Хат-хабарларды</strong> не шағын көлемді жүкті жөнелтуге тапсырыстарды орналастыру бойынша қызметтер көрсету туралы 
+                    <strong>Tatex</strong><strong>.</strong><strong>kz </strong><strong>сервистің көпшілікке арналған офертасы.
+                    </strong> <br><br> <br><br> Қазақстан Республикасы, Алматы қаласы, <br><br> Офертаның жарияланған күні: 04.09.2021 жыл
+                     <br><br> <br><br> 1. ЖАЛПЫ ЕРЕЖЕЛЕР <br><br> Негізгі ұғымдар <br><br> <strong>ЖК Павлов немесе Сайт Әкімшілігі</strong> –
+                     Қазақстан Республикасында тіркелген заңды тұлға <br><br> <strong>Тапсырыс </strong> —
+                     жөнелтушінің хат-хабарды немесе шағын жүкті ол көрсеткен мекен-жай бойынша/сайтта таңдалған көлік компаниясы арқылы жеткізуге тиісті түрде ресімделген сұранысы.
+                      <br><br> <strong> 
+                        «</strong><strong>tatex.</strong><strong>kz» сервисі </strong> — ЖК Павлов-ке тиесілі интернет-сайт
+                    <a href="/">https://tatex.kz</a>, мекен-жайы бойынша интернет желісінде орналасқан. Жіберушілердің Тапсырыстарын орналастыру мүмкіндігі, сондай-ақ хат-хабарларды (жүкті) Алушыларға төлеу және жеткізу шарттары ұсынылған.
+                    <br><br> <strong>Жөнелтуші </strong> — тапсырысты tatex.kz Интернет-алаңда орналастырған Пайдаланушы; <br><br> 
+                    <strong>Көлік компаниясы</strong> – хат-хабарлар мен жүктерді тасымалдау (жеткізу) бойынша Жөнелтушіге қызмет көрсететін заңды тұлға. 
+                    <br><br>
+                    <strong>Алушы</strong> – жөнелтімді алушы ретінде көрсетілген жеке не заңды тұлға.  <br><br>
+                    <strong>Пайдаланушы </strong> — осы Келісімнің шарттарын қабылдайтын және 
+                    <a href="/">https://tatex.kz</a> Интернет-алаңда Тапсырыстарды орналастырғысы келетін жеке тұлға;
+                    <br><br>
+                    <strong>Сайтқа келуші </strong> — <a href="/">https://tatex.kz</a> сайтына тапсырысты орналастыру мақсатынсыз кірген тұлға;
+                    <br><br>
+                    <strong>Жөнелтімдер </strong> — хаттар, құжаттар, сондай-ақ өзге де хат-хабарлар не заттар, жылжымалы мүлік.
+                    <br><br> 1.1. tatex.kz Интернет-алаңы тапсырысты қабылдау мен орындауды жүзеге асыру кезінде хат-хабарларды жіберу және жөнелтуші мен көлік компаниясының өзара қарым-қатынастарын іске асыру мүмкіндігін береді.
+                    <br><br> 1.2. Тапсырысты Интернет-алаң арқылы орналастыра отырып, Жөнелтуші Тапсырысты орналастыру және төменде баяндалған хат — хабарлар мен жүктерді жеткізу шарттарымен (бұдан әрі – «Тапсырысты орындау Шарттары») келіседі. Хат-хабарды (жүкті) жеткізу бойынша қызмет көрсету үшін қажетті өзінің дербес деректерін және өзге де мәліметтерді орналастыра отырып, Жөнелтуші тапсырысты орындау шарттарымен келіседі. Осы пайдаланушылық келісіммен (бұдан әрі — «Келісім/Жария оферта») келіспеген жағдайда Пайдаланушы сервисті пайдалануды дереу тоқтатуға және <a href="/">https://tatex.kz</a> сайтынан шығуға міндетті. 
+                    <br><br> 1.3.
+                    Осы Келісімді Сайт әкімшілігі пайдаланушыға хабарламай бір жақты тәртіпте өзгертуі мүмкін. Келісімнің жаңа редакциясы оны осы тармақта көрсетілген мекенжай бойынша Интернет желісінде орналастырған сәттен бастап күшіне енеді. Қолданыстағы редакция әрқашан келесі мекенжай бойынша бетте орналасқан: 
+                    <a href="/">https://tatex.kz/oferta</a>. 
+                    <br><br> 
+                    1.4. Көпшілікке арналған оферта  
+                    келуші сайтта тіркелген сәттен бастап Жіберушімен акцептелген деп танылады.
+                    <br><br> 
+                    Хат-хабарды не жүкті жеткізу бойынша қызметтер көрсету Шарты Тапсырысты орындауға қабылдаған кезден бастап жасалған болып есептеледі.
+                    <br><br>
+                    Тапсырысты орналастыру кезінде өзінің e-mail мен телефон нөмірін хабарлай отырып, Жөнелтуші көлік компаниясының курьерімен, сондай-ақ Сайт Әкімшілігімен тапсырысты жеткізуге және қабылдауға беру туралы ақпараттандыру мақсатында көрсетілген байланыс құралдарын пайдалануға, сондай-ақ осы Жария оферта шеңберінде Көлік компаниясының міндеттемелерін орындауға тікелей байланысты өзге де ақпаратты береді.
+                    <br><br> 
+                    1.5. 
+                    Сайт Әкімшілігі Жөнелтушілердің Тапсырыстарын орналастыру және орындау мүмкіндігі, сондай-ақ хат-хабарларды (жүкті) Алушыларға төлеу шарттары мен жеткізу мерзімдері іске асырылған интернет-алаңның иесі болып табылады. Жөнелтуші мен Көлік компаниясы арасында жасалған қызмет көрсету шарты бойынша барлық құқықтар мен міндеттемелер тікелей Көлік компаниясында туындайды, бұл ретте жөнелтуші осы Офертаны акцептей отырып, Сайт әкімшілігінің көрсетілген шарттың тарабы болып табылмайтынын және оны орындауға байланысты міндеттерді көтермейтінін толық түсінеді және келіседі.
+                    <br><br> 
+                    1.6. 
+                    Пайдаланушы тапсырысты tatex.kz Интернет-алаңда тәулігіне 24 сағат, аптасына 7 күн, сайт жұмыс немесе техникалық ақаулардан басқа уақытта рәсімдей алады. Пайдаланушы сайтты өз тәуекеліне пайдаланады. Интернет желісін құру және оның жұмыс істеу қағидаттарын ескере отырып, Сайт функционалы «сол қалпында» ұсынылады. tatex.kz өзіне ешқандай жауапкершілікті, оның ішінде Сайттың Пайдаланушының мақсаттарына сәйкестігі үшін жауапкершілік алмайды. Сайт Әкімшілігі пайдаланушыларға Сайтқа қолжетімділік береді және Сайттың тиісті жұмыс істеуін қолдайды, техникалық іркілістер мен үзілістер жағдайында оның жұмыс қабілетін жедел қалпына келтіреді. Алайда, Сайт Әкімшілігі Сайттың үздіксіз жұмыс істеуіне және жұмыстағы үзілістер жағдайында Сайттың жұмыс қабілеттілігін қалпына келтірудің қандай да бір мерзімдерін сақтауға кепілдік бермейді. Сайт Әкімшілігі Сайт Пайдаланушының талаптары мен үміттеріне сәйкес келгеніне/сәйкес келетініне, сондай-ақ Сайт функционалы үздіксіз, жылдам, сенімді және қатесіз ұсынылатынына кепілдік бермейді. Сайт Әкімшілігі пайдаланушыларға сапалы сервисті, оның ішінде Сайт жұмысындағы техникалық үзілістер кезінде қамтамасыз ету мақсатында қажетті шараларды қабылдайды. Жүйенің барлық туындаған техникалық іркілістері мен қателері туралы Сайттың техникалық қолдау электрондық поштасының мекенжайына дереу хабарлауыңызды сұраймыз.
+                    <br><br> 
+                    Сайт Әкімшілігі телекоммуникациялық және энергетикалық желілердегі іркілістер, зиянды бағдарламалар іс-әрекеттері, сондай-ақ сервистің бағдарламалық және/немесе Аппараттық кешенін рұқсатсыз қол жеткізуге және/немесе істен шығаруға бағытталған үшінші тұлғалардың жосықсыз іс-әрекеттері салдарынан өз міндеттемелерін орындамағаны не тиісінше орындамағаны үшін жауапты болмайды.
+                    <br><br> 
+                    Сайт Әкімшілігі Пайдаланушының Сайтты немесе оның жеке функционалын пайдалануы салдарынан туындаған кез келген Пайдаланушы шығындары үшін жауап бермейді.
+                    <br><br> 
+                    Сайт Әкімшілігіне шағымдар немесе тілектер туындаған жағдайда, сондай-ақ Сайтта орналастырылған контентке байланысты мүліктік немесе жеке мүліктік емес зияткерлік құқықтардың, сондай-ақ үшінші тұлғалардың басқа да жеке мүліктік емес құқықтарының болжамды бұзылуы анықталған жағдайда, Пайдаланушы Сайт әкімшілігін өзінің шағымы немесе болжамды бұзушылық туралы 
+                    <a href="mailto:help@gdesemena.ru">info@tatex.kz</a>электрондық поштасына өтініш немесе хабарлама жіберу арқылы хабардар етуі тиіс. 
+                    <br><br> 
+                    Егер Қазақстан Республикасының заңнамасында жауаптың өзге арнайы мерзімі тікелей көзделмесе, Сайт Әкімшілігінің шағымды қарау мерзімі 7 (жеті) жұмыс күнін құрайды.                    
+                    <br><br> <br><br> 2. КЕЛІСІМНІҢ МӘНІ
+                    <br><br> 2.1. Осы Келісімнің мәні хат-хабарды не шағын көлемді жүкті жөнелту мүмкіндігін беру және tatex.kz Интернет-алаңы арқылы тапсырысты қабылдауды және орындауды жүзеге асыру кезінде Жөнелтуші мен Көлік компаниясының өзара қарым-қатынастарын іске асыру болып табылады.
+                    <br><br> 2.2. Осы Келісім Сайтта орналастырылған Тапсырыстардың барлық түрлеріне қолданылады.
+                    <br><br> <br><br> 3. ТАПСЫРЫСТЫ ОРНАЛАСТЫРУ ПРОЦЕСІ. 
+                    <br><br> 3.1. Тапсырысты қалыптастыру мен орналастыруды Пайдаланушы Сайт арқылы тапсырысты ресімдеу функционалына сәйкес жүзеге асырады.
+                    <br><br> 3.2. Тапсырыс Тапсырыс қабылданған және Пайдаланушы төлеген сәттен бастап орналастырылған болып саналады. 
+                    <br><br> 3.3. Тапсырысты орналастыру рәсімін жасаған кезде пайдаланушы кәмелетке толған және толығымен әрекетке қабілетті, Сайтты, оның функционалы мен сервистерін пайдалануға байланысты кез келген іс-әрекеттерді жасауға, сондай-ақ тапсырысты орындаған жағдайда тиісті шарт жасасуға құқылы жеке тұлға болып табылатынын растайды.
+                    <br><br>
+                    3.4. 
+                    Сайт Әкімшілігі Пайдаланушыдан тапсырысты рәсімдеу кезінде көрсетілген деректердің расталуын талап етуге және осыған байланысты кез келген уақытта растаушы құжаттарды сұратуға құқылы, оларды ұсынбау Сайт Әкімшілігінің қарауы бойынша дәйексіз ақпаратты ұсынуға теңестірілуі және тиісті салдарға әкеп соқтыруы мүмкін. Егер Пайдаланушының өзі ұсынған құжаттарда көрсетілген деректері тапсырысты ресімдеу кезінде көрсетілген деректерге сәйкес келмеген жағдайда, сондай-ақ тапсырысты ресімдеу кезінде көрсетілген деректер Пайдаланушыны сәйкестендіруге мүмкіндік бермеген жағдайда, Сайт Әкімшілігі Пайдаланушыға Сайттың функционалы мен сервистерін пайдаланудан бас тартуға құқылы.                    <br><br>
+                    3.5.
+                    Сайт Әкімшілігі тапсырысты рәсімдеу кезінде Пайдаланушы ұсынатын ақпараттың дәлдігі мен дұрыстығына жауап бермейді.
+                    <br><br> <br><br> 
+                    4. ТАПСЫРЫСТЫ ЖЕТКІЗУ 
+                    <br><br> 
+                    4.1. Әрбір Тапсырыстың жеткізу құны оның нысанасы, салмағы мен нысаны, жеткізу өңірі мен тәсілі туралы мәліметтерге сүйене отырып, жеке есептеледі және Тапсырысты қабылдаудың соңғы кезеңінде сайтта көрсетіледі. Жөнелту ақысын Пайдаланушы Тапсырысты орындауға қабылдаған кезде тікелей төлейді. 
+                    <br><br> 
+                    4.2. Көлік компаниясынан Жөнелтімді қабылдау кезінде Алушы жеткізілген Жөнелтімді қарап шығуға және ішіндегісін жиынтықтылығына, Тапсырысқа сәйкестігіне тексеруге, сондай-ақ орамның бүтіндігін тексеруге міндетті. Жеткізілген Жөнелтімге наразылықтар болмаған жағдайда Алушы Көлік компаниясының курьері ұсынатын тиісті құжатқа (жүкқұжатқа) қол қояды. Жеткізу құжаттарындағы қолтаңба Алушының Көлік компаниясына наразылық білдірмегенін және Сайт Әкімшілігі хат-хабарды (жүкті) жеткізу бойынша қызмет көрсету бойынша өз міндеттемелерін толық және тиісті түрде орындағанын куәландырады.
+                    <br><br> <br><br> 
+                    5. ЖАУАПКЕРШІЛІК  
+                    <br><br> 
+                    5.1. Сайт Әкімшілігі Интернет-алаңда қабылданған өз міндеттемелерін тиісінше орындамау салдарынан Көлік компаниясы келтірген зиян үшін жауапты емес.
+                    <br><br> 
+                    5.2. Сайт Әкімшілігі Тапсырыстың мазмұнына және Интернет-алаң арқылы жеткізуге Көлік компаниясы қабылдаған хат-хабарлардың (жүктің) салынуына жауап бермейді.
+                    <br><br> 
+                    5.3. Сайт Әкімшілігі Көлік компаниясының хат-хабарларды (жүкті) Алушыға келісілген мерзімде беру жөніндегі өз міндеттемелерін орындауы, Жөнелтуші ресімдеген Тапсырыстың толық жиынтығы үшін жауапты болмайды. Жөнелтуші / Алушы осымен хат-хабардың (жүктің) саны мен жинақтылығына, сондай-ақ жеткізу мерзімдеріне қатысты кез келген шағымдар тек Көлік компаниясына жіберілуге тиіс екендігімен келіседі. Бұл ретте Сайт Әкімшілігі Жөнелтушілерге/Алушыларға Сайт Әкімшілігінде бар және заңға немесе шартқа байланысты құпия болып табылмайтын Сайт Әкімшілігінің иелігіндегі осындай талаптарды шешу үшін маңызды барлық ақпаратты ұсыну жолымен Көлік компаниясына қойылатын талаптарды шешуге жәрдемдесуге міндеттенеді. 
+                    <br><br>
+                    5.4.
+                    Жөнелтуші жөнелтілетін салымдар мен хат-хабарлардың мазмұны үшін толық дербес жауапты болады және ҚР қолданыстағы заңнамасын және үшінші тұлғалардың құқықтарын қандай да бір бұзушылықтарды белгілеуге байланысты барлық салдарларды өзіне қабылдайды.
+                    <br><br>
+                    5.5. Жөнелтуге Қазақстан Республикасының қолданыстағы заңнамасына және халықаралық келісімдерге сәйкес тасымалдауға тыйым салынған хат-хабарлардың не жүктердің мазмұны қабылданбайды.
+                    <br><br> <br><br> 
+                    6. АҚПАРАТТЫҢ ҚҰПИЯЛЫЛЫҒЫ ЖӘНЕ ҚОРҒАЛУЫ 
+                    <br><br>
+                    6.1.
+                    Пайдаланушының/Алушының Дербес деректері Қазақстан Республикасының қолданыстағы заңнамасына сәйкес өңделеді және қорғалады
+                    <br><br> 
+                    6.2. 
+                    Тапсырысты Сайтта Ресімдеген кезде Пайдаланушы мынадай ақпаратты ұсынады: Тегі, Аты, Әкесінің Аты, байланыс телефон нөмірі, электрондық пошта мекенжайы (жөнелтуші және алушы үшін).
+                    <br><br> 
+                    6.3. 
+                    Сайт Әкімшілігінің жеке деректерін ұсына отырып, Сайтқа Кіруші/Пайдаланушы Сайт Әкімшілігінің оларды өңдеуіне, соның ішінде Сайт Әкімшілігінің осы Жария оферта аясында сайтқа Кіруші/Пайдаланушы алдындағы өз міндеттемелерін орындауы, Пайдаланушының/Алушының қанағаттануын, сондай-ақ Сайт Әкімшілігі көрсететін қызметтердің сапасын бақылау мақсатында келіседі.
+                    <br><br> 
+                    Дербес деректерді өңдеу деп жинауды, жазуды, жүйелеуді, жинақтауды, сақтауды, нақтылауды (жаңартуды, Өзгертуді), алуды, пайдалануды, беруді (оның ішінде үшінші тұлғаларға беруді қоса алғанда, (оның iшiнде үшiншi тұлғаларға беру, егер қажеттiлiк мiндеттемелердi орындау барысында туындаса, трансшекаралық берудi қоса алғанда), иесіздендіру, бұғаттау, жою, дербес деректерді жою, автоматтандыру құралдарын пайдалана отырып немесе осындай құралдарды пайдаланбай жасалатын кез келген іс-әрекет (операция) немесе іс-әрекеттер (операциялар) жиынтығы түсініледі. 
+                    <br><br> 
+                    6.4. 
+                    Заңда белгіленген мерзім ішінде дербес ақпаратты міндетті түрде сақтау көзделген жағдайларды қоспағанда, Сайт Әкімшілігі Сайт функцияларын ұсыну және Пайдаланушыларға өз қызметтерін көрсету үшін қажетті дербес ақпаратты ғана жинайды және сақтайды.
+                    <br><br> 6.5. Дербес деректерді өңдеуге келісімді кері қайтарып алу осы Жария офертаның акцептін кері қайтарып алу жолымен жүзеге асырылады.
+                    <br><br> 6.6. Сайт Әкімшілігі Пайдаланушының Сайтта жалпыға қолжетімді нысанда ұсынған мәліметтері үшін жауапты емес.
+                    <br><br><br><br> 
+                    7. АЙРЫҚША ҚҰҚЫҚТАР <br><br> 
+                    7.1.    
+                    Сайтта қол жетімді барлық нысандар, соның ішінде дизайн элементтері, мәтін, графикалық кескіндер, иллюстрациялар, мәліметтер базасы және басқа объектілер (бұдан әрі – Сайт мазмұны), сондай-ақ Сайтта орналастырылған кез-келген мазмұн Сайт Әкімшілігінің ерекше құқықтарының объектілері болып табылады.
+                    <br><br> 7.2. 
+                    Сайт мазмұнын, сондай-ақ Сайттың кез-келген басқа элементтерін тек Сайт ұсынатын функционалдылық аясында пайдалануға болады. Құқық иесінің алдын ала рұқсатынсыз Сайттың ешқандай элементтерін басқаша пайдалануға болмайды. Қолданыстағы заңнамада немесе Сайттың нақты функционалын пайдалану шарттарында тікелей көзделген жағдайлар ерекшелік болып табылады.
+                    <br><br> 7.3. 
+                    Сайтқа қандай да бір пікірлерді жүктеу/қосу кезінде Пайдаланушы Пайдаланушы орналастыратын контенттің мазмұнының қолданыстағы заңнаманың талаптарына сәйкестігі үшін, соның ішінде үшінші тұлғалар алдындағы жауапкершілік, шолулардың мазмұны үшінші тұлғалардың құқықтары мен заңды мүдделерін, оның ішінде жеке мүліктік емес құқықтарды, үшінші тұлғалардың өзге зияткерлік құқықтарын бұзған және / немесе оларға тиесілі материалдық емес игіліктерге қол сұғатын жағдайларда жауапты болады.
+                    <br><br> 
+                    Сайтты пайдалану кезінде Пайдаланушы заңсыз, зиянды, жала жабу болып табылатын, зияткерлік меншік құқығы мен авторлық құқықты бұзатын пікірлер қалдыруға құқылы емес.
+                    <br><br> 7.4. 
+                    Пайдаланушы Сайт Әкімшілігі Сайт арқылы Пайдаланушы жүктеген пікірлерді тексермейтінін мойындайды және келіседі. Пайдаланушы Сайтта пікір жариялауға байланысты барлық тәуекелдерді өз бетінше бағалауы, сондай-ақ Сайт Әкімшілігіне Сайтта қалдырылған пікірлерге байланысты қандай да бір наразылықтар білдірген жағдайда Сайт Әкімшілігінің барлық залалдарын өтеуі тиіс екендігін түсінеді және онымен келіседі.
+                    <br><br>
+                    7.5. 
+                    Сайттың жұмыс істеуін қамтамасыз ету, Сайт Әкімшілігінің заңды құқықтары мен мүдделерін жүзеге асыру, оның ішінде тиісті объектілердің құқықтық қорғалуын қамтамасыз етуді жүзеге асыру мақсатында, сондай-ақ маркетингтік мақсаттарда Пайдаланушы Сайт Әкімшілігіне ерекше құқықтың және осы Келісімнің бүкіл қолданылу мерзімі ішінде Пайдаланушылар жүктеген шолуларды кез келген тәсілмен барлық жерде қолданылатын мерзімсіз өтеусіз құқық береді.
+                    <br><br> <br><br> 
+                    8. ЖАРИЯ ОФЕРТАНЫҢ ҚОЛДАНЫЛУ МЕРЗІМІ
+                    <br><br> 
+                    8.1. Осы Жария оферта Пайдаланушы/Жөнелтуші оны акцептеген сәттен бастап күшіне енеді және Жария офертаның акцепті кері қайтарып алынған сәтке дейін қолданылады.
+                    <br><br> <br><br> 
+                    9. ҚОСЫМША ШАРТТАР
+                    <br><br>
+                    9.1.
+                    Интернет-алаң және ұсынылатын қызметтер профилактикалық немесе өзге де жұмыстарды жүргізу себебі бойынша не техникалық сипаттағы кез келген басқа да себептер бойынша уақытша ішінара немесе толық қолжетімсіз болуы мүмкін. Сайт Әкімшілігінің техникалық қызметі Пайдаланушыларды алдын-ала хабардар ете отырып немесе онсыз қажетті профилактикалық немесе басқа жұмыстарды мезгіл-мезгіл жүргізуге құқылы.
+                    <br><br> 9.2. Жөнелтуші мен Көлік компаниясы арасындағы қатынастарға Қазақстан Республикасының азаматтық заңнамасының ережелері қолданылады.
+                    <br><br>
+                    9.3. Жөнелтуші/Алушы тарапынан сұрақтар мен наразылықтар туындаған жағдайда, ол Сайтта орналастырылған телефон арқылы немесе өзге де қолжетімді тәсілмен жүгінуге құқылы.
+                    <br><br> 9.4. Соттың осы Келісімнің қандай да бір ережесінің жарамсыздығын тануы оның басқа ережелерінің жарамсыздығына әкеп соқпайды.
+                    <br>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+{% endif %}
+
 {% endblock %}
+
+

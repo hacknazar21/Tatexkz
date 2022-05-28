@@ -1,5 +1,5 @@
 from django.db import models
-
+from django.utils.translation import get_language
 # Create your models here.
 
 
@@ -51,6 +51,28 @@ class Pref_Slider(models.Model):
         verbose_name_plural = "Слайды преимущества"
 
 
+class Pref(models.Model):
+    pref_title = models.CharField(
+        max_length=100, verbose_name='Заголовок блока')
+
+    def __str__(self):
+        return self.pref_title
+
+    class Meta:
+        verbose_name = "Заголовок блока Преимущества"
+        verbose_name_plural = "Заголовок блока Преимущества"
+
+class Questions_Title(models.Model):
+    title = models.CharField(
+        max_length=100, verbose_name='Заголовок блока')
+
+    def __str__(self):
+        return self.title
+
+    class Meta:
+        verbose_name = "Заголовок блока FAQ"
+        verbose_name_plural = "Заголовок блока FAQ"
+
 class Questions(models.Model):
     q_cat = models.CharField(
         max_length=50, verbose_name='Категория вопроса')
@@ -66,6 +88,16 @@ class Questions(models.Model):
         verbose_name = "Вопрос"
         verbose_name_plural = "Вопросы"
 
+class Reviews_Title(models.Model):
+    title = models.CharField(
+        max_length=100, verbose_name='Заголовок блока')
+
+    def __str__(self):
+        return self.title
+
+    class Meta:
+        verbose_name = "Заголовок блока Отзывы"
+        verbose_name_plural = "Заголовок блока Отзывы"
 
 class Reviews(models.Model):
     reviews_name = models.CharField(
@@ -83,3 +115,25 @@ class Reviews(models.Model):
     class Meta:
         verbose_name = "Отзыв"
         verbose_name_plural = "Отзывы"
+class Settings(models.Model):
+    tel = models.CharField(
+        max_length=50, verbose_name='Телефон в формате + 7 (777) 777-77-77')
+    tel_href = models.CharField(
+        max_length=50, verbose_name='Телефон в формате +77777777777')
+    insta_name = models.TextField(
+        max_length=100, verbose_name='Инстаграм подпись')
+    insta_link = models.TextField(
+        max_length=100, verbose_name='Инстаграм ссылка')
+    telegram_name = models.TextField(
+        max_length=100, verbose_name='Телеграмм подпись')
+    telegram_link = models.TextField(
+        max_length=100, verbose_name='Телеграмм ссылка')
+    whatsapp_name = models.TextField(
+        max_length=100, verbose_name='Whatsapp подпись')
+    
+    def __str__(self):
+        return self.tel
+
+    class Meta:
+        verbose_name = "Общие настройки по сайту"
+        verbose_name_plural = "Общие настройки по сайту"

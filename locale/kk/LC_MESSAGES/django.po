@@ -1,0 +1,609 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# 
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-05-28 00:23+0600\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: .\Tatexkz\settings.py:125
+msgid "Russian"
+msgstr "Орыс"
+
+#: .\Tatexkz\settings.py:126
+msgid "English"
+msgstr "Ағылшын"
+
+#: .\Tatexkz\settings.py:127
+msgid "Kazakh"
+msgstr "Қазақ"
+
+#: .\Tatexkz\templates\base.html:28
+msgid "О компании"
+msgstr "Компания туралы"
+
+#: .\Tatexkz\templates\base.html:29
+msgid "Частые вопросы"
+msgstr "Жиі қойылатын сұрақтар"
+
+#: .\Tatexkz\templates\base.html:30
+#: .\Tatexkz\templates\coop\cooperation.html:3
+#: .\Tatexkz\templates\coop\cooperation.html:8
+msgid "Сотрудничество"
+msgstr "Серіктестік"
+
+#: .\Tatexkz\templates\base.html:40
+msgid "Наш Инстаграм"
+msgstr "Біздің Инстаграм"
+
+#: .\Tatexkz\templates\base.html:42
+msgid "Наш Телеграм"
+msgstr "Біздің Телеграм"
+
+#: .\Tatexkz\templates\base.html:47
+msgid "Начать чат в Whatsapp"
+msgstr "Whatsapp сөйлесуді бастау"
+
+#: .\Tatexkz\templates\base.html:59
+msgid "Введите трек-код"
+msgstr "Трек-кодын енгізіңіз"
+
+#: .\Tatexkz\templates\base.html:79
+msgid "Оформить заявку"
+msgstr "Өтініш беру"
+
+#: .\Tatexkz\templates\base.html:106
+msgid "Все права защищены"
+msgstr "Барлық құқықтар қорғалған"
+
+#: .\Tatexkz\templates\base.html:120 .\Tatexkz\templates\privacy\index.html:3
+msgid "Оферта"
+msgstr "Оферта"
+
+#: .\Tatexkz\templates\base.html:123
+msgid "О нас"
+msgstr "Біз туралы"
+
+#: .\Tatexkz\templates\base.html:126
+msgid "Отзывы"
+msgstr "Пікірлер"
+
+#: .\Tatexkz\templates\base.html:132
+msgid "Политика приватности"
+msgstr "Құпиялылық саясаты"
+
+#: .\Tatexkz\templates\base.html:152
+msgid "Заявка оформлена"
+msgstr "Уақыт бойынша жеткізу"
+
+#: .\Tatexkz\templates\base.html:154
+#, fuzzy
+#| msgid ""
+#| "Накладная будет отправлена на Вашу почту после оформления заказа, ее "
+#| "нужно будет распечатать и передать курьеру вместе с Вашей посылкой"
+msgid ""
+"В течении 10 минут вам на почту придёт письмо с трек-номером для "
+"отслеживания заказа и накладная по Вашему отправлению, ее нужно распечатать "
+"и передать курьеру вместе с Вашей посылкой"
+msgstr ""
+"10 минут ішінде сіздің поштаңызға тапсырысты бақылауға арналған трек-нөмірі "
+"бар хат және сіздің жөнелтіліміңіз бойынша жүкқұжат келеді, оны басып шығару "
+"және сіздің жөнелтіліміңізбен бірге курьерге беру қажет"
+
+#: .\Tatexkz\templates\base.html:157 .\Tatexkz\templates\base.html:177
+#: .\Tatexkz\templates\coop\cooperation.html:177
+msgid "Вернуться на главную"
+msgstr "Басты бетке оралу"
+
+#: .\Tatexkz\templates\base.html:172
+msgid "Что-то пошло не так"
+msgstr "Бірдеңе қате кетті"
+
+#: .\Tatexkz\templates\base.html:174
+msgid "Возможно данного трек-кода пока нет в нашей базе, попробуйте позже"
+msgstr "Мүмкін, бұл трек-коды біздің дерекқорымызда жоқ, кейінірек көріңіз"
+
+#: .\Tatexkz\templates\base.html:187
+msgid "Поле заполнено неверно!"
+msgstr "Өріс дұрыс толтырылмаған!"
+
+#: .\Tatexkz\templates\base.html:188
+msgid "Оформить"
+msgstr "Өтініш беру"
+
+#: .\Tatexkz\templates\base.html:189
+msgid "На указанную вами дату невозможно осуществить вызов курьера"
+msgstr "Сіз көрсеткен күні курьерді шақыру мүмкін емес"
+
+#: .\Tatexkz\templates\base.html:190
+msgid "Максимально допустимый вес документа 0,3 кг"
+msgstr "Құжаттың рұқсат етілген максималды салмағы 0,3 кг"
+
+#: .\Tatexkz\templates\base.html:191
+msgid "Объемный вес"
+msgstr "Көлемді салмақ"
+
+#: .\Tatexkz\templates\base.html:192
+msgid "Стоимость доставки"
+msgstr "Жеткізу құны"
+
+#: .\Tatexkz\templates\base.html:193
+msgid "Тенге"
+msgstr "Теңге"
+
+#: .\Tatexkz\templates\coop\cooperation.html:22
+msgid "Личные данные"
+msgstr "Жеке мәліметтер"
+
+#: .\Tatexkz\templates\coop\cooperation.html:25
+#: .\Tatexkz\templates\coop\cooperation.html:27
+msgid "ФИО"
+msgstr "АТЫ-ЖӨНІ"
+
+#: .\Tatexkz\templates\coop\cooperation.html:32
+msgid "Контактный телефон"
+msgstr "Байланыс телефоны"
+
+#: .\Tatexkz\templates\coop\cooperation.html:35
+#: .\Tatexkz\templates\order\order.html:246
+#: .\Tatexkz\templates\order\order.html:261
+msgid "Номер телефона"
+msgstr "Телефон нөмірі"
+
+#: .\Tatexkz\templates\coop\cooperation.html:46
+#: .\Tatexkz\templates\coop\cooperation.html:49
+#, fuzzy
+#| msgid "О компании"
+msgid "Название компании"
+msgstr "Компания атауы"
+
+#: .\Tatexkz\templates\coop\cooperation.html:60
+#: .\Tatexkz\templates\coop\cooperation.html:63
+msgid "Доставка почты"
+msgstr "Поштаны жеткізу"
+
+#: .\Tatexkz\templates\coop\cooperation.html:68
+#: .\Tatexkz\templates\coop\cooperation.html:71
+msgid "Доставка груза"
+msgstr "Жүкті жеткізу"
+
+#: .\Tatexkz\templates\coop\cooperation.html:76
+#: .\Tatexkz\templates\coop\cooperation.html:79
+msgid "Доставка для интернет магазинов"
+msgstr "Интернет-дүкендерге жеткізу"
+
+#: .\Tatexkz\templates\coop\cooperation.html:86
+#: .\Tatexkz\templates\coop\cooperation.html:89
+msgid "Доставка по времени"
+msgstr "Уақыт бойынша жеткізу"
+
+#: .\Tatexkz\templates\coop\cooperation.html:96
+#: .\Tatexkz\templates\coop\cooperation.html:100
+msgid "Ожидаемый объем отправлений (шт в месяц)"
+msgstr "Жөнелтімдердің күтілетін көлемі (айына дана)"
+
+#: .\Tatexkz\templates\coop\cooperation.html:106
+#: .\Tatexkz\templates\coop\cooperation.html:110
+msgid "Характер груза"
+msgstr "Жүктің сипаты"
+
+#: .\Tatexkz\templates\coop\cooperation.html:116
+msgid "География отправок"
+msgstr "Жіберулер географиясы"
+
+#: .\Tatexkz\templates\coop\cooperation.html:121
+#: .\Tatexkz\templates\coop\cooperation.html:124
+msgid "По Казахстану"
+msgstr "Қазақстан Бойынша"
+
+#: .\Tatexkz\templates\coop\cooperation.html:129
+#: .\Tatexkz\templates\coop\cooperation.html:132
+msgid "СНГ и дальнее зарубежье"
+msgstr "ТМД және алыс шетел"
+
+#: .\Tatexkz\templates\coop\cooperation.html:139
+#: .\Tatexkz\templates\coop\cooperation.html:142
+msgid "Импорт"
+msgstr "Импорт"
+
+#: .\Tatexkz\templates\coop\cooperation.html:150
+#: .\Tatexkz\templates\order\order.html:323
+#: .\Tatexkz\templates\payment\payment.html:41
+msgid "Отмена"
+msgstr "Болдырмау"
+
+#: .\Tatexkz\templates\coop\cooperation.html:151
+msgid "Отправить"
+msgstr "Жіберу"
+
+#: .\Tatexkz\templates\coop\cooperation.html:172
+msgid "Ваша заявка на сотрудничество успешно отправлена"
+msgstr "Сіздің ынтымақтастық туралы өтінішіңіз сәтті жіберілді"
+
+#: .\Tatexkz\templates\coop\cooperation.html:174
+msgid ""
+"В ближайшее время с Вами свяжется специалист отдела продаж для выяснения "
+"подробной информации"
+msgstr ""
+"Жақын арада сізге толық ақпаратты анықтау үшін сату бөлімінің маманы "
+"хабарласады"
+
+#: .\Tatexkz\templates\home\index.html:5
+msgid "Главная"
+msgstr "Бысты бет"
+
+#: .\Tatexkz\templates\home\index.html:32
+#: .\Tatexkz\templates\order\order.html:28
+msgid "Документ"
+msgstr "Құжат"
+
+#: .\Tatexkz\templates\home\index.html:35
+#: .\Tatexkz\templates\order\order.html:36
+#: .\Tatexkz\templates\tracking\tracking.html:18
+msgid "Посылка"
+msgstr "Cәлемдеме"
+
+#: .\Tatexkz\templates\home\index.html:41
+#: .\Tatexkz\templates\home\index.html:82
+msgid "Откуда"
+msgstr "Қайдан"
+
+#: .\Tatexkz\templates\home\index.html:53
+#: .\Tatexkz\templates\home\index.html:94
+msgid "Куда"
+msgstr "Қайда"
+
+#: .\Tatexkz\templates\home\index.html:68
+#: .\Tatexkz\templates\home\index.html:108
+#, fuzzy
+#| msgid "Вес(кг)"
+msgid "Вес (кг)"
+msgstr "Cалмағы(кг)"
+
+#: .\Tatexkz\templates\home\index.html:74
+#: .\Tatexkz\templates\home\index.html:129
+#: .\Tatexkz\templates\order\order.html:272
+#: .\Tatexkz\templates\order\order.html:275
+msgid "Промокод"
+msgstr "Жарнамалық коды"
+
+#: .\Tatexkz\templates\home\index.html:116
+#, fuzzy
+#| msgid "Высота(см)"
+msgid "Высота (см)"
+msgstr "Биіктігі(см)"
+
+#: .\Tatexkz\templates\home\index.html:119
+#, fuzzy
+#| msgid "Длина(см)"
+msgid "Длина (см)"
+msgstr "Ұзындығы(см)"
+
+#: .\Tatexkz\templates\home\index.html:122
+#, fuzzy
+#| msgid "Ширина(см)"
+msgid "Ширина  (см)"
+msgstr "Ені(см)"
+
+#: .\Tatexkz\templates\home\index.html:139
+msgid "У меня есть промокод"
+msgstr "Менде жарнамалық код бар"
+
+#: .\Tatexkz\templates\home\index.html:144
+msgid "Рассчитать стоимость"
+msgstr "Құнын есептеу"
+
+#: .\Tatexkz\templates\home\index.html:278
+msgid "Наши контакты"
+msgstr "Біздің байланыс"
+
+#: .\Tatexkz\templates\order\order.html:9
+msgid "Оформить посылку"
+msgstr "Өтініш беру"
+
+#: .\Tatexkz\templates\order\order.html:14
+msgid "Тип посылки"
+msgstr "Сәлемдеме түрі"
+
+#: .\Tatexkz\templates\order\order.html:40
+#: .\Tatexkz\templates\order\order.html:66
+msgid "Вес и габариты"
+msgstr "Салмағы мен өлшемдері"
+
+#: .\Tatexkz\templates\order\order.html:43
+#: .\Tatexkz\templates\order\order.html:48
+#: .\Tatexkz\templates\order\order.html:69
+#: .\Tatexkz\templates\order\order.html:74
+msgid "Вес(кг)"
+msgstr "Cалмағы(кг)"
+
+#: .\Tatexkz\templates\order\order.html:56
+msgid "Список запрещенных предметов"
+msgstr "Тыйым салынған заттардың тізімі"
+
+#: .\Tatexkz\templates\order\order.html:58
+msgid "Наркотические средства"
+msgstr "Есірткі құралдары"
+
+#: .\Tatexkz\templates\order\order.html:59
+msgid "Психотропные вещества и прекурсоры"
+msgstr "Психотроптық заттар мен прекурсорлар"
+
+#: .\Tatexkz\templates\order\order.html:60
+msgid "Ядерные материалы, радиоактивные и другие опасные вещества"
+msgstr "Ядролық материалдар, радиоактивті және басқа да қауіпті заттар"
+
+#: .\Tatexkz\templates\order\order.html:61
+msgid "Яды, ядовитые животные, вещества, растения и семена."
+msgstr "Улар, улы жануарлар, заттар, өсімдіктер мен тұқымдар."
+
+#: .\Tatexkz\templates\order\order.html:78
+#: .\Tatexkz\templates\order\order.html:82
+msgid "Длина(см)"
+msgstr "Ұзындығы(см)"
+
+#: .\Tatexkz\templates\order\order.html:87
+#: .\Tatexkz\templates\order\order.html:91
+msgid "Ширина(см)"
+msgstr "Ені(см)"
+
+#: .\Tatexkz\templates\order\order.html:96
+#: .\Tatexkz\templates\order\order.html:100
+msgid "Высота(см)"
+msgstr "Биіктігі(см)"
+
+#: .\Tatexkz\templates\order\order.html:109
+msgid "Заполните данные о посылке"
+msgstr "Сәлемдеме туралы мәліметтерді толтырыңыз"
+
+#: .\Tatexkz\templates\order\order.html:112
+msgid "Страна отправителя"
+msgstr "Жіберушінің ел"
+
+#: .\Tatexkz\templates\order\order.html:120
+#: .\Tatexkz\templates\order\order.html:137
+msgid "Страна"
+msgstr "Ел"
+
+#: .\Tatexkz\templates\order\order.html:129
+msgid "Страна получателя"
+msgstr "Алушының ел"
+
+#: .\Tatexkz\templates\order\order.html:146
+msgid "Город отправителя"
+msgstr "Жіберушінің қала"
+
+#: .\Tatexkz\templates\order\order.html:152
+#: .\Tatexkz\templates\order\order.html:169
+msgid "Город"
+msgstr "Қала"
+
+#: .\Tatexkz\templates\order\order.html:163
+msgid "Город получателя"
+msgstr "Алушының қала"
+
+#: .\Tatexkz\templates\order\order.html:180
+msgid "Адрес отправителя"
+msgstr "Жіберушінің көше"
+
+#: .\Tatexkz\templates\order\order.html:183
+#: .\Tatexkz\templates\order\order.html:191
+msgid "Улица, дом, офис/квартира, этаж"
+msgstr "Көше, үй, кеңсе / пәтер, қабат"
+
+#: .\Tatexkz\templates\order\order.html:188
+msgid "Адрес получателя"
+msgstr "Алушының көше"
+
+#: .\Tatexkz\templates\order\order.html:197
+msgid "Почтовый индекс отправителя"
+msgstr "Жіберушінің пошта индексі"
+
+#: .\Tatexkz\templates\order\order.html:202
+#: .\Tatexkz\templates\order\order.html:212
+msgid "Почтовый индекс"
+msgstr "Пошта индексі"
+
+#: .\Tatexkz\templates\order\order.html:207
+msgid "Почтовый индекс получателя"
+msgstr "Алушының пошта индексі"
+
+#: .\Tatexkz\templates\order\order.html:216
+msgid "Выберите дату забора"
+msgstr "Алу күнін таңдаңыз"
+
+#: .\Tatexkz\templates\order\order.html:220
+msgid "Дата забора"
+msgstr "Алу күні"
+
+#: .\Tatexkz\templates\order\order.html:225
+msgid "После 15:30 невозможно оформить вызов курьера на текущий день"
+msgstr "15:30-дан кейін ағымдағы күні курьерді шақыру мүмкін емес"
+
+#: .\Tatexkz\templates\order\order.html:232
+msgid "Заполните данные"
+msgstr "Сәлемдеме туралы мәліметтерді толтырыңыз"
+
+#: .\Tatexkz\templates\order\order.html:235
+msgid "Имя отправителя"
+msgstr "Жіберушінің аты"
+
+#: .\Tatexkz\templates\order\order.html:238
+msgid "Введите имя отправителя"
+msgstr "Жіберушінің аты толтырыңыз"
+
+#: .\Tatexkz\templates\order\order.html:243
+msgid "Телефон отправителя"
+msgstr "Жіберушінің телефон"
+
+#: .\Tatexkz\templates\order\order.html:250
+msgid "Имя получателя"
+msgstr "Алушының аты"
+
+#: .\Tatexkz\templates\order\order.html:253
+msgid "Введите имя получателя"
+msgstr "Алушының аты толтырыңыз"
+
+#: .\Tatexkz\templates\order\order.html:258
+msgid "Телефон получателя"
+msgstr "Алушының телефон"
+
+#: .\Tatexkz\templates\order\order.html:265
+msgid "Ваш e-mail"
+msgstr "Сіздің e-mail"
+
+#: .\Tatexkz\templates\order\order.html:280
+msgid "Подробное содержимое груза"
+msgstr "Жүктің толық мазмұны"
+
+#: .\Tatexkz\templates\order\order.html:282
+msgid "Опишите содержимое груза"
+msgstr "Жүктің мазмұнын сипаттаңыз"
+
+#: .\Tatexkz\templates\order\order.html:287
+msgid "Инструкция для курьера"
+msgstr "Шабарманға арналған нұсқаулық"
+
+#: .\Tatexkz\templates\order\order.html:289
+msgid "Инструкция"
+msgstr "Нұсқаулық"
+
+#: .\Tatexkz\templates\order\order.html:295
+msgid "Удобно ли вам распечатать накладную?"
+msgstr "Сізге жүкқұжатты басып шығару ыңғайлы ма?"
+
+#: .\Tatexkz\templates\order\order.html:302
+msgid "Да"
+msgstr "Иә"
+
+#: .\Tatexkz\templates\order\order.html:308
+msgid "Нет"
+msgstr "Жоқ"
+
+#: .\Tatexkz\templates\order\order.html:315
+msgid "Нажимая на кнопку вы соглашаетесь с условиями отправки и принимаете"
+msgstr "Түймені басу арқылы сіз жіберу шарттарымен келісесіз және"
+
+#: .\Tatexkz\templates\order\order.html:316
+msgid "оферту"
+msgstr "оферта"
+
+#: .\Tatexkz\templates\order\order.html:317
+msgid "политику"
+msgstr "мен құпиялылық саясатын"
+
+#: .\Tatexkz\templates\order\order.html:317
+msgid "конфиденциальности"
+msgstr "қабылдайсыз"
+
+#: .\Tatexkz\templates\order\order.html:320
+#: .\Tatexkz\templates\payment\payment.html:40
+msgid "К оплате"
+msgstr "Төлемге"
+
+#: .\Tatexkz\templates\order\order.html:325
+msgid "Перейти к оплате"
+msgstr "Төлемге өту"
+
+#: .\Tatexkz\templates\order\order.html:437
+msgid ""
+"Накладная будет отправлена на Вашу почту после оформления заказа, ее нужно "
+"будет распечатать и передать курьеру вместе с Вашей посылкой"
+msgstr ""
+"Жүкқұжат тапсырыс бергеннен кейін сіздің поштаңызға жіберіледі, оны басып "
+"шығарып, пакетіңізбен бірге курьерге беру керек"
+
+#: .\Tatexkz\templates\order\order.html:443
+msgid "Принести с собой накладную"
+msgstr "Өзіңізбен бірге жүкқұжатты әкеліңіз"
+
+#: .\Tatexkz\templates\order\order.html:448
+msgid "Скидка"
+msgstr "Жеңілдік"
+
+#: .\Tatexkz\templates\order\order.html:471
+msgid "Расчитать"
+msgstr "Есептеу"
+
+#: .\Tatexkz\templates\order\order.html:487
+msgid "Оплатить"
+msgstr "Төлеу"
+
+#: .\Tatexkz\templates\payment\payment.html:4
+#: .\Tatexkz\templates\payment\payment.html:12
+msgid "Оплата"
+msgstr "Төле"
+
+#: .\Tatexkz\templates\payment\payment.html:15
+msgid "Назад"
+msgstr "Артқа"
+
+#: .\Tatexkz\templates\payment\payment.html:17
+msgid "Выберите способ оплаты"
+msgstr "Алу күнін таңдаңыз"
+
+#: .\Tatexkz\templates\payment\payment.html:27
+msgid "Оплата банковской картой"
+msgstr "Банк картасымен төлеу"
+
+#: .\Tatexkz\templates\payment\payment.html:35
+msgid "Оплатить наличными курьеру"
+msgstr "Курьерге қолма-қол төлеу"
+
+#: .\Tatexkz\templates\payment\payment.html:36
+msgid "Данная функция не доступна для вашего региона"
+msgstr "Бұл функция сіздің аймағыңыз үшін қолжетімді емес"
+
+#: .\Tatexkz\templates\payment\payment.html:101
+msgid "Оплата доставки на Tatex.kz"
+msgstr "Жеткізу ақысын төлеу Tatex.kz"
+
+#: .\Tatexkz\templates\tracking\tracking.html:3
+#: .\Tatexkz\templates\tracking\tracking.html:8
+msgid "Отслеживание"
+msgstr ""
+
+#: .\Tatexkz\templates\tracking\tracking.html:22
+msgid "Данные о посылке"
+msgstr "Сәлемдеме туралы мәліметтерді толтырыңыз"
+
+#: .\Tatexkz\templates\tracking\tracking.html:25
+msgid "Номер заказа"
+msgstr "Телефон нөмірі"
+
+#: .\Tatexkz\templates\tracking\tracking.html:29
+msgid "Адрес доставки"
+msgstr "Жеткізу құны"
+
+#: .\Tatexkz\templates\tracking\tracking.html:35
+msgid "Дата отправки"
+msgstr "Жіберушінің ел"
+
+#: .\Tatexkz\templates\tracking\tracking.html:39
+#, fuzzy
+#| msgid "Тип посылки"
+msgid "Тип доставки"
+msgstr "Сәлемдеме түрі"
+
+#: .\Tatexkz\templates\tracking\tracking.html:40
+msgid "От двери до двери"
+msgstr "Есіктен есікке"
+
+#: .\Tatexkz\templates\tracking\tracking.html:45
+msgid "Статус"
+msgstr "Мәртебесі"
+
+#: .\Tatexkz\templates\tracking\tracking.html:50
+msgid "Заказ подтвержден"
+msgstr "Тапсырыс расталды"

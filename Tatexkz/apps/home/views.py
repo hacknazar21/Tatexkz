@@ -1,6 +1,6 @@
 from unicodedata import name
 from django.shortcuts import render
-from .models import About, Main_Slider, Pref_Slider, Questions, Reviews
+from .models import About, Main_Slider, Pref, Pref_Slider, Questions, Questions_Title, Reviews, Reviews_Title, Settings
 
 # Create your views here.
 
@@ -15,6 +15,22 @@ def home(request):
     slides_pref_for_temp = []
     slides_reviews_for_temp = []
     questions_for_temp = {}
+    
+    pref_title = Pref.objects.all()[0].pref_title
+    q_title = Questions_Title.objects.all()[0].title
+    rev_title = Reviews_Title.objects.all()[0].title
+
+    settings = {
+        'tel': Settings.objects.all()[0].tel,
+        'tel_href': Settings.objects.all()[0].tel_href,
+        'insta_name': Settings.objects.all()[0].insta_name,
+        'insta_link': Settings.objects.all()[0].insta_link,
+        'telegram_name': Settings.objects.all()[0].telegram_name,
+        'telegram_link': Settings.objects.all()[0].telegram_link,
+        'whatsapp_name': Settings.objects.all()[0].whatsapp_name,
+    }
+    
+
     about_for_temp = {
         'title': about[0].about_title,
         'text': about[0].about_text,
@@ -66,8 +82,12 @@ def home(request):
     return render(
         request, 'home/index.html', {'main_slides': slides_for_temp,
                                      'about': about_for_temp,
+                                     'pref_title': pref_title,
                                      'pref_slides': slides_pref_for_temp,
                                      'reviews': slides_reviews_for_temp,
+                                     'rev_title': rev_title,
                                      'questions': questions_for_temp,
-                                     'first_q': first_question_cat}
+                                     'q_title':q_title,
+                                     'first_q': first_question_cat,
+                                     'settings': settings}
     )

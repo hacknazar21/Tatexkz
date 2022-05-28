@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% load static %}
-
-{% block title %}Оплата{% endblock %}
+{% load i18n %}
+{% block title %}{% trans 'Оплата' %}{% endblock %}
 {% block content %}
 
 
@@ -9,12 +9,12 @@
 
 	{% if not error %}
 	<section class="page__name page-name">
-		<h1 class="page-name__title"><a href="/">Оплата</a></h1>
+		<h1 class="page-name__title"><a href="{% if LANGUAGE_CODE != 'ru' %}/{{ LANGUAGE_CODE }}{% endif %}">{% trans 'Оплата' %}</a></h1>
 	</section>
 	<section class="page__payment payment">
-		<a href="/" class="payment__back-btn payment-button">Назад</a>
+		<a href="{% if LANGUAGE_CODE != 'ru' %}/{{ LANGUAGE_CODE }}{% endif %}/order/" class="payment__back-btn payment-button">{% trans 'Назад' %}</a>
 		<div class="payment__body">
-			<h2 class="payment__title">Выберите способ оплаты</h2>
+			<h2 class="payment__title">{% trans 'Выберите способ оплаты' %}</h2>
 			<div class="payment__ways">
 				<button onclick="pay()" class="payment__way payment-way">
 					<div class="payment-way__img">
@@ -24,7 +24,7 @@
 						</picture>
 					</div>
 					<div class="payment-way__body">
-						<div class="payment-way__body-title">Оплата банковской картой</div>
+						<div class="payment-way__body-title">{% trans 'Оплата банковской картой' %}</div>
 					</div>
 				</button>
 				<div class="payment__way payment-way">
@@ -32,14 +32,13 @@
 						<img src="{% static 'img/payment/timer.svg' %}" alt="nal">
 					</div>
 					<div class="payment-way__body">
-						<div class="payment-way__body-title">Оплатить наличными курьеру</div>
-						<div class="payment-way__body-value _red-color">Данная функция не доступна для вашего
-							региона</div>
+						<div class="payment-way__body-title">{% trans 'Оплатить наличными курьеру' %}</div>
+						<div class="payment-way__body-value _red-color">{% trans 'Данная функция не доступна для вашего региона' %}</div>
 					</div>
 				</div>
 			</div>
-			<div class="payment__price">К оплате: {{price}}</div>
-			<button class="payment__cancel-btn payment-button">Отмена</button>
+			<div class="payment__price">{% trans 'К оплате' %}: {{price}}</div>
+			<a href="{% if LANGUAGE_CODE != 'ru' %}/{{ LANGUAGE_CODE }}{% endif %}" class="payment__cancel-btn payment-button">{% trans 'Отмена' %}</a>
 		</div>
 	</section>
 	{% else %}
@@ -49,31 +48,6 @@
 	{% endif %}
 </main>
 
-{% block popup %}
-<div id="popup_success" aria-hidden="true" class="popup">
-	<div class="popup__wrapper">
-		<div class="popup__content">
-			<button data-close type="button" class="popup__close"></button>
-			<div class="popup__header">
-				<div class="popup__circle">
-					<span></span>
-					<span></span>
-					<span></span>
-					<span></span>
-				</div>
-				<div class="popup__title">Заявка оформлена </div>
-				<div class="popup__text">
-					В течении 10 минут вам на почту придёт письмо с трек-номером
-					для отслеживания заказа и накладная по Вашему отправлению, ее нужно распечатать и передать
-					курьеру
-					вместе с Вашей посылкой
-				</div>
-			</div>
-			<a href="/" class="popup__button button">Вернуться на главную</a>
-		</div>
-	</div>
-</div>
-{% endblock %}
 <script src="{% static 'js/halyk.js' %}"></script>
 
 <script>
@@ -123,8 +97,8 @@
 			failureBackLink: `${location.origin}/payment`,
 			postLink: `${location.origin}`,
 			failurePostLink: `${location.origin}`,
-			language: "RU",
-			description: "Оплата доставки на Tatex.kz",
+			language: "{{ LANGUAGE_CODE }}",
+			description: "{% trans 'Оплата доставки на Tatex.kz' %}",
 			terminal: terminal_id,
 			amount: amount,
 			currency: "KZT",
@@ -147,11 +121,11 @@
 			dataform.append(key, data[key])
 		}
 		var xhr = new XMLHttpRequest();
-		xhr.open("POST", `${location.origin}/payment/createorder/`);
+		xhr.open("POST", `${location.origin}/{{ LANGUAGE_CODE }}/payment/createorder/`);
 
 		xhr.onreadystatechange = function () {
 			if (this.readyState != 4) return;
-			location.replace(`${location.origin}/#popup_success`);
+			location.replace(`${location.origin}/{{ LANGUAGE_CODE }}#popup_success`);
 		}
 		xhr.send(dataform);
 	}

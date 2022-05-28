@@ -1,3 +1,4 @@
+from cmath import pi
 from datetime import datetime
 import json
 import locale
@@ -172,8 +173,9 @@ def calcTariff(typePackage, fromcity, wherecity, fromCountry, whereCountry, weig
         if ieSheet.cell(row=2, column=i).value == zone:
             print(i)
             resultColumn = i
-
+    print(typePackage)
     if typePackage == 'document' and weight < 2:
+        
         weightMass = []
         for i in range(3, 6):
             weightMass.append(ieSheet.cell(row=i, column=1).value)
