@@ -413,8 +413,7 @@ msgstr "Pick-up date"
 #: .\Tatexkz\templates\order\order.html:225
 msgid "После 15:30 невозможно оформить вызов курьера на текущий день"
 msgstr ""
-"It is not possible to issue a courier call for the current day after 15:30, "
-"please choose a different date"
+"It is not possible to issue a courier call for the current day after 15:30"
 
 #: .\Tatexkz\templates\order\order.html:232
 msgid "Заполните данные"
