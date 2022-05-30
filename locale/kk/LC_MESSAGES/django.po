@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-05-28 00:23+0600\n"
+"POT-Creation-Date: 2022-05-30 12:08+0600\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -67,7 +67,7 @@ msgstr "Өтініш беру"
 msgid "Все права защищены"
 msgstr "Барлық құқықтар қорғалған"
 
-#: .\Tatexkz\templates\base.html:120 .\Tatexkz\templates\privacy\index.html:3
+#: .\Tatexkz\templates\base.html:120
 msgid "Оферта"
 msgstr "Оферта"
 
@@ -168,6 +168,10 @@ msgstr "Телефон нөмірі"
 msgid "Название компании"
 msgstr "Компания атауы"
 
+#: .\Tatexkz\templates\coop\cooperation.html:55
+msgid "Услуга"
+msgstr "Қызмет"
+
 #: .\Tatexkz\templates\coop\cooperation.html:60
 #: .\Tatexkz\templates\coop\cooperation.html:63
 msgid "Доставка почты"
@@ -265,7 +269,6 @@ msgid "Куда"
 msgstr "Қайда"
 
 #: .\Tatexkz\templates\home\index.html:68
-#: .\Tatexkz\templates\home\index.html:108
 #, fuzzy
 #| msgid "Вес(кг)"
 msgid "Вес (кг)"
@@ -278,22 +281,30 @@ msgstr "Cалмағы(кг)"
 msgid "Промокод"
 msgstr "Жарнамалық коды"
 
+#: .\Tatexkz\templates\home\index.html:108
+#: .\Tatexkz\templates\order\order.html:43
+#: .\Tatexkz\templates\order\order.html:48
+#: .\Tatexkz\templates\order\order.html:69
+#: .\Tatexkz\templates\order\order.html:74
+msgid "Вес(кг)"
+msgstr "Cалмағы(кг)"
+
 #: .\Tatexkz\templates\home\index.html:116
-#, fuzzy
-#| msgid "Высота(см)"
-msgid "Высота (см)"
+#: .\Tatexkz\templates\order\order.html:96
+#: .\Tatexkz\templates\order\order.html:100
+msgid "Высота(см)"
 msgstr "Биіктігі(см)"
 
 #: .\Tatexkz\templates\home\index.html:119
-#, fuzzy
-#| msgid "Длина(см)"
-msgid "Длина (см)"
+#: .\Tatexkz\templates\order\order.html:78
+#: .\Tatexkz\templates\order\order.html:82
+msgid "Длина(см)"
 msgstr "Ұзындығы(см)"
 
 #: .\Tatexkz\templates\home\index.html:122
-#, fuzzy
-#| msgid "Ширина(см)"
-msgid "Ширина  (см)"
+#: .\Tatexkz\templates\order\order.html:87
+#: .\Tatexkz\templates\order\order.html:91
+msgid "Ширина(см)"
 msgstr "Ені(см)"
 
 #: .\Tatexkz\templates\home\index.html:139
@@ -308,6 +319,7 @@ msgstr "Құнын есептеу"
 msgid "Наши контакты"
 msgstr "Біздің байланыс"
 
+#: .\Tatexkz\templates\order\order.html:4
 #: .\Tatexkz\templates\order\order.html:9
 msgid "Оформить посылку"
 msgstr "Өтініш беру"
@@ -320,13 +332,6 @@ msgstr "Сәлемдеме түрі"
 #: .\Tatexkz\templates\order\order.html:66
 msgid "Вес и габариты"
 msgstr "Салмағы мен өлшемдері"
-
-#: .\Tatexkz\templates\order\order.html:43
-#: .\Tatexkz\templates\order\order.html:48
-#: .\Tatexkz\templates\order\order.html:69
-#: .\Tatexkz\templates\order\order.html:74
-msgid "Вес(кг)"
-msgstr "Cалмағы(кг)"
 
 #: .\Tatexkz\templates\order\order.html:56
 msgid "Список запрещенных предметов"
@@ -347,21 +352,6 @@ msgstr "Ядролық материалдар, радиоактивті және
 #: .\Tatexkz\templates\order\order.html:61
 msgid "Яды, ядовитые животные, вещества, растения и семена."
 msgstr "Улар, улы жануарлар, заттар, өсімдіктер мен тұқымдар."
-
-#: .\Tatexkz\templates\order\order.html:78
-#: .\Tatexkz\templates\order\order.html:82
-msgid "Длина(см)"
-msgstr "Ұзындығы(см)"
-
-#: .\Tatexkz\templates\order\order.html:87
-#: .\Tatexkz\templates\order\order.html:91
-msgid "Ширина(см)"
-msgstr "Ені(см)"
-
-#: .\Tatexkz\templates\order\order.html:96
-#: .\Tatexkz\templates\order\order.html:100
-msgid "Высота(см)"
-msgstr "Биіктігі(см)"
 
 #: .\Tatexkz\templates\order\order.html:109
 msgid "Заполните данные о посылке"
@@ -460,6 +450,7 @@ msgid "Телефон получателя"
 msgstr "Алушының телефон"
 
 #: .\Tatexkz\templates\order\order.html:265
+#: .\Tatexkz\templates\order\order.html:268
 msgid "Ваш e-mail"
 msgstr "Сіздің e-mail"
 
@@ -607,3 +598,18 @@ msgstr "Мәртебесі"
 #: .\Tatexkz\templates\tracking\tracking.html:50
 msgid "Заказ подтвержден"
 msgstr "Тапсырыс расталды"
+
+#, fuzzy
+#~| msgid "Высота(см)"
+#~ msgid "Высота (см)"
+#~ msgstr "Биіктігі(см)"
+
+#, fuzzy
+#~| msgid "Длина(см)"
+#~ msgid "Длина (см)"
+#~ msgstr "Ұзындығы(см)"
+
+#, fuzzy
+#~| msgid "Ширина(см)"
+#~ msgid "Ширина  (см)"
+#~ msgstr "Ені(см)"

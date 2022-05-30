@@ -265,7 +265,7 @@
                                     <div class="form-order__input-title _nessesary">{% trans 'Ваш e-mail' %}</div>
                                     <div class="input">
                                         <input required autocomplete="off" type="email" name="email" data-error="Ошибка"
-                                            placeholder="Ваш e-mail" class="form-order__input">
+                                            placeholder="{% trans 'Ваш e-mail' %}" class="form-order__input">
                                     </div>
                                 </div>
                                 <div class="form-order__input-box">
@@ -313,7 +313,7 @@
                         <div class="form-order__section">
                             <div class="form-order__danger">
                                 {% trans 'Нажимая на кнопку вы соглашаетесь с условиями отправки и принимаете' %} 
-                                <a href="{% if LANGUAGE_CODE != 'ru' %}/{{ LANGUAGE_CODE }}{% endif %}/oferta">{% trans 'оферту' %}</a> и
+                                <a href="{% if LANGUAGE_CODE != 'ru' %}/{{ LANGUAGE_CODE }}{% endif %}/oferta">{% trans 'оферту' %}</a>
                                 <a href="{% if LANGUAGE_CODE != 'ru' %}/{{ LANGUAGE_CODE }}{% endif %}/privacy">{% trans 'политику' %}</a> {% trans 'конфиденциальности' %}
                             </div>
                             <div class="form-order__price">

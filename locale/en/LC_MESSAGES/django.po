@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-05-28 00:22+0600\n"
+"POT-Creation-Date: 2022-05-30 12:08+0600\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -68,7 +68,7 @@ msgstr "Make a request"
 msgid "Все права защищены"
 msgstr "All rights reserved"
 
-#: .\Tatexkz\templates\base.html:120 .\Tatexkz\templates\privacy\index.html:3
+#: .\Tatexkz\templates\base.html:120
 msgid "Оферта"
 msgstr "Offer"
 
@@ -162,6 +162,10 @@ msgstr "Phone number"
 #: .\Tatexkz\templates\coop\cooperation.html:49
 msgid "Название компании"
 msgstr "Company name"
+
+#: .\Tatexkz\templates\coop\cooperation.html:55
+msgid "Услуга"
+msgstr "Service"
 
 #: .\Tatexkz\templates\coop\cooperation.html:60
 #: .\Tatexkz\templates\coop\cooperation.html:63
@@ -260,7 +264,6 @@ msgid "Куда"
 msgstr "To"
 
 #: .\Tatexkz\templates\home\index.html:68
-#: .\Tatexkz\templates\home\index.html:108
 msgid "Вес (кг)"
 msgstr "Weight(kg)"
 
@@ -271,16 +274,30 @@ msgstr "Weight(kg)"
 msgid "Промокод"
 msgstr "Promo-code"
 
+#: .\Tatexkz\templates\home\index.html:108
+#: .\Tatexkz\templates\order\order.html:43
+#: .\Tatexkz\templates\order\order.html:48
+#: .\Tatexkz\templates\order\order.html:69
+#: .\Tatexkz\templates\order\order.html:74
+msgid "Вес(кг)"
+msgstr "Weight(kg)"
+
 #: .\Tatexkz\templates\home\index.html:116
-msgid "Высота (см)"
+#: .\Tatexkz\templates\order\order.html:96
+#: .\Tatexkz\templates\order\order.html:100
+msgid "Высота(см)"
 msgstr "Height(cm)"
 
 #: .\Tatexkz\templates\home\index.html:119
-msgid "Длина (см)"
+#: .\Tatexkz\templates\order\order.html:78
+#: .\Tatexkz\templates\order\order.html:82
+msgid "Длина(см)"
 msgstr "Length(cm)"
 
 #: .\Tatexkz\templates\home\index.html:122
-msgid "Ширина  (см)"
+#: .\Tatexkz\templates\order\order.html:87
+#: .\Tatexkz\templates\order\order.html:91
+msgid "Ширина(см)"
 msgstr "Width(cm)"
 
 #: .\Tatexkz\templates\home\index.html:139
@@ -295,6 +312,7 @@ msgstr "Calculate cost"
 msgid "Наши контакты"
 msgstr "Our contacts"
 
+#: .\Tatexkz\templates\order\order.html:4
 #: .\Tatexkz\templates\order\order.html:9
 msgid "Оформить посылку"
 msgstr "Make a request"
@@ -307,13 +325,6 @@ msgstr "Package type"
 #: .\Tatexkz\templates\order\order.html:66
 msgid "Вес и габариты"
 msgstr "Weight and dimensions"
-
-#: .\Tatexkz\templates\order\order.html:43
-#: .\Tatexkz\templates\order\order.html:48
-#: .\Tatexkz\templates\order\order.html:69
-#: .\Tatexkz\templates\order\order.html:74
-msgid "Вес(кг)"
-msgstr "Weight(kg)"
 
 #: .\Tatexkz\templates\order\order.html:56
 msgid "Список запрещенных предметов"
@@ -334,21 +345,6 @@ msgstr "Nuclear materials, radioactive and other dangerous substances"
 #: .\Tatexkz\templates\order\order.html:61
 msgid "Яды, ядовитые животные, вещества, растения и семена."
 msgstr "Poisons, poisonous animals, substances, plants and seeds."
-
-#: .\Tatexkz\templates\order\order.html:78
-#: .\Tatexkz\templates\order\order.html:82
-msgid "Длина(см)"
-msgstr "Length(cm)"
-
-#: .\Tatexkz\templates\order\order.html:87
-#: .\Tatexkz\templates\order\order.html:91
-msgid "Ширина(см)"
-msgstr "Width(cm)"
-
-#: .\Tatexkz\templates\order\order.html:96
-#: .\Tatexkz\templates\order\order.html:100
-msgid "Высота(см)"
-msgstr "Height(cm)"
 
 #: .\Tatexkz\templates\order\order.html:109
 msgid "Заполните данные о посылке"
@@ -449,6 +445,7 @@ msgid "Телефон получателя"
 msgstr "Recipient's telephone number"
 
 #: .\Tatexkz\templates\order\order.html:265
+#: .\Tatexkz\templates\order\order.html:268
 msgid "Ваш e-mail"
 msgstr "Your e-mail"
 
@@ -595,3 +592,12 @@ msgstr "Status"
 #: .\Tatexkz\templates\tracking\tracking.html:50
 msgid "Заказ подтвержден"
 msgstr "The order is confirmed"
+
+#~ msgid "Высота (см)"
+#~ msgstr "Height(cm)"
+
+#~ msgid "Длина (см)"
+#~ msgstr "Length(cm)"
+
+#~ msgid "Ширина  (см)"
+#~ msgstr "Width(cm)"
