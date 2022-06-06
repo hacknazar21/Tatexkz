@@ -25,16 +25,15 @@
         <header class="header" data-scroll-show data-scroll="1">
             <div class="header__container">
                 <div data-da=".menu__block-1, 767.98" class="header__links links-header">
-                    <a href="{% if LANGUAGE_CODE != 'ru' %}/{{ LANGUAGE_CODE }}{% endif %}#about-us"
+                    <a href="/{% if LANGUAGE_CODE != 'ru' %}{{ LANGUAGE_CODE }}{% endif %}#about-us"
                         class="links-header__link" data-goto=".about-us">{% trans 'О компании' %}</a>
-                    <a href="{% if LANGUAGE_CODE != 'ru' %}/{{ LANGUAGE_CODE }}{% endif %}#questions"
+                    <a href="/{% if LANGUAGE_CODE != 'ru' %}{{ LANGUAGE_CODE }}{% endif %}#questions"
                         class="links-header__link" data-goto=".questions">{% trans 'Частые вопросы' %}</a>
-                    <a href="{% if LANGUAGE_CODE != 'ru' %}/{{ LANGUAGE_CODE }}{% endif %}/coop"
+                    <a href="/{% if LANGUAGE_CODE != 'ru' %}{{ LANGUAGE_CODE }}{% endif %}/coop"
                         class="links-header__link">{% trans 'Сотрудничество' %}</a>
                 </div>
 
                 <div data-da=".menu__block-0, 767.98" class="header__right-side">
-
                     <a href="tel:{{settings.tel_href}}" class="header__number">
                         <span class="_icon-tel"></span>
                         <span>+7 (705) 777-46-00</span>
@@ -69,7 +68,7 @@
             </div>
 
             <div class="header__container">
-                <a href="{% if LANGUAGE_CODE != 'ru' %}/{{ LANGUAGE_CODE }}{% endif %}" class="header__logo-ibg">
+                <a href="/{% if LANGUAGE_CODE != 'ru' %}{{ LANGUAGE_CODE }}{% endif %}" class="header__logo-ibg">
                     <img src="{% static 'img/logo.svg' %}" alt="tatex">
                 </a>
 
@@ -83,7 +82,7 @@
 
                 <div data-da=".menu__block-2, 767.98" class="header__right-side header__menu-box">
                     
-                    <a href="{% if LANGUAGE_CODE != 'ru' %}/{{ LANGUAGE_CODE }}{% endif %}/order"
+                    <a href="/{% if LANGUAGE_CODE != 'ru' %}{{ LANGUAGE_CODE }}{% endif %}/order"
                         class="header__questions-btn button header-button">{% trans 'Оформить заявку' %}</a>
                 </div>
 
@@ -124,23 +123,23 @@
                             class="footer-social-media__img _icon-telegram"></a>
                     </div>
                     <div class="footer__links footer-link">
-                        <a href="{% if LANGUAGE_CODE != 'ru' %}/{{ LANGUAGE_CODE }}{% endif %}/oferta/"
+                        <a href="/{% if LANGUAGE_CODE != 'ru' %}{{ LANGUAGE_CODE }}{% endif %}/oferta/"
                             class="footer-link__box">
                             <div class="footer-link__text">{% trans 'Оферта' %}</div>
                         </a>
-                        <a href="{% if LANGUAGE_CODE != 'ru' %}/{{ LANGUAGE_CODE }}{% endif %}#about-us"
+                        <a href="/{% if LANGUAGE_CODE != 'ru' %}{{ LANGUAGE_CODE }}{% endif %}#about-us"
                             data-goto=".about-us" class="footer-link__box">
                             <div class="footer-link__text">{% trans 'О нас' %}</div>
                         </a>
-                        <a href="{% if LANGUAGE_CODE != 'ru' %}/{{ LANGUAGE_CODE }}{% endif %}#reviews"
+                        <a href="/{% if LANGUAGE_CODE != 'ru' %}{{ LANGUAGE_CODE }}{% endif %}#reviews"
                             data-goto=".reviews" class="footer-link__box">
                             <div class="footer-link__text">{% trans 'Отзывы' %}</div>
                         </a>
-                        <a href="{% if LANGUAGE_CODE != 'ru' %}/{{ LANGUAGE_CODE }}{% endif %}#questions"
+                        <a href="/{% if LANGUAGE_CODE != 'ru' %}{{ LANGUAGE_CODE }}{% endif %}#questions"
                             data-goto=".questions" class="footer-link__box">
                             <div class="footer-link__text">FAQ</div>
                         </a>
-                        <a href="{% if LANGUAGE_CODE != 'ru' %}/{{ LANGUAGE_CODE }}{% endif %}/privacy/"
+                        <a href="/{% if LANGUAGE_CODE != 'ru' %}{{ LANGUAGE_CODE }}{% endif %}/privacy/"
                             class="footer-link__box">
                             <div class="footer-link__text">{% trans 'Политика приватности' %}</div>
                         </a>

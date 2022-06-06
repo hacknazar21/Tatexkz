@@ -12,7 +12,7 @@ Offer
 {% if LANGUAGE_CODE == 'ru' %}
 <main class="page">
     <section class="page__name page-name">
-        <h1 class="page-name__title"><a href="{% if LANGUAGE_CODE != 'ru' %}/{{ LANGUAGE_CODE }}{% endif %}">Оферта</a></h1>
+        <h1 class="page-name__title"><a href="/{% if LANGUAGE_CODE != 'ru' %}{{ LANGUAGE_CODE }}{% endif %}">Оферта</a></h1>
     </section>
     <div class="oferta__container">
         <style>
@@ -491,7 +491,7 @@ Offer
 {% elif LANGUAGE_CODE == 'kk' %}
 <main class="page">
     <section class="page__name page-name">
-        <h1 class="page-name__title"><a href="{% if LANGUAGE_CODE != 'ru' %}/{{ LANGUAGE_CODE }}{% endif %}">Оферта</a></h1>
+        <h1 class="page-name__title"><a href="/{% if LANGUAGE_CODE != 'ru' %}{{ LANGUAGE_CODE }}{% endif %}">Оферта</a></h1>
     </section>
     <div class="oferta__container">
         <style>
