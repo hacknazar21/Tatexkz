@@ -5453,12 +5453,12 @@
                 const selectOptionsItems = selectOptions.querySelectorAll(`.${this.selectClasses.classSelectOption}`);
                 const _this = this;
                 selectInput.addEventListener("input", (function () {
-                    
+
                     selectOptionsItems.forEach((selectOptionsItem => {
                         console.log(selectOptionsItem.textContent.toUpperCase().startsWith(selectInput.value.toUpperCase()))
                         if (selectOptionsItem.textContent.toUpperCase().startsWith(selectInput.value.toUpperCase())) selectOptionsItem.style.display = 'initial'; else selectOptionsItem.style.display = 'none';
                     }));
-                    
+
                 }));
             }
             selectCallback(selectItem, originalSelect) {
@@ -9264,8 +9264,7 @@
         let sortBy = 0;
         const tableDataInit = document.querySelectorAll(".table-history__row-data");
         function validateInput(input) {
-            if (null != input.dataset.inputcity) return /^([a-zA-Zа-яА-ЯёЁ]+[-]?[a-zA-Zа-яА-ЯёЁ]*[-]?[a-zA-Zа-яА-ЯёЁ]*[-]?[a-zA-Zа-яА-ЯёЁ]*)$/.test(input.value); else if (null != input.dataset.inputnumber) return /^[0-9]+/.test(input.value);
-            else return true
+            return true
         }
         async function calculatePrice(form) {
             let deliveryPrice, deliveryDate, data = {
@@ -9298,17 +9297,18 @@
                     data.promo = promo.value;
 
                     const volumeWeight = parseInt(data.heightbox) * parseInt(data.lengthbox) * parseInt(data.widthbox) / 5000
-                    if (volumeWeight > parseFloat(data.weight)){
+                    if (volumeWeight > parseFloat(data.weight)) {
                         data.weight = volumeWeight
-                        
+
                         form.querySelector('button').insertAdjacentHTML('beforeBegin', `<h3 style="color: #090a0a; font-weight: 700;">${weightText} ${volumeWeight}кг</h3>`)
-                    }else if (volumeWeight == parseFloat(data.weight))
+                    } else if (volumeWeight == parseFloat(data.weight))
                         form.querySelector('button').insertAdjacentHTML('beforeBegin', `<h3 style="color: #090a0a; font-weight: 700;">${weightText} ${volumeWeight}кг</h3>`)
                     else
                         form.querySelector('button').insertAdjacentHTML('beforeBegin', `<h3 style="color: #090a0a; font-weight: 700;">${weightText} ${volumeWeight}кг</h3>`)
                 }
             }));
-            let response = await fetch("/order/tariff/", {
+
+            let response = await fetch(form.action + 'tariff/', {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json;charset=utf-8"
@@ -9324,7 +9324,7 @@
                 deliveryDate.setDate(deliveryDate.getDate());
                 deliveryDate = deliveryDate.getDate() + '.' + (deliveryDate.getMonth() + 1) + '.' + deliveryDate.getFullYear()
                 let percent = ''
-                
+
                 if (result['percent'] > -1 && result['percent'] != 0)
                     percent = `Скидка ${result['percent']}%`
                 const templatePrice = `\n
@@ -9440,11 +9440,11 @@
             if (null != formcalc) {
                 const error = document.createElement("span");
                 error.classList.add("error");
-                
+
                 error.innerHTML = textErr;
-                
+
                 formcalc.addEventListener("submit", (event => {
-                    
+
                     if (!flag) {
                         event.preventDefault();
                         let badValidate = false;
@@ -9452,7 +9452,7 @@
                             const input = event.target.querySelectorAll("input[required]")[index];
                             input.addEventListener("focusout", (() => {
                                 if (null != formcalc.querySelector(".error")) formcalc.querySelector(".error").remove();
-                            
+
                             }));
                             input.addEventListener("input", (() => {
                                 window.location.reload()
@@ -9467,7 +9467,7 @@
                         if (!badValidate) {
                             calculatePrice(formcalc).then((success) => {
                                 if (success) {
-                                    
+
                                     formcalc.querySelector("[data-btncalc]").innerHTML = textBtn;
                                     flag = true;
                                 }
@@ -9483,7 +9483,7 @@
                 selectOption.addEventListener("click", (e => {
                     const select = selectOption.parentElement.parentElement.parentElement.querySelector("select");
                     const selectCity = document.querySelector(`select[name=${select.dataset.country}]`);
-                    if(selectCity){
+                    if (selectCity) {
                         const selectPlaceholder = selectCity.firstElementChild;
                         while (selectCity.lastElementChild != selectPlaceholder) selectCity.removeChild(selectCity.lastElementChild);
                         fetch(`/order/${selectOption.dataset.value}`).then((response => response.json())).then((data => {
@@ -9539,7 +9539,7 @@
                     if (el.classList.contains("hover")) {
                         const span = document.createElement("span");
                         span.classList.add("hover-span");
-                        
+
                         span.innerHTML = datemissed;
                         el.style.position = "relative";
                         el.insertAdjacentElement("afterbegin", span);
@@ -9567,8 +9567,8 @@
             }));
             if (0 != checkboxes.length) checkboxes.forEach((checkbox => {
                 checkbox.addEventListener("click", (event => {
-                    
-                    if (event.target.checked) { event.target.classList.add("active");  } else if (event.target.classList.contains("active")) { event.target.classList.remove("active");  }
+
+                    if (event.target.checked) { event.target.classList.add("active"); } else if (event.target.classList.contains("active")) { event.target.classList.remove("active"); }
                 }));
             }));
             inputs.forEach((input => {
@@ -9618,7 +9618,7 @@
                     if (event.target.value != '' && parseFloat(event.target.value) > 0.3) {
                         event.target.value = buffer
                         if (formDocument.querySelector('input[name="weight"] + label') === null) {
-                            
+
                             errorLabel.innerText = maxWeightText
                             errorLabel.classList.add('error')
 

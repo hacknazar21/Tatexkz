@@ -9,7 +9,7 @@ from django.views.decorators.csrf import csrf_exempt
 import xml.etree.ElementTree as ET
 import requests
 from Tatexkz.apps.order.models import Tariff
-
+from django.utils.translation import gettext as _
 from Tatexkz.apps.promo.models import Promo
 
 with open("static/files/countries.min.json", "r", encoding='utf-8') as read_file:
@@ -21,6 +21,8 @@ for country in countiesRoot.iter('country'):
     for name in country.iter('name'):
         for alpha2 in country.iter('alpha2'):
             countriesCodes[name.text] = alpha2.text
+
+
 @csrf_exempt
 def tariff(request):
     if request.method == "POST":
@@ -92,11 +94,11 @@ def tariff(request):
                 if whereCountry != '' and fromCountry != '':
                     break
             if whereCountry != 'Казахстан' and fromCountry != 'Казахстан':
-                return JsonResponse({'error':  True, 'errorText': "Упс, можно только из Казахстана или в него"})
+                return JsonResponse({'error':  True, 'errorText': _("Упс, можно только из Казахстана или в него")})
             if whereCountry == '':
-                return JsonResponse({'error':  True, 'errorText': 'Не найдена страна с городом ' + whereCity})
+                return JsonResponse({'error':  True, 'errorText': _('Не найдена страна с городом ') + whereCity})
             elif fromCountry == '':
-                return JsonResponse({'error':  True, 'errorText': 'Не найдена страна с городом ' + fromCity})
+                return JsonResponse({'error':  True, 'errorText': _('Не найдена страна с городом ') + fromCity})
         calculatedTariff = calcTariff(
             typePackage, fromCity, whereCity, fromCountry, whereCountry, weight)
         oldPrice = calculatedTariff
@@ -136,7 +138,7 @@ def calcTariff(typePackage, fromcity, wherecity, fromCountry, whereCountry, weig
     else:
         tariffType = 'import'
     if weight > 300:
-        return 'Слишком большой груз'
+        return _('Слишком большой груз')
     tariffFile = Tariff.objects.latest('tariffFile')
     wb_obj = openpyxl.load_workbook(tariffFile.tariffFile.path)
     zonesSheet = wb_obj.get_sheet_by_name("zones")
@@ -148,7 +150,7 @@ def calcTariff(typePackage, fromcity, wherecity, fromCountry, whereCountry, weig
             zones[row[0]].append(row[1])
     if(fromCountry == whereCountry):
         if weight > 50:
-            return 'Слишком большой груз'
+            return _('Слишком большой груз')
         ieSheet = wb_obj.get_sheet_by_name('kz')
         weightMass = []
         for i in range(1, ieSheet.max_row):
@@ -159,10 +161,10 @@ def calcTariff(typePackage, fromcity, wherecity, fromCountry, whereCountry, weig
         return ieSheet.cell(row=resultRow, column=2).value
     elif(tariffType == 'import'):
         zone = zones.get(
-            fromCountry, ['В данную страну нет доставки: ' + fromCountry])[0]
+            fromCountry, [_('В данную страну нет доставки: ') + fromCountry])[0]
     else:
         zone = zones.get(whereCountry, [
-            'В данную страну нет доставки: ' + whereCountry])[0]
+            _('В данную страну нет доставки: ') + whereCountry])[0]
     if not isint(zone):
         return zone
     ieSheet = wb_obj.get_sheet_by_name(tariffType)
@@ -175,7 +177,7 @@ def calcTariff(typePackage, fromcity, wherecity, fromCountry, whereCountry, weig
             resultColumn = i
     print(typePackage)
     if typePackage == 'document' and weight < 2:
-        
+
         weightMass = []
         for i in range(3, 6):
             weightMass.append(ieSheet.cell(row=i, column=1).value)
@@ -245,11 +247,11 @@ def index(request):
             if wherecountry != '' and fromcountry != '':
                 break
         if wherecountry != 'Казахстан' and fromcountry != 'Казахстан':
-            return HttpResponse("Упс, можно только из Казахстана или в него")
+            return HttpResponse(_("Упс, можно только из Казахстана или в него"))
         if wherecountry == '':
-            return HttpResponse('Не найдена страна с городом ' + wherecity)
+            return HttpResponse(_('Не найдена страна с городом ') + wherecity)
         elif fromcountry == '':
-            return HttpResponse('Не найдена страна с городом ' + fromcity)
+            return HttpResponse(_('Не найдена страна с городом ') + fromcity)
 
         calculatedTariff = calcTariff(
             type, fromcity, wherecity, fromcountry, wherecountry, weight)
@@ -308,15 +310,15 @@ def calcPromo(promo):
             promocode = Promo.objects.get(promo=promo)
             if promocode.datefrom.isoformat() > datetime.now().isoformat():
                 print("Рано")
-                return {'error': 'Промокод еще не активен', 'percent': -1}
+                return {'error': _('Промокод еще не активен'), 'percent': -1}
             elif datetime.now().isoformat() < promocode.dateto.isoformat():
                 print("В самый раз")
                 return {'error': '', 'percent': promocode.percent}
             else:
                 print("Поздно")
-                return {'error': 'Срок действия промокода истёк', 'percent': -1}
+                return {'error': _('Срок действия промокода истёк'), 'percent': -1}
 
         except Promo.DoesNotExist:
-            return {'error': 'Данного промокода не существует', 'percent': -1}
+            return {'error': _('Данного промокода не существует'), 'percent': -1}
     else:
         return {'error': '', 'percent': 0}

@@ -25,7 +25,9 @@
 				<div class="swiper-pagination"></div>
 			</div>
 			<div class="first-screen__calc-box">
-				<form data-formcalc method="get" action="{% if LANGUAGE_CODE != 'ru' %}/{{ LANGUAGE_CODE }}{% endif %}/order" class="first-screen__calc first-screen-calc">
+				<form data-formcalc method="get"
+					action="{% if LANGUAGE_CODE != 'ru' %}/{{ LANGUAGE_CODE }}{% endif %}/order/"
+					class="first-screen__calc first-screen-calc">
 					<div class="first-screen-calc__type">
 						<input checked type="radio" class="first-screen-calc__type-btn button radio" id="typedocument"
 							name="type" value="document">
@@ -38,13 +40,14 @@
 						<div class="first-screen-calc__input-box">
 							<div class="first-screen-calc__input input _icon-map-arrow">
 								<input data-inputcity required autocomplete="off" type="text" name="from"
-									id="from_input" placeholder="{% trans 'Откуда' %}" class="first-screen-calc__fromwhere">
+									id="from_input" placeholder="{% trans 'Откуда' %}"
+									class="first-screen-calc__fromwhere">
 							</div>
 							<div class="first-screen-calc__favorite-distance-box">
 								<a href="" data-tip="from_input" class="first-screen-calc__favorite-link">Алматы</a>
 								<a href="" data-tip="from_input"
 									class="first-screen-calc__favorite-link">Нур-Султан(Астана)</a>
-								<a href="" data-tip="from_input" class="first-screen-calc__favorite-link">Шымкент</a>
+								<a href="" data-tip="from_input" class="first-screen-calc__favorite-link">Стамбул</a>
 							</div>
 						</div>
 						<div class="first-screen-calc__input-box">
@@ -57,13 +60,13 @@
 								<a href="" data-tip="where_input" class="first-screen-calc__favorite-link">Алматы</a>
 								<a href="" data-tip="where_input"
 									class="first-screen-calc__favorite-link">Нур-Султан(Астана)</a>
-								<a href="" data-tip="where_input" class="first-screen-calc__favorite-link">Шымкент</a>
+								<a href="" data-tip="where_input" class="first-screen-calc__favorite-link">Нью-Йорк</a>
 							</div>
 						</div>
 						<div class="first-screen-calc__input-box">
 							<div class="first-screen-calc__input input _icon-cart">
-								<input value="0.3" data-inputnumber required autocomplete="off" type="text" name="weight"
-									data-error="Ошибка" data-inputmask-clearmaskonlostfocus="true"
+								<input value="0.3" data-inputnumber required autocomplete="off" type="text"
+									name="weight" data-error="Ошибка" data-inputmask-clearmaskonlostfocus="true"
 									data-inputmask="'inputmode': 'decimal', 'substitutes': {',': '.'}, 'mask': '9{+|1}\\.|\\,9 (кг)', 'greedy' : false, 'placeholder': '0'"
 									placeholder="{% trans 'Вес (кг)' %}" class="first-screen-calc__weight">
 							</div>
@@ -71,9 +74,10 @@
 						<div class="first-screen-calc__input-box">
 							<div style="margin: 0; padding:0;" class="promo-input first-screen-calc__input input">
 								<input hidden name="promo" data-inputnumber autocomplete="off" type="text"
-									data-error="Ошибка" placeholder="{% trans 'Промокод' %}" class="first-screen-calc__weight">
+									data-error="Ошибка" placeholder="{% trans 'Промокод' %}"
+									class="first-screen-calc__weight">
 							</div>
-						</div>		
+						</div>
 					</div>
 					<div data-for="package" class="first-screen-calc__params package-params">
 						<div class="first-screen-calc__input-box">
@@ -85,7 +89,7 @@
 								<a href="" data-tip="from_input" class="first-screen-calc__favorite-link">Алматы</a>
 								<a href="" data-tip="from_input"
 									class="first-screen-calc__favorite-link">Нур-Султан(Астана)</a>
-								<a href="" data-tip="from_input" class="first-screen-calc__favorite-link">Шымкент</a>
+								<a href="" data-tip="from_input" class="first-screen-calc__favorite-link">Стамбул</a>
 							</div>
 						</div>
 						<div class="first-screen-calc__input-box">
@@ -97,7 +101,7 @@
 								<a data-tip="where_input" href="" class="first-screen-calc__favorite-link">Алматы</a>
 								<a data-tip="where_input" href=""
 									class="first-screen-calc__favorite-link">Нур-Султан(Астана)</a>
-								<a data-tip="where_input" href="" class="first-screen-calc__favorite-link">Шымкент</a>
+								<a data-tip="where_input" href="" class="first-screen-calc__favorite-link">Нью-Йорк</a>
 							</div>
 						</div>
 						<div class="first-screen-calc__input-box">
@@ -105,7 +109,7 @@
 								<input data-inputnumber required autocomplete="off" type="text" name="weight"
 									data-error="Ошибка" data-inputmask-clearmaskonlostfocus="true"
 									data-inputmask="'inputmode': 'decimal', 'substitutes': {',': '.'}, 'mask': '9{+|1}\\.|\\,9 (кг)', 'greedy' : false, 'placeholder': '0'"
-									placeholder="{% trans 'Вес(кг)' %}"    class="first-screen-calc__weight">
+									placeholder="{% trans 'Вес(кг)' %}" class="first-screen-calc__weight">
 							</div>
 						</div>
 						<div class="first-screen-calc__input-box ">
@@ -124,16 +128,16 @@
 							</div>
 						</div>
 						<div class="first-screen-calc__input-box">
-							<div  style="margin: 0; padding:0; " class="promo-input first-screen-calc__input input">
+							<div style="margin: 0; padding:0; " class="promo-input first-screen-calc__input input">
 								<input hidden name="promo" data-inputnumber autocomplete="off" type="text"
-									data-error="Ошибка" placeholder="{% trans 'Промокод' %}" class="first-screen-calc__weight">
+									data-error="Ошибка" placeholder="{% trans 'Промокод' %}"
+									class="first-screen-calc__weight">
 							</div>
 						</div>
 					</div>
 					<div id="promo-box" class="first-screen-calc__input-box">
 						<div style="border:none;" class="first-screen-calc__input input">
-							<input type="checkbox" class="checkbox__input " id="promo" name="print"
-									value="False">
+							<input type="checkbox" class="checkbox__input " id="promo" name="print" value="False">
 							<label style="font-size: 16px;" class="form-order__label checkbox__label" for="promo">
 								<span></span>
 								<span class="checkbox__text">{% trans 'У меня есть промокод' %}</span>

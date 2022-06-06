@@ -6,7 +6,8 @@
 <main class="page">
     {% if not error %}
     <section class="page__name page-name">
-        <h1 class="page-name__title"><a href="{% if LANGUAGE_CODE != 'ru' %}/{{ LANGUAGE_CODE }}{% endif %}">{% trans 'Оформить посылку' %}</a></h1>
+        <h1 class="page-name__title"><a href="{% if LANGUAGE_CODE != 'ru' %}/{{ LANGUAGE_CODE }}{% endif %}">
+                {% trans 'Оформить посылку' %}</a></h1>
     </section>
     <section class="page__order order">
         <div class="order__container">
@@ -14,7 +15,8 @@
             <h2 class="order__title title-h2">{% trans 'Тип посылки' %}</h2>
 
             <div class="order__body">
-                <form action="{% if LANGUAGE_CODE != 'ru' %}/{{ LANGUAGE_CODE }}{% endif %}/payment/" method="post" class="order__form form-order">
+                <form action="{% if LANGUAGE_CODE != 'ru' %}/{{ LANGUAGE_CODE }}{% endif %}/payment/" method="post"
+                    class="order__form form-order">
                     {% csrf_token %}
                     <div class="order__type">
                         {% if type == 'document' %}
@@ -42,10 +44,11 @@
                                 <div class="form-order__input-box">
                                     <div class="form-order__input-title _nessesary">{% trans 'Вес(кг)' %}</div>
                                     <div class="input _icon-weight">
-                                        <input value="0.3" data-inputnumber required autocomplete="off" type="text" name="weight"
-                                            data-error="Ошибка" data-inputmask-clearmaskonlostfocus="true"
+                                        <input value="0.3" data-inputnumber required autocomplete="off" type="text"
+                                            name="weight" data-error="Ошибка" data-inputmask-clearmaskonlostfocus="true"
                                             data-inputmask="'mask': '9{+|1}.9 (кг)', 'greedy' : false"
-                                            placeholder="{% trans 'Вес(кг)' %}" class="form-order__input" value="{{weight}}">
+                                            placeholder="{% trans 'Вес(кг)' %}" class="form-order__input"
+                                            value="{{weight}}">
                                     </div>
                                 </div>
                             </div>
@@ -57,8 +60,10 @@
                             <ul class="form-alert__list">
                                 <li class="form-alert__item">{% trans 'Наркотические средства' %}</li>
                                 <li class="form-alert__item">{% trans 'Психотропные вещества и прекурсоры' %}</li>
-                                <li class="form-alert__item">{% trans 'Ядерные материалы, радиоактивные и другие опасные вещества' %}</li>
-                                <li class="form-alert__item">{% trans 'Яды, ядовитые животные, вещества, растения и семена.' %}
+                                <li class="form-alert__item">
+                                    {% trans 'Ядерные материалы, радиоактивные и другие опасные вещества' %}</li>
+                                <li class="form-alert__item">
+                                    {% trans 'Яды, ядовитые животные, вещества, растения и семена.' %}
                                 </li>
                             </ul>
                         </div>
@@ -68,37 +73,41 @@
                                 <div class="form-order__input-box">
                                     <div class="form-order__input-title _nessesary">{% trans 'Вес(кг)' %}</div>
                                     <div class="input _icon-weight">
-                                        <input  data-inputnumber required autocomplete="off" type="text" name="weight"
+                                        <input data-inputnumber required autocomplete="off" type="text" name="weight"
                                             data-error="Ошибка" data-inputmask-clearmaskonlostfocus="true"
                                             data-inputmask="'mask': '9{+|1}.9 (кг)', 'greedy' : false"
-                                            placeholder="{% trans 'Вес(кг)' %}" class="form-order__input" value="{{weight}}">
+                                            placeholder="{% trans 'Вес(кг)' %}" class="form-order__input"
+                                            value="{{weight}}">
                                     </div>
                                 </div>
                                 <div class="form-order__input-box">
                                     <div class="form-order__input-title">{% trans 'Длина(см)' %}</div>
                                     <div class="input _icon-treangle">
                                         <input autocomplete="off" required data-inputmask-clearmaskonlostfocus=" true"
-										data-inputmask="'mask': '9{+|1} (см)', 'greedy' : false" type="text" name="length" data-error="Ошибка"
-                                            placeholder="{% trans 'Длина(см)' %}" data-placeholder="{% trans 'Длина(см)' %}"
-                                            class="form-order__input" value="{{length}}">
+                                            data-inputmask="'mask': '9{+|1} (см)', 'greedy' : false" type="text"
+                                            name="length" data-error="Ошибка" placeholder="{% trans 'Длина(см)' %}"
+                                            data-placeholder="{% trans 'Длина(см)' %}" class="form-order__input"
+                                            value="{{length}}">
                                     </div>
                                 </div>
                                 <div class="form-order__input-box">
                                     <div class="form-order__input-title">{% trans 'Ширина(см)' %}</div>
                                     <div class="input _icon-treangle">
                                         <input autocomplete="off" required data-inputmask-clearmaskonlostfocus=" true"
-										data-inputmask="'mask': '9{+|1} (см)', 'greedy' : false" type="text" name="width" data-error="Ошибка"
-                                            placeholder="{% trans 'Ширина(см)' %}" data-placeholder="{% trans 'Ширина(см)' %}"
-                                            class="form-order__input" value="{{width}}">
+                                            data-inputmask="'mask': '9{+|1} (см)', 'greedy' : false" type="text"
+                                            name="width" data-error="Ошибка" placeholder="{% trans 'Ширина(см)' %}"
+                                            data-placeholder="{% trans 'Ширина(см)' %}" class="form-order__input"
+                                            value="{{width}}">
                                     </div>
                                 </div>
                                 <div class="form-order__input-box">
                                     <div class="form-order__input-title">{% trans 'Высота(см)' %}</div>
                                     <div class="input _icon-treangle">
                                         <input autocomplete="off" required data-inputmask-clearmaskonlostfocus=" true"
-										data-inputmask="'mask': '9{+|1} (см)', 'greedy' : false" type="text" name="height" data-error="Ошибка"
-                                            placeholder="{% trans 'Высота(см)' %}" data-placeholder="{% trans 'Высота(см)' %}"
-                                            class="form-order__input" value="{{height}}">
+                                            data-inputmask="'mask': '9{+|1} (см)', 'greedy' : false" type="text"
+                                            name="height" data-error="Ошибка" placeholder="{% trans 'Высота(см)' %}"
+                                            data-placeholder="{% trans 'Высота(см)' %}" class="form-order__input"
+                                            value="{{height}}">
                                     </div>
                                 </div>
                             </div>
@@ -109,10 +118,11 @@
                             <h2 class="form-order__title title-h2">{% trans 'Заполните данные о посылке' %}</h2>
                             <div class="form-order__grid">
                                 <div class="form-order__input-box">
-                                    <div class="form-order__input-title _nessesary">{% trans 'Страна отправителя' %}</div>
+                                    <div class="form-order__input-title _nessesary">{% trans 'Страна отправителя' %}
+                                    </div>
                                     <div class="input">
-                                        <select data-search required name="from_country" data-country="from" class="form"
-                                            data-pseudo-label>
+                                        <select data-search required name="from_country" data-country="from"
+                                            class="form" data-pseudo-label>
                                             {% if activeCountryFrom %}
                                             <option value="{{activeCountryFrom}}" selected>{{activeCountryFrom}}
                                             </option>
@@ -126,10 +136,11 @@
                                     </div>
                                 </div>
                                 <div class="form-order__input-box">
-                                    <div class="form-order__input-title _nessesary">{% trans 'Страна получателя' %}</div>
+                                    <div class="form-order__input-title _nessesary">{% trans 'Страна получателя' %}
+                                    </div>
                                     <div class="input">
-                                        <select data-search required name="where_country" data-country="where" class="form"
-                                            data-pseudo-label>
+                                        <select data-search required name="where_country" data-country="where"
+                                            class="form" data-pseudo-label>
                                             {% if activeCountryWhere %}
                                             <option value="{{activeCountryWhere}}" selected>{{activeCountryWhere}}
                                             </option>
@@ -143,7 +154,8 @@
                                     </div>
                                 </div>
                                 <div class="form-order__input-box">
-                                    <div class="form-order__input-title _nessesary">{% trans 'Город отправителя' %}</div>
+                                    <div class="form-order__input-title _nessesary">{% trans 'Город отправителя' %}
+                                    </div>
                                     <div class="input">
                                         <select data-search required name="from" class="form" data-pseudo-label>
                                             {% if fromcity %}
@@ -177,10 +189,12 @@
                                     </div>
                                 </div>
                                 <div class="form-order__input-box">
-                                    <div class="form-order__input-title _nessesary">{% trans 'Адрес отправителя' %}</div>
+                                    <div class="form-order__input-title _nessesary">{% trans 'Адрес отправителя' %}
+                                    </div>
                                     <div class="input">
                                         <input required autocomplete="off" type="text" name="sendersAddress"
-                                            data-error="Ошибка" placeholder="{% trans 'Улица, дом, офис/квартира, этаж' %}"
+                                            data-error="Ошибка"
+                                            placeholder="{% trans 'Улица, дом, офис/квартира, этаж' %}"
                                             class="form-order__input">
                                     </div>
                                 </div>
@@ -188,7 +202,8 @@
                                     <div class="form-order__input-title _nessesary">{% trans 'Адрес получателя' %}</div>
                                     <div class="input">
                                         <input required autocomplete="off" type="text" name="recipientAddress"
-                                            data-error="Ошибка" placeholder="{% trans 'Улица, дом, офис/квартира, этаж' %}"
+                                            data-error="Ошибка"
+                                            placeholder="{% trans 'Улица, дом, офис/квартира, этаж' %}"
                                             class="form-order__input">
                                     </div>
                                 </div>
@@ -204,7 +219,7 @@
                                 </div>
                                 <div class="form-order__input-box">
                                     <div class="form-order__input-title _nessesary">
-                                        {% trans 'Почтовый индекс получателя' %} 
+                                        {% trans 'Почтовый индекс получателя' %}
                                     </div>
                                     <div class="input">
                                         <input data-inputmask="'mask': '999999', 'placeholder': ''" required
@@ -213,8 +228,9 @@
                                     </div>
                                 </div>
                                 <div class="form-order__input-box">
-                                    <div class="form-order__input-title _nessesary">{% trans 'Выберите дату забора' %}</div>
-                                    
+                                    <div class="form-order__input-title _nessesary">{% trans 'Выберите дату забора' %}
+                                    </div>
+
                                     <div class="input">
                                         <input required autocomplete="off" type="text" name="dataSend"
                                             data-error="Ошибка" placeholder="{% trans 'Дата забора' %}" id="dataSend"
@@ -240,10 +256,12 @@
                                     </div>
                                 </div>
                                 <div class="form-order__input-box">
-                                    <div class="form-order__input-title _nessesary">{% trans 'Телефон отправителя' %}</div>
+                                    <div class="form-order__input-title _nessesary">{% trans 'Телефон отправителя' %}
+                                    </div>
                                     <div class="input">
                                         <input required data-phone autocomplete="off" type="text" name="sendersTel"
-                                            data-error="Ошибка" placeholder="{% trans 'Номер телефона' %}" class="form-order__input">
+                                            data-error="Ошибка" placeholder="{% trans 'Номер телефона' %}"
+                                            class="form-order__input">
                                     </div>
                                 </div>
                                 <div class="form-order__input-box">
@@ -255,10 +273,12 @@
                                     </div>
                                 </div>
                                 <div class="form-order__input-box">
-                                    <div class="form-order__input-title _nessesary">{% trans 'Телефон получателя' %}</div>
+                                    <div class="form-order__input-title _nessesary">{% trans 'Телефон получателя' %}
+                                    </div>
                                     <div class="input">
                                         <input required data-phone autocomplete="off" type="text" name="recipientTel"
-                                            data-error="Ошибка" placeholder="{% trans 'Номер телефона' %}" class="form-order__input">
+                                            data-error="Ошибка" placeholder="{% trans 'Номер телефона' %}"
+                                            class="form-order__input">
                                     </div>
                                 </div>
                                 <div class="form-order__input-box">
@@ -272,15 +292,16 @@
                                     <div class="form-order__input-title">{% trans 'Промокод' %}</div>
                                     <div class="input">
                                         <input autocomplete="off" type="text" name="promo" data-error="Ошибка"
-                                            placeholder="{% trans 'Промокод' %}" value="{{promo}}" class="form-order__input">
+                                            placeholder="{% trans 'Промокод' %}" value="{{promo}}"
+                                            class="form-order__input">
                                     </div>
                                 </div>
                             </div>
                             <div class="form-order__input-box ">
                                 <div class="form-order__input-title">{% trans 'Подробное содержимое груза' %}</div>
                                 <div class="input">
-                                    <textarea name="comment" id="" placeholder="{% trans 'Опишите содержимое груза' %}" rows="5"
-                                        cols="33"></textarea>
+                                    <textarea name="comment" id="" placeholder="{% trans 'Опишите содержимое груза' %}"
+                                        rows="5" cols="33"></textarea>
                                 </div>
                             </div>
                             <div class="form-order__input-box _margin-10">
@@ -312,16 +333,22 @@
                         </div>
                         <div class="form-order__section">
                             <div class="form-order__danger">
-                                {% trans 'Нажимая на кнопку вы соглашаетесь с условиями отправки и принимаете' %} 
-                                <a href="{% if LANGUAGE_CODE != 'ru' %}/{{ LANGUAGE_CODE }}{% endif %}/oferta">{% trans 'оферту' %}</a>
-                                <a href="{% if LANGUAGE_CODE != 'ru' %}/{{ LANGUAGE_CODE }}{% endif %}/privacy">{% trans 'политику' %}</a> {% trans 'конфиденциальности' %}
+                                {% trans 'Нажимая на кнопку вы соглашаетесь с условиями отправки и принимаете' %}
+                                <a href="{% if LANGUAGE_CODE != 'ru' %}/{{ LANGUAGE_CODE }}{% endif %}/oferta">
+                                    {% trans 'оферту' %}
+                                </a>
+                                {% trans 'и' %}
+                                <a href="{% if LANGUAGE_CODE != 'ru' %}/{{ LANGUAGE_CODE }}{% endif %}/privacy">
+                                    {% trans 'политику' %}
+                                </a> {% trans 'конфиденциальности' %}
                             </div>
                             <div class="form-order__price">
                                 {% trans 'К оплате' %}: <span>{{price}}</span> ₸
                             </div>
                             <div class="form-order__submit-box buttons-box">
-                                <a href="{% if LANGUAGE_CODE != 'ru' %}/{{ LANGUAGE_CODE }}{% endif %}" class="form-order__cancel button cancel">{% trans 'Отмена' %}</a>
-                                <button data-btncalc type="submit" class="form-order__submit button submit"> 
+                                <a href="{% if LANGUAGE_CODE != 'ru' %}/{{ LANGUAGE_CODE }}{% endif %}"
+                                    class="form-order__cancel button cancel">{% trans 'Отмена' %}</a>
+                                <button data-btncalc type="submit" class="form-order__submit button submit">
                                     {% trans 'Перейти к оплате' %}
                                 </button>
                             </div>
@@ -340,7 +367,7 @@
 
 
 <script>
-    
+
     async function calculatePriceOrder(form) {
         let deliveryPrice, deliveryDate, data = {
             type: "",
@@ -361,14 +388,14 @@
             if (radio.checked && "document" == radio.value) {
                 data.type = 'document';
                 const from = form.querySelector('[name="from"]'),
-                from_country = form.querySelector('[name="from_country"]'), 
-                where = form.querySelector('[name="where"]'), 
-                where_country = form.querySelector('[name="where_country"]'), 
-                weight = form.querySelector('[name="weight"]'), 
-                promo = form.querySelector('[name="promo"]'), 
-                dataSend = form.querySelector('[name="dataSend"]'), 
-                postIndexSender = form.querySelector('[name="postIndexSender"]'), 
-                postIndexRecipient = form.querySelector('[name="postIndexRecipient"]');
+                    from_country = form.querySelector('[name="from_country"]'),
+                    where = form.querySelector('[name="where"]'),
+                    where_country = form.querySelector('[name="where_country"]'),
+                    weight = form.querySelector('[name="weight"]'),
+                    promo = form.querySelector('[name="promo"]'),
+                    dataSend = form.querySelector('[name="dataSend"]'),
+                    postIndexSender = form.querySelector('[name="postIndexSender"]'),
+                    postIndexRecipient = form.querySelector('[name="postIndexRecipient"]');
                 data.from = from.value;
                 data.where = where.value;
                 data.from_country = from_country.value;
@@ -381,17 +408,17 @@
             } else if (radio.checked && "package" == radio.value) {
                 data.type = 'package';
                 const from = form.querySelector('[name="from"]'),
-                from_country = form.querySelector('[name="from_country"]'), 
-                where_country = form.querySelector('[name="where_country"]'), 
-                where = form.querySelector('[name="where"]'), 
-                height = form.querySelector('[name="height"]'), 
-                length = form.querySelector('[name="length"]'), 
-                promo = form.querySelector('[name="promo"]'), 
-                width = form.querySelector('[name="width"]'), 
-                weight = form.querySelector('[name="weight"]'), 
-                dataSend = form.querySelector('[name="dataSend"]'), 
-                postIndexSender = form.querySelector('[name="postIndexSender"]'), 
-                postIndexRecipient = form.querySelector('[name="postIndexRecipient"]');
+                    from_country = form.querySelector('[name="from_country"]'),
+                    where_country = form.querySelector('[name="where_country"]'),
+                    where = form.querySelector('[name="where"]'),
+                    height = form.querySelector('[name="height"]'),
+                    length = form.querySelector('[name="length"]'),
+                    promo = form.querySelector('[name="promo"]'),
+                    width = form.querySelector('[name="width"]'),
+                    weight = form.querySelector('[name="weight"]'),
+                    dataSend = form.querySelector('[name="dataSend"]'),
+                    postIndexSender = form.querySelector('[name="postIndexSender"]'),
+                    postIndexRecipient = form.querySelector('[name="postIndexRecipient"]');
                 data.from = from.value;
                 data.where = where.value;
                 data.weight = parseFloat(weight.value);
@@ -405,17 +432,17 @@
                 data.postIndexRecipient = postIndexRecipient.value;
                 data.promo = promo.value;
                 const volumeWeight = parseInt(data.heightbox) * parseInt(data.lengthbox) * parseInt(data.widthbox) / 5000
-                if (volumeWeight > parseFloat(data.weight)){
+                if (volumeWeight > parseFloat(data.weight)) {
                     data.weight = volumeWeight
                     document.querySelector('.form-order__danger').insertAdjacentHTML('beforeBegin', `<h3 style="color: #090a0a; font-weight: 700;">Объемный вес ${volumeWeight}кг > Фактический вес ${parseFloat(data.weight)}кг</h3>`)
-                }else if (volumeWeight == parseFloat(data.weight))
+                } else if (volumeWeight == parseFloat(data.weight))
                     document.querySelector('.form-order__danger').insertAdjacentHTML('beforeBegin', `<h3 style="color: #090a0a; font-weight: 700;">Объемный вес ${volumeWeight}кг = Фактический вес ${parseFloat(data.weight)}кг</h3>`)
                 else
                     document.querySelector('.form-order__danger').insertAdjacentHTML('beforeBegin', `<h3 style="color: #090a0a; font-weight: 700;">Объемный вес ${volumeWeight}кг < Фактический вес ${parseFloat(data.weight)}кг</h3>`)
-            
+
             }
         }));
-        let response = await fetch("/order/tariff/", {
+        let response = await fetch("{% if LANGUAGE_CODE != 'ru' %}/{{ LANGUAGE_CODE }}{% endif %}/order/tariff/", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json;charset=utf-8"
@@ -423,15 +450,15 @@
             body: JSON.stringify(data)
         });
 
-        
+
         let result = await response.json();
-        
+
         let percent = ''
-        
+
         if (!result["error"]) {
             const isPrint = form.querySelector('input[name="print"]:checked')
-            
-            if(isPrint.value.toString() === "True"){
+
+            if (isPrint.value.toString() === "True") {
                 document.querySelector('.form-order__danger').insertAdjacentHTML('beforeBegin', `
                     <div class="form-order__danger">
                         {% trans "Накладная будет отправлена на Вашу почту после оформления заказа, ее нужно будет распечатать и передать курьеру вместе с Вашей посылкой" %} 
@@ -443,7 +470,7 @@
                     {% trans "Принести с собой накладную" %}
                 `
             }
-            
+
             if (result['percent'] > -1 && result['percent'] != 0) {
                 percent = `<div class="first-screen-calc__promo">{% trans "Скидка" %}: ${result['percent']}%</div>`
                 form.querySelector(".form-order__price").insertAdjacentHTML("afterBegin", percent);
@@ -475,13 +502,13 @@
             calculatePriceOrder(orderForm).then(price => {
                 if (price["price"]) {
                     priceLabel.innerHTML = priceText + priceLabel.innerHTML
-                    if(price["oldPrice"] !== price["price"])
-                    priceLabel.querySelector('span').innerHTML = `
+                    if (price["oldPrice"] !== price["price"])
+                        priceLabel.querySelector('span').innerHTML = `
                     <span style = "text-decoration: line-through;">${price["oldPrice"]}</span>
                     <span>${price["price"]}</span>
                     `
                     else
-                    priceLabel.querySelector('span').innerHTML = `
+                        priceLabel.querySelector('span').innerHTML = `
                     <span>${price["price"]}</span>
                     `
                     buttonSubmit.innerHTML = '{% trans "Оплатить" %}'
