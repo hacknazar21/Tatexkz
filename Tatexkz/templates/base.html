@@ -75,7 +75,7 @@
                             <option 
                             value="{{ language.code }}" 
                             {% if language.code == LANGUAGE_CODE %} selected{% endif %}>
-                                ({{ language.code }})
+                                {{ language.code }}
                             </option>
                             {% endfor %}
                         </select>
