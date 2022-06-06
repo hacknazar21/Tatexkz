@@ -7,3 +7,5 @@
 <h2>Билдит запускает проект</h2>
 <p>python manage.py runserver</p>
 <p>python manage.py runserver 192.168.1.6:8081</p>
+
+

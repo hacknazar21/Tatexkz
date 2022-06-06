@@ -454,15 +454,15 @@ msgstr "Жіберушінің телефон"
 
 #: .\Tatexkz\templates\order\order.html:268
 msgid "Имя получателя"
-msgstr "Алушының аты"
+msgstr "Қабылдаушының аты"
 
 #: .\Tatexkz\templates\order\order.html:271
 msgid "Введите имя получателя"
-msgstr "Алушының аты толтырыңыз"
+msgstr "Қабылдаушының аты толтырыңыз"
 
 #: .\Tatexkz\templates\order\order.html:276
 msgid "Телефон получателя"
-msgstr "Алушының телефон"
+msgstr "Қабылдаушының телефон"
 
 #: .\Tatexkz\templates\order\order.html:285
 #: .\Tatexkz\templates\order\order.html:288

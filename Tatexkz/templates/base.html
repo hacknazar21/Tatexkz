@@ -82,7 +82,7 @@
 
                 <div data-da=".menu__block-2, 767.98" class="header__right-side header__menu-box">
                     
-                    <a href="/{% if LANGUAGE_CODE != 'ru' %}{{ LANGUAGE_CODE }}{% endif %}/order"
+                    <a href="{% if LANGUAGE_CODE != 'ru' %}/{{ LANGUAGE_CODE }}{% endif %}/order"
                         class="header__questions-btn button header-button">{% trans 'Оформить заявку' %}</a>
                 </div>
 
@@ -168,7 +168,7 @@
                             Вашей посылкой' %}
                         </div>
                     </div>
-                    <a href="{% if LANGUAGE_CODE != 'ru' %}/{{ LANGUAGE_CODE }}{% endif %}"
+                    <a href="/{% if LANGUAGE_CODE != 'ru' %}{{ LANGUAGE_CODE }}{% endif %}"
                         class="popup__button button">{% trans 'Вернуться на главную' %}</a>
                 </div>
             </div>
@@ -189,7 +189,7 @@
                             {% trans 'Возможно данного трек-кода пока нет в нашей базе, попробуйте позже' %}
                         </div>
                     </div>
-                    <a href="{% if LANGUAGE_CODE != 'ru' %}/{{ LANGUAGE_CODE }}{% endif %}"
+                    <a href="/{% if LANGUAGE_CODE != 'ru' %}{{ LANGUAGE_CODE }}{% endif %}"
                         class="popup__button button">{% trans 'Вернуться на главную' %}</a>
                 </div>
             </div>
