@@ -48,7 +48,7 @@
                         class="header__number">
                         <img width="24px" style="margin-right: 0.5rem;" src="{% static 'img/whatsapp.svg' %}" alt="">
                     </a>
-                    <form action="{% url 'set_language' %}" method="post">{% csrf_token %}
+                    <form style="padding:0 10px; font-size: 16px;" action="{% url 'set_language' %}" method="post">{% csrf_token %}
                         <input name="next" type="hidden" value="{{ redirect_to }}">
                         <select data-submit class="select" name="language">
                             {% get_current_language as LANGUAGE_CODE %}
@@ -58,8 +58,8 @@
                             <option 
                             value="{{ language.code }}" 
                             {% if language.code == LANGUAGE_CODE %} selected{% endif %}
-                            style="padding:0 10px;">
-                                {{ language.code }}
+                            >
+                                {{ language.code.upper }}
                             </option>
                             {% endfor %}
                         </select>
