@@ -47,7 +47,7 @@
                         class="header__number">
                         <img width="24px" style="margin-right: 0.5rem;" src="{% static 'img/whatsapp.svg' %}" alt="">
                     </a>
-                    <form style="padding:0 10px; font-size: 16px;" action="{% url 'set_language' %}" method="post">{% csrf_token %}
+                    <form data-da=".header__mobile-lang, 767.98" style="padding:0 10px; font-size: 16px;" action="{% url 'set_language' %}" method="post">{% csrf_token %}
                         <input name="next" type="hidden" value="{{ redirect_to }}">
                         <select data-submit class="select" name="language">
                             {% get_current_language as LANGUAGE_CODE %}
@@ -81,11 +81,10 @@
                 </div>
 
                 <div data-da=".menu__block-2, 767.98" class="header__right-side header__menu-box">
-                    
                     <a href="{% if LANGUAGE_CODE != 'ru' %}/{{ LANGUAGE_CODE }}{% endif %}/order"
                         class="header__questions-btn button header-button">{% trans 'Оформить заявку' %}</a>
                 </div>
-
+                <div class="header__mobile-lang"></div>
                 <div class="header__menu menu">
                     <div class="menu__open-header">
                         <button type="button" class="menu__icon icon-menu"></button>
