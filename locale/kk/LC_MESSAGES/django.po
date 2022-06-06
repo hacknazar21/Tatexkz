@@ -553,7 +553,7 @@ msgstr "Төлеу"
 #: .\Tatexkz\templates\payment\payment.html:4
 #: .\Tatexkz\templates\payment\payment.html:12
 msgid "Оплата"
-msgstr "Төле"
+msgstr "Тапсырысты төлеу"
 
 #: .\Tatexkz\templates\payment\payment.html:15
 msgid "Назад"
@@ -561,7 +561,7 @@ msgstr "Артқа"
 
 #: .\Tatexkz\templates\payment\payment.html:17
 msgid "Выберите способ оплаты"
-msgstr "Алу күнін таңдаңыз"
+msgstr "Төлем түрін таңдаңы"
 
 #: .\Tatexkz\templates\payment\payment.html:27
 msgid "Оплата банковской картой"

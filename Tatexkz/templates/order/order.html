@@ -457,7 +457,8 @@
 
         if (!result["error"]) {
             const isPrint = form.querySelector('input[name="print"]:checked')
-
+            if (form.querySelector('.errorMsg'))
+                    form.querySelector('.errorMsg').remove()
             if (isPrint.value.toString() === "True") {
                 document.querySelector('.form-order__danger').insertAdjacentHTML('beforeBegin', `
                     <div class="form-order__danger">
