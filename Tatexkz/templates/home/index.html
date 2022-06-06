@@ -26,7 +26,7 @@
 			</div>
 			<div class="first-screen__calc-box">
 				<form data-formcalc method="get"
-					action="/{% if LANGUAGE_CODE != 'ru' %}{{ LANGUAGE_CODE }}{% endif %}/order/"
+					action="{% if LANGUAGE_CODE != 'ru' %}/{{ LANGUAGE_CODE }}{% endif %}/order/"
 					class="first-screen__calc first-screen-calc">
 					<div class="first-screen-calc__type">
 						<input checked type="radio" class="first-screen-calc__type-btn button radio" id="typedocument"

@@ -6,7 +6,7 @@
 <main class="page">
     {% if not error %}
     <section class="page__name page-name">
-        <h1 class="page-name__title"><a href="{% if LANGUAGE_CODE != 'ru' %}/{{ LANGUAGE_CODE }}{% endif %}">
+        <h1 class="page-name__title"><a href="/{% if LANGUAGE_CODE != 'ru' %}{{ LANGUAGE_CODE }}{% endif %}">
                 {% trans 'Оформить посылку' %}</a></h1>
     </section>
     <section class="page__order order">
