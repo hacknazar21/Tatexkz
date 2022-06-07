@@ -9297,7 +9297,7 @@
                     data.promo = promo.value;
 
                     const volumeWeight = parseInt(data.heightbox) * parseInt(data.lengthbox) * parseInt(data.widthbox) / 5000
-                    if(volumeWeight != NaN){
+                    if(!isNaN(volumeWeight)){
                         if (volumeWeight > parseFloat(data.weight)) {
                             data.weight = volumeWeight
 
