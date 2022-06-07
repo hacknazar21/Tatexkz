@@ -9297,14 +9297,16 @@
                     data.promo = promo.value;
 
                     const volumeWeight = parseInt(data.heightbox) * parseInt(data.lengthbox) * parseInt(data.widthbox) / 5000
-                    if (volumeWeight > parseFloat(data.weight)) {
-                        data.weight = volumeWeight
+                    if(volumeWeight != NaN){
+                        if (volumeWeight > parseFloat(data.weight)) {
+                            data.weight = volumeWeight
 
-                        form.querySelector('button').insertAdjacentHTML('beforeBegin', `<h3 style="color: #090a0a; font-weight: 700;">${weightText} ${volumeWeight}кг</h3>`)
-                    } else if (volumeWeight == parseFloat(data.weight))
-                        form.querySelector('button').insertAdjacentHTML('beforeBegin', `<h3 style="color: #090a0a; font-weight: 700;">${weightText} ${volumeWeight}кг</h3>`)
-                    else
-                        form.querySelector('button').insertAdjacentHTML('beforeBegin', `<h3 style="color: #090a0a; font-weight: 700;">${weightText} ${volumeWeight}кг</h3>`)
+                            form.querySelector('button').insertAdjacentHTML('beforeBegin', `<h3 style="color: #090a0a; font-weight: 700;">${weightText} ${volumeWeight}кг</h3>`)
+                        } else if (volumeWeight == parseFloat(data.weight))
+                            form.querySelector('button').insertAdjacentHTML('beforeBegin', `<h3 style="color: #090a0a; font-weight: 700;">${weightText} ${volumeWeight}кг</h3>`)
+                        else
+                            form.querySelector('button').insertAdjacentHTML('beforeBegin', `<h3 style="color: #090a0a; font-weight: 700;">${weightText} ${volumeWeight}кг</h3>`)
+                    }
                 }
             }));
 
