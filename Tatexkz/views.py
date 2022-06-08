@@ -288,6 +288,7 @@ def dhl(request):
         filePath = 'static/files/' + trackcode + '/Details.pdf'
         message.attach_file(filePath)
         message.send()
+
         return JsonResponse({'Response': response.text})
 
     return JsonResponse({'dfd': 2})

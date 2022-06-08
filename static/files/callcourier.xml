@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<req:BookPURequest xmlns:req="http://www.dhl.com" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.dhl.com
+ book-pickup-global-req.xsd" schemaVersion="3.0">
+    <Request>
+        <ServiceHeader>
+            <MessageTime>2022-05-30T16:23:00.891+06:00</MessageTime>
+            <MessageReference>Shipmnt_AP_CN_wth_62_40000000001</MessageReference>
+            <SiteID>v62_tBTTUgPMKT</SiteID>
+            <Password>y3vOe4xj9h</Password>
+        </ServiceHeader>
+        <MetaData>
+            <SoftwareName>XMLPI</SoftwareName>
+            <SoftwareVersion>10</SoftwareVersion>
+        </MetaData>
+    </Request>
+    <RegionCode>EU</RegionCode>
+    <Requestor>
+        <AccountType>D</AccountType>
+        <AccountNumber>967710648</AccountNumber>
+        <RequestorContact>
+            <PersonName>TEST TEST</PersonName>
+            <Phone>77272588588</Phone>
+        </RequestorContact>
+        <CompanyName>TEST</CompanyName>
+        <Address1>Naurizbai batyra 154a</Address1>
+        <City>ALMATY</City>
+        <CountryCode>KZ</CountryCode>
+    </Requestor>
+    <Place>
+        <LocationType>B</LocationType>
+        <CompanyName>TEST TEST</CompanyName>
+        <Address1>ul Pushkina 1 TEST</Address1>
+        <PackageLocation>Reception</PackageLocation>
+        <City>ALMATY</City>
+        <StateCode>KZ</StateCode>
+        <CountryCode>KZ</CountryCode>
+        <PostalCode>050000</PostalCode>
+    </Place>
+    <Pickup>
+        <PickupDate>2022-05-30</PickupDate>
+        <PickupTypeCode>A</PickupTypeCode>
+        <ReadyByTime>16:00</ReadyByTime>
+        <CloseTime>18:00</CloseTime>
+    </Pickup>
+    <PickupContact>
+        <PersonName>TEST</PersonName>
+        <Phone>77272588588</Phone>
+    </PickupContact>
+    <ShipmentDetails>
+        <Weight>0.3</Weight>
+        <WeightUnit>K</WeightUnit>
+        <DoorTo>DD</DoorTo>
+    </ShipmentDetails>
+</req:BookPURequest>
