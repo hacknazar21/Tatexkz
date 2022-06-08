@@ -16,9 +16,9 @@ class Order(models.Model):
     recipientName = models.CharField(
         max_length=100, verbose_name='Имя получателя')
     fromCity = models.CharField(
-        max_length=30, verbose_name='Город отправителя')
+        max_length=100, verbose_name='Город отправителя')
     whereCity = models.CharField(
-        max_length=30, verbose_name='Город получателя')
+        max_length=100, verbose_name='Город получателя')
     fromCountry = models.CharField(
         max_length=100, verbose_name='Страна отправителя')
     whereCountry = models.CharField(
