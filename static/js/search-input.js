@@ -28,7 +28,7 @@ if (inputs.length != 0) {
                     break
                 }
                 const currentCity = city.trim().toLowerCase()
-                if (currentCity.startsWith(currentVal)) filteredCities += `<li class="search-item">${city}</li>`
+                if (currentCity.includes(currentVal)) filteredCities += `<li class="search-item">${city}</li>`
             }
             listHTML.innerHTML = filteredCities
 
