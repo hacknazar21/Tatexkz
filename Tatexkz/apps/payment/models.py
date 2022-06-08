@@ -20,9 +20,9 @@ class Order(models.Model):
     whereCity = models.CharField(
         max_length=30, verbose_name='Город получателя')
     fromCountry = models.CharField(
-        max_length=30, verbose_name='Страна отправителя')
+        max_length=100, verbose_name='Страна отправителя')
     whereCountry = models.CharField(
-        max_length=30, verbose_name='Страна отправителя')
+        max_length=100, verbose_name='Страна отправителя')
     length = models.CharField(
         max_length=100, null=True, verbose_name='Длина посылки')
     width = models.CharField(null=True, max_length=100,
