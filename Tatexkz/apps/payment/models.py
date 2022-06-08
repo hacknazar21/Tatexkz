@@ -1,6 +1,6 @@
 from datetime import datetime
 from django.db import models
-
+from django.utils import timezone
 # Create your models here.
 
 
@@ -12,9 +12,9 @@ class Order(models.Model):
         max_length=50, verbose_name='Время подтверждения', null=True, blank=True)
     weight = models.FloatField(max_length=30, verbose_name='Вес')
     sendersName = models.CharField(
-        max_length=30, verbose_name='Имя отправителя')
+        max_length=100, verbose_name='Имя отправителя')
     recipientName = models.CharField(
-        max_length=30, verbose_name='Имя получателя')
+        max_length=100, verbose_name='Имя получателя')
     fromCity = models.CharField(
         max_length=30, verbose_name='Город отправителя')
     whereCity = models.CharField(
@@ -30,9 +30,9 @@ class Order(models.Model):
     height = models.CharField(
         max_length=100, null=True, verbose_name='Высота посылки')
     sendersAddress = models.CharField(
-        max_length=30, verbose_name='Адрес отправителя')
+        max_length=1000, verbose_name='Адрес отправителя')
     recipientAddress = models.CharField(
-        max_length=30, verbose_name='Адрес получателя')
+        max_length=1000, verbose_name='Адрес получателя')
     postIndexSender = models.CharField(
         max_length=6, verbose_name='Почтовый индекс отправителя')
     postIndexRecipient = models.CharField(
@@ -52,8 +52,10 @@ class Order(models.Model):
     apply = models.BooleanField(
         verbose_name='Подтвердить', default=False, null=True)
     invoiceID = models.IntegerField(default=0, blank=True, editable=False)
-    shipmentDate = models.DateTimeField(
-        verbose_name='Дата и время передачи в DHL', blank=True, default=datetime.now)
+    shipmentDate = models.TimeField(
+        verbose_name='Раннее время', default=timezone.now)
+    shipmentDateFuture = models.TimeField(
+        verbose_name='Позднее время', default=timezone.now)
     isPay = models.BooleanField(
         verbose_name='Оплачено', default=False)
     def __str__(self):

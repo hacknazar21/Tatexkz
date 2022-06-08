@@ -1,7 +1,7 @@
 <ns0:ShipmentRequest xmlns:ns0="http://www.dhl.com" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.dhl.com ship-val-global-req.xsd" schemaVersion="10.0"> 
 	<Request>
 		<ServiceHeader>
-			<MessageTime>2022-05-25T06:47:39.478083</MessageTime>
+			<MessageTime>2022-06-08T16:53:32.961365</MessageTime>
 			<MessageReference>Shipmnt_AP_CN_wth_62_40000000001</MessageReference>
 			<SiteID>v62_tBTTUgPMKT</SiteID>
 			<Password>y3vOe4xj9h</Password>
@@ -14,22 +14,22 @@
 	<RegionCode>EU</RegionCode>
 	<LanguageCode>ru</LanguageCode>
 	<Billing>
-		<ShipperAccountNumber>967710648</ShipperAccountNumber>
+		<ShipperAccountNumber>376165440</ShipperAccountNumber>
 		<ShippingPaymentType>S</ShippingPaymentType>
-		<BillingAccountNumber>967710648</BillingAccountNumber> 
+		<BillingAccountNumber>376165440</BillingAccountNumber> 
 	</Billing>
 	<Consignee>
 		<CompanyName>TATEX</CompanyName>
-		<AddressLine1>sgsge</AddressLine1> 
+		<AddressLine1>ewgwe</AddressLine1> 
 		<AddressLine2>.</AddressLine2>
 		<AddressLine3>.</AddressLine3>
 		<City>Nur-Sultan</City>
-		<PostalCode>010000</PostalCode>
+		<PostalCode>050505</PostalCode>
 		<CountryCode>KZ</CountryCode>
 		<CountryName>Kazahstan</CountryName>
 		<Contact>
 			<PersonName>ewgwe</PersonName>
-			<PhoneNumber>+77789878798</PhoneNumber> 
+			<PhoneNumber>+77778987897</PhoneNumber> 
 		</Contact>
 	</Consignee>
 	<Reference>
@@ -47,7 +47,7 @@
 		<WeightUnit>K</WeightUnit>
 		<GlobalProductCode>N</GlobalProductCode>
 		<LocalProductCode>N</LocalProductCode>
-		<Date>2022-05-24</Date>
+		<Date>2022-06-08</Date>
 		<Contents>document</Contents>
 		<DimensionUnit>C</DimensionUnit>
 		<PackageType>DC</PackageType>
@@ -57,15 +57,15 @@
 	<Shipper>
 		<ShipperID>600015482</ShipperID>
 		<CompanyName>DHL International Kazakhstan LLP</CompanyName>
-		<AddressLine1>dsgdsgsdg</AddressLine1> 
+		<AddressLine1>egweg</AddressLine1> 
 		<City>Almaty</City>
-		<PostalCode>050000</PostalCode>
+		<PostalCode>050505</PostalCode>
 		<CountryCode>KZ</CountryCode>
 		<CountryName>Kazahstan</CountryName>
 		<Contact>
-			<PersonName>gwge</PersonName>
-			<PhoneNumber>+77897987987</PhoneNumber>
-			<Email>ewg@ewf.weg</Email>
+			<PersonName>eagew</PersonName>
+			<PhoneNumber>+77878877898</PhoneNumber>
+			<Email>ewge@efew.ewg</Email>
 		</Contact>
 	</Shipper>
 	<LabelImageFormat>PDF</LabelImageFormat>

@@ -50,7 +50,7 @@ def tracking(request):
 
             respRoot = ET.fromstring(response.text)
             events = []
-            print(response.text)
+            
             for ShipmentDate in respRoot.iter('ShipmentDate'):
                 dateShipment = datetime.fromisoformat(
                     ShipmentDate.text).strftime("%d.%m.%Y")
@@ -112,8 +112,8 @@ def dhl(request):
         width = jsonReq.get('width', '1')
         email = jsonReq.get('email', '')
         type = jsonReq.get('type', '')
-        print(jsonReq.get('dateSend', ''))
-        dateSend = datetime.fromisoformat(jsonReq.get('dateSend', ''))
+        pickupDate = jsonReq.get('dateSend', '').split('/')
+        dateSend = datetime.now()
         dateSend = dateSend.strftime('%Y-%m-%d')
         postIndexSender = jsonReq.get('postIndexSender', '000000')
         postIndexRecipient = jsonReq.get('postIndexRecipient', '000000')
@@ -138,6 +138,9 @@ def dhl(request):
             'fromCountry', ''), language_code='ru', reversed=True)
         whereCountry = translit(jsonReq.get(
             'whereCountry', ''), language_code='ru', reversed=True)
+        timeMin = jsonReq.get('shipmentTimeMin', '')
+        timeMax = jsonReq.get('shipmentTimeMax', '')
+        
         fromCountryCode = countriesCodes[jsonReq.get('fromCountry', '')]
         whereCountryCode = countriesCodes[jsonReq.get('whereCountry', '')]
 
@@ -232,7 +235,6 @@ def dhl(request):
             widthXML.text = width
         for Date in root.iter('Date'):
             Date.text = dateSend
-            print(dateSend)
         for PackageType in root.iter('PackageType'):
             PackageType.text = typeCode
         for Contents in root.iter('Contents'):
@@ -273,11 +275,14 @@ def dhl(request):
         person.trackcode = trackcode
         person.date = datetime.utcnow().strftime("%d.%m.%Y")
         person.save()
-        msg = ''
-        msg += 'Накладная от Tatex.kz, если вы выбрали, что Вам удобно распечатать накладную, то необходимо распечать её и передать вместе с посылкой\n'
+        """  msg = ''
+        msg += 'Добрый день, Уважаемый Клиент!\n'
+        msg += 'Выражаем благодарность за Ваш выбор. Ваша заявка успешно обработана и передана курьерам. В указанное время с Вами свяжутся и совершат забор посылки.Во вложении накладная по Вашему отправлению. Ее нужно будет распечатать и передать курьеру вместе с Вашей посылкой. \n'
+        msg += 'Команда TATEX желает Вам удачных сделок и продуктивного дня!'
         msg += 'Ваш трек-код для отслеживания '
         msg += trackcode
         msg += '\n'
+        msg += '*Не отвечайте на это письмо, оно автоматическое. Чтобы связаться с компанией TATEX, воспользуйтесь вариантами, представленными на нашем сайте tatex.kz'
         theme =  'Накладная на заказ '
         theme += personID
         message = EmailMessage(
@@ -287,8 +292,75 @@ def dhl(request):
         )
         filePath = 'static/files/' + trackcode + '/Details.pdf'
         message.attach_file(filePath)
-        message.send()
+        message.send() """
+        tree = ET.parse('static/files/callcourier.xml')
+        root = tree.getroot()
+        i = 0
+        
+        for MessageTime in root.iter('MessageTime'):
+            MessageTime.text = datetime.utcnow().isoformat()
+        for weightXML in root.iter('Weight'):
+            weightXML.text = weight
+        for PersonName in root.iter('PersonName'):
+            if not i:
+                PersonName.text = recipientName
+            else:
+                PersonName.text =  sendersName
+                i = 0
+                break
+            i += 1
+        for AddressLine1 in root.iter('Address1'):
+            if not i:
+                AddressLine1.text = recipientAddress
+            else:
+                AddressLine1.text =  sendersAddress
+                i = 0
+                break
+            i += 1
+        for PhoneNumber in root.iter('Phone'):
+            if not i:
+                PhoneNumber.text    =   recipientTel
+            else:
+                PhoneNumber.text    =   sendersTel
+                i = 0
+                break
+            i += 1
+        for PostalCode in root.iter('PostalCode'):
+            PostalCode.text =  postIndexRecipient
+        for City in root.iter('City'):
+            if not i:
+                City.text =  whereCity
+            else:
+                City.text = fromCity
+                i = 0
+                break
+            i += 1
+        for CountryCode in root.iter('CountryCode'):
+            if not i:
+                CountryCode.text =  whereCountryCode
+            else:
+                CountryCode.text = fromCountryCode
+                i = 0
+                break
+            i += 1
+        for StateCode in root.iter('StateCode'):
+            StateCode.text = whereCountryCode
+        for PickupDate in root.iter('PickupDate'):
+            PickupDate.text = pickupDate[2] + '-' + pickupDate[1] + '-' + pickupDate[0]
+        for AccountNumber in root.iter('AccountNumber'):
+            AccountNumber.text = accountNumber
+        for ReadyByTime in root.iter('ReadyByTime'):
+            ReadyByTime.text = timeMin.split(':')[0] + ':' + timeMin.split(':')[1]
+        for CloseTime in root.iter('CloseTime'):
+            CloseTime.text = timeMax.split(':')[0] + ':' + timeMax.split(':')[1]
+        tree.write('static/files/callcourier.xml', 'UTF-8')
+        with open('static/files/callcourier.xml') as inputfile:
+            xml_file = inputfile.read()
+        
+        response = requests.post(
+            'http://xmlpi-ea.dhl.com/XMLShippingServlet?isUTF8Support=true', data=xml_file)
 
+        print(response.text)
         return JsonResponse({'Response': response.text})
 
     return JsonResponse({'dfd': 2})

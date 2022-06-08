@@ -50,6 +50,8 @@ class OrderAdmin(admin.ModelAdmin):
                     <input type = "hidden" name = "whereCountry"  value = "{14}" >
                     <input type = "hidden" name = "dateSend"  value = "{15}" >
                     <input type = "hidden" name = "type"  value = "{16}" >
+                    <input type = "hidden" name = "shipmentTimeMin"  value = "{17}" >
+                    <input type = "hidden" name = "shipmentTimeMax"  value = "{18}" >
                     <button class = "button dhl-button"> Подтвердить </button >
                 """, obj.sendersName,
             obj.sendersTel,
@@ -66,8 +68,10 @@ class OrderAdmin(admin.ModelAdmin):
             obj.whereCity,
             obj.fromCountry,
             obj.whereCountry,
+            obj.dataSend,
+            obj.typePackage,
             obj.shipmentDate,
-            obj.typePackage)
+            obj.shipmentDateFuture)
 
     def downloadDocs(self, obj):
         if obj.apply:
