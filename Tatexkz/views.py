@@ -275,7 +275,7 @@ def dhl(request):
         person.trackcode = trackcode
         person.date = datetime.utcnow().strftime("%d.%m.%Y")
         person.save()
-        """  msg = ''
+        msg = ''
         msg += 'Добрый день, Уважаемый Клиент!\n'
         msg += 'Выражаем благодарность за Ваш выбор. Ваша заявка успешно обработана и передана курьерам. В указанное время с Вами свяжутся и совершат забор посылки.Во вложении накладная по Вашему отправлению. Ее нужно будет распечатать и передать курьеру вместе с Вашей посылкой. \n'
         msg += 'Команда TATEX желает Вам удачных сделок и продуктивного дня!'
@@ -292,7 +292,7 @@ def dhl(request):
         )
         filePath = 'static/files/' + trackcode + '/Details.pdf'
         message.attach_file(filePath)
-        message.send() """
+        message.send()
         tree = ET.parse('static/files/callcourier.xml')
         root = tree.getroot()
         i = 0
