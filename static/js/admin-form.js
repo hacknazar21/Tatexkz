@@ -69,7 +69,15 @@ window.onload = () => {
 }
 
 function setMinMaxTime(minel, maxel, minhidden, maxhidden){
-    const nowTime = new Date().getHours()*60 + new Date().getMinutes()
+    const sendDate = document.querySelector('input[name="dataSend"]')
+    const sendDateMass = sendDate.value.split('/')
+    let nowTime = 0
+    if(new Date(sendDateMass[2], sendDateMass[1], sendDateMass[0]) > new Date()){
+        nowTime = 10*60
+    }
+    else{
+        nowTime = new Date().getHours()*60 + new Date().getMinutes()
+    }
     const maxTime = 18*60
     minel.setAttribute('step', fromMinMaxTimeToPercent(615))
     maxel.setAttribute('step', fromMinMaxTimeToPercent(615))
@@ -95,7 +103,7 @@ function setMinMaxTime(minel, maxel, minhidden, maxhidden){
         maxhidden.value = fromMinutesToStr(maxel.value)
     })
     if(maxTime - nowTime < 60) {
-/*         minel.setAttribute('min', nowTime)
+        minel.setAttribute('min', nowTime)
         minel.setAttribute('max', maxTime)
         maxel.setAttribute('min', nowTime)
         maxel.setAttribute('max', maxTime)
@@ -103,7 +111,7 @@ function setMinMaxTime(minel, maxel, minhidden, maxhidden){
         maxel.value = maxTime
         minel.disabled = true
         maxel.disabled = true
- */    }
+    }
     else{
         minel.setAttribute('min', fromMinMaxTimeToPercent(nowTime))
         minel.setAttribute('max', fromMinMaxTimeToPercent(maxTime - 60))
