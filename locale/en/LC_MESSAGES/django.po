@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-06-06 12:20+0600\n"
+"POT-Creation-Date: 2022-06-09 14:23+0600\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -59,112 +59,90 @@ msgstr "English"
 msgid "Kazakh"
 msgstr "Kazakh"
 
-#: .\Tatexkz\templates\base.html:28
+#: .\Tatexkz\templates\base.html:29
 msgid "О компании"
 msgstr "About the company"
 
-#: .\Tatexkz\templates\base.html:29
+#: .\Tatexkz\templates\base.html:31
 msgid "Частые вопросы"
 msgstr "FAQ"
 
-#: .\Tatexkz\templates\base.html:30
+#: .\Tatexkz\templates\base.html:33
 #: .\Tatexkz\templates\coop\cooperation.html:3
 #: .\Tatexkz\templates\coop\cooperation.html:8
 msgid "Сотрудничество"
 msgstr "Cooperation"
 
-#: .\Tatexkz\templates\base.html:40
-msgid "Наш Инстаграм"
-msgstr "Our Instagram"
-
-#: .\Tatexkz\templates\base.html:42
-msgid "Наш Телеграм"
-msgstr "Our Telegram"
-
-#: .\Tatexkz\templates\base.html:47
-msgid "Начать чат в Whatsapp"
-msgstr "Start a Whatsapp chat"
-
-#: .\Tatexkz\templates\base.html:59
+#: .\Tatexkz\templates\base.html:78
 msgid "Введите трек-код"
 msgstr "Enter the track code"
 
-#: .\Tatexkz\templates\base.html:79
+#: .\Tatexkz\templates\base.html:85
 msgid "Оформить заявку"
 msgstr "Make a request"
 
-#: .\Tatexkz\templates\base.html:106
+#: .\Tatexkz\templates\base.html:112
 msgid "Все права защищены"
 msgstr "All rights reserved"
 
-#: .\Tatexkz\templates\base.html:120
+#: .\Tatexkz\templates\base.html:127
 msgid "Оферта"
 msgstr "Offer"
 
-#: .\Tatexkz\templates\base.html:123
+#: .\Tatexkz\templates\base.html:131
 msgid "О нас"
 msgstr "About us"
 
-#: .\Tatexkz\templates\base.html:126
+#: .\Tatexkz\templates\base.html:135
 msgid "Отзывы"
 msgstr "Feedback"
 
-#: .\Tatexkz\templates\base.html:132
+#: .\Tatexkz\templates\base.html:143
 msgid "Политика приватности"
 msgstr "Privacy Policy"
 
-#: .\Tatexkz\templates\base.html:152
+#: .\Tatexkz\templates\base.html:163
 msgid "Заявка оформлена"
 msgstr "Delivery on time"
 
-#: .\Tatexkz\templates\base.html:154
-msgid ""
-"В течении 10 минут вам на почту придёт письмо с трек-номером для "
-"отслеживания заказа и накладная по Вашему отправлению, ее нужно распечатать "
-"и передать курьеру вместе с Вашей посылкой"
-msgstr ""
-"Within 10 minutes, you will receive an email with a tracking number for "
-"tracking the order and an invoice for your shipment, you need to print it "
-"out and hand it to the courier along with your package"
-
-#: .\Tatexkz\templates\base.html:157 .\Tatexkz\templates\base.html:177
+#: .\Tatexkz\templates\base.html:171 .\Tatexkz\templates\base.html:192
 #: .\Tatexkz\templates\coop\cooperation.html:177
 msgid "Вернуться на главную"
 msgstr "Go back to the main page"
 
-#: .\Tatexkz\templates\base.html:172
+#: .\Tatexkz\templates\base.html:186
 msgid "Что-то пошло не так"
 msgstr "Something went wrong"
 
-#: .\Tatexkz\templates\base.html:174
+#: .\Tatexkz\templates\base.html:188
 msgid "Возможно данного трек-кода пока нет в нашей базе, попробуйте позже"
 msgstr "Perhaps this track code is not in our database yet, try it later"
 
-#: .\Tatexkz\templates\base.html:187
+#: .\Tatexkz\templates\base.html:202
 msgid "Поле заполнено неверно!"
 msgstr "The field is filled in incorrectly!"
 
-#: .\Tatexkz\templates\base.html:188
+#: .\Tatexkz\templates\base.html:203
 msgid "Оформить"
 msgstr "Make a request"
 
-#: .\Tatexkz\templates\base.html:189
+#: .\Tatexkz\templates\base.html:204
 msgid "На указанную вами дату невозможно осуществить вызов курьера"
 msgstr "It is not possible to make a courier call on the date you specified"
 
-#: .\Tatexkz\templates\base.html:190
+#: .\Tatexkz\templates\base.html:205
 msgid "Максимально допустимый вес документа 0,3 кг"
 msgstr "The maximum permissible weight of the document is 0.3 kg"
 
-#: .\Tatexkz\templates\base.html:191
+#: .\Tatexkz\templates\base.html:206
 msgid "Объемный вес"
 msgstr "Volumetric weight"
 
-#: .\Tatexkz\templates\base.html:192
+#: .\Tatexkz\templates\base.html:207
 msgid "Стоимость доставки"
 msgstr "Shipping cost"
 
-#: .\Tatexkz\templates\base.html:193
+#: .\Tatexkz\templates\base.html:208
 msgid "Тенге"
 msgstr "Tenge"
 
@@ -246,7 +224,7 @@ msgid "Импорт"
 msgstr "Import"
 
 #: .\Tatexkz\templates\coop\cooperation.html:150
-#: .\Tatexkz\templates\order\order.html:350
+#: .\Tatexkz\templates\order\order.html:353
 #: .\Tatexkz\templates\payment\payment.html:41
 msgid "Отмена"
 msgstr "Cancel"
@@ -278,7 +256,7 @@ msgstr "Document"
 
 #: .\Tatexkz\templates\home\index.html:37
 #: .\Tatexkz\templates\order\order.html:38
-#: .\Tatexkz\templates\tracking\tracking.html:18
+#: .\Tatexkz\templates\tracking\tracking.html:19
 msgid "Посылка"
 msgstr "Package"
 
@@ -345,6 +323,7 @@ msgid "Наши контакты"
 msgstr "Our contacts"
 
 #: .\Tatexkz\templates\order\order.html:4
+#: .\Tatexkz\templates\order\order.html:10
 msgid "Оформить посылку"
 msgstr "Make a request"
 
@@ -368,6 +347,14 @@ msgstr "Narcotic drugs"
 #: .\Tatexkz\templates\order\order.html:62
 msgid "Психотропные вещества и прекурсоры"
 msgstr "Psychotropic substances and precursors"
+
+#: .\Tatexkz\templates\order\order.html:64
+msgid "Ядерные материалы, радиоактивные и другие опасные вещества"
+msgstr "Nuclear materials, radioactive and other dangerous substances"
+
+#: .\Tatexkz\templates\order\order.html:66
+msgid "Яды, ядовитые животные, вещества, растения и семена."
+msgstr "Poisons, poisonous animals, substances, plants and seeds."
 
 #: .\Tatexkz\templates\order\order.html:118
 msgid "Заполните данные о посылке"
@@ -487,49 +474,55 @@ msgstr "Instructions for the courier"
 msgid "Инструкция"
 msgstr "Instructions"
 
-#: .\Tatexkz\templates\order\order.html:316
+#: .\Tatexkz\templates\order\order.html:315
+msgid ""
+"Курьер совершит забор посылки в указанную дату в течении дня (с 10:00 до "
+"18:00)."
+msgstr "The courier will pick up the parcel on the specified date during the day (from 10:00 to 18:00)."
+
+#: .\Tatexkz\templates\order\order.html:319
 msgid "Удобно ли вам распечатать накладную?"
 msgstr "Is it convenient for you to print the invoice?"
 
-#: .\Tatexkz\templates\order\order.html:323
+#: .\Tatexkz\templates\order\order.html:326
 msgid "Да"
 msgstr "Yes"
 
-#: .\Tatexkz\templates\order\order.html:329
+#: .\Tatexkz\templates\order\order.html:332
 msgid "Нет"
 msgstr "No"
 
-#: .\Tatexkz\templates\order\order.html:336
+#: .\Tatexkz\templates\order\order.html:339
 msgid "Нажимая на кнопку вы соглашаетесь с условиями отправки и принимаете"
 msgstr ""
 "By clicking on the button, you agree to the terms of sending and accept the "
 
-#: .\Tatexkz\templates\order\order.html:338
+#: .\Tatexkz\templates\order\order.html:341
 msgid "оферту"
 msgstr "offer"
 
-#: .\Tatexkz\templates\order\order.html:340
+#: .\Tatexkz\templates\order\order.html:343
 msgid "и"
 msgstr "and"
 
-#: .\Tatexkz\templates\order\order.html:342
+#: .\Tatexkz\templates\order\order.html:345
 msgid "политику"
 msgstr "privacy"
 
-#: .\Tatexkz\templates\order\order.html:343
+#: .\Tatexkz\templates\order\order.html:346
 msgid "конфиденциальности"
 msgstr "policy"
 
-#: .\Tatexkz\templates\order\order.html:346
+#: .\Tatexkz\templates\order\order.html:349
 #: .\Tatexkz\templates\payment\payment.html:40
 msgid "К оплате"
 msgstr "To be paid"
 
-#: .\Tatexkz\templates\order\order.html:352
+#: .\Tatexkz\templates\order\order.html:355
 msgid "Перейти к оплате"
 msgstr "Go to payment"
 
-#: .\Tatexkz\templates\order\order.html:464
+#: .\Tatexkz\templates\order\order.html:468
 msgid ""
 "Накладная будет отправлена на Вашу почту после оформления заказа, ее нужно "
 "будет распечатать и передать курьеру вместе с Вашей посылкой"
@@ -537,19 +530,19 @@ msgstr ""
 "The invoice will be sent to your mail after placing the order, it will need "
 "to be printed and handed over to the courier along with your parcel"
 
-#: .\Tatexkz\templates\order\order.html:470
+#: .\Tatexkz\templates\order\order.html:474
 msgid "Принести с собой накладную"
 msgstr "Bring the invoice with you"
 
-#: .\Tatexkz\templates\order\order.html:475
+#: .\Tatexkz\templates\order\order.html:479
 msgid "Скидка"
 msgstr "Discount"
 
-#: .\Tatexkz\templates\order\order.html:498
+#: .\Tatexkz\templates\order\order.html:502
 msgid "Расчитать"
 msgstr "Calculate"
 
-#: .\Tatexkz\templates\order\order.html:514
+#: .\Tatexkz\templates\order\order.html:518
 msgid "Оплатить"
 msgstr "Pay"
 
@@ -582,48 +575,60 @@ msgstr "This feature is not available for your region"
 msgid "Оплата доставки на Tatex.kz"
 msgstr "Payment for delivery to Tatex.kz"
 
-#: .\Tatexkz\templates\tracking\tracking.html:3
-#: .\Tatexkz\templates\tracking\tracking.html:8
+#: .\Tatexkz\templates\tracking\tracking.html:4
+#: .\Tatexkz\templates\tracking\tracking.html:9
 msgid "Отслеживание"
 msgstr "Tracking"
 
-#: .\Tatexkz\templates\tracking\tracking.html:22
+#: .\Tatexkz\templates\tracking\tracking.html:23
 msgid "Данные о посылке"
 msgstr "Fill in the details of the package"
 
-#: .\Tatexkz\templates\tracking\tracking.html:25
+#: .\Tatexkz\templates\tracking\tracking.html:26
 msgid "Номер заказа"
 msgstr "Phone number"
 
-#: .\Tatexkz\templates\tracking\tracking.html:29
+#: .\Tatexkz\templates\tracking\tracking.html:30
 msgid "Адрес доставки"
 msgstr "Shipping cost"
 
-#: .\Tatexkz\templates\tracking\tracking.html:35
+#: .\Tatexkz\templates\tracking\tracking.html:36
 msgid "Дата отправки"
 msgstr "Sender's country"
 
-#: .\Tatexkz\templates\tracking\tracking.html:39
+#: .\Tatexkz\templates\tracking\tracking.html:40
 msgid "Тип доставки"
 msgstr "Package type"
 
-#: .\Tatexkz\templates\tracking\tracking.html:40
+#: .\Tatexkz\templates\tracking\tracking.html:41
 msgid "От двери до двери"
 msgstr "Door to door"
 
-#: .\Tatexkz\templates\tracking\tracking.html:45
+#: .\Tatexkz\templates\tracking\tracking.html:46
 msgid "Статус"
 msgstr "Status"
 
-#: .\Tatexkz\templates\tracking\tracking.html:50
+#: .\Tatexkz\templates\tracking\tracking.html:51
 msgid "Заказ подтвержден"
 msgstr "The order is confirmed"
 
-#~ msgid "Ядерные материалы, радиоактивные и другие опасные вещества"
-#~ msgstr "Nuclear materials, radioactive and other dangerous substances"
+#~ msgid "Наш Инстаграм"
+#~ msgstr "Our Instagram"
 
-#~ msgid "Яды, ядовитые животные, вещества, растения и семена."
-#~ msgstr "Poisons, poisonous animals, substances, plants and seeds."
+#~ msgid "Наш Телеграм"
+#~ msgstr "Our Telegram"
+
+#~ msgid "Начать чат в Whatsapp"
+#~ msgstr "Start a Whatsapp chat"
+
+#~ msgid ""
+#~ "В течении 10 минут вам на почту придёт письмо с трек-номером для "
+#~ "отслеживания заказа и накладная по Вашему отправлению, ее нужно "
+#~ "распечатать и передать курьеру вместе с Вашей посылкой"
+#~ msgstr ""
+#~ "Within 10 minutes, you will receive an email with a tracking number for "
+#~ "tracking the order and an invoice for your shipment, you need to print it "
+#~ "out and hand it to the courier along with your package"
 
 #~ msgid "Высота (см)"
 #~ msgstr "Height(cm)"
