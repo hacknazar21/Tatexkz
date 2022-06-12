@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-06-09 15:59+0600\n"
+"POT-Creation-Date: 2022-06-12 20:29+0600\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -224,7 +224,7 @@ msgid "Импорт"
 msgstr "Import"
 
 #: .\Tatexkz\templates\coop\cooperation.html:150
-#: .\Tatexkz\templates\order\order.html:358
+#: .\Tatexkz\templates\order\order.html:359
 #: .\Tatexkz\templates\payment\payment.html:41
 msgid "Отмена"
 msgstr "Cancel"
@@ -478,49 +478,57 @@ msgstr "Instructions for the courier"
 msgid "Инструкция"
 msgstr "Instructions"
 
-#: .\Tatexkz\templates\order\order.html:324
+#: .\Tatexkz\templates\order\order.html:320
+msgid ""
+"Курьер совершит забор посылки в указанную дату в течении дня (с 10:00 до "
+"18:00)."
+msgstr ""
+"The courier will pick up the parcel on the specified date during the day "
+"(from 10:00 to 18:00)."
+
+#: .\Tatexkz\templates\order\order.html:325
 msgid "Удобно ли вам распечатать накладную?"
 msgstr "Is it convenient for you to print the invoice?"
 
-#: .\Tatexkz\templates\order\order.html:331
+#: .\Tatexkz\templates\order\order.html:332
 msgid "Да"
 msgstr "Yes"
 
-#: .\Tatexkz\templates\order\order.html:337
+#: .\Tatexkz\templates\order\order.html:338
 msgid "Нет"
 msgstr "No"
 
-#: .\Tatexkz\templates\order\order.html:344
+#: .\Tatexkz\templates\order\order.html:345
 msgid "Нажимая на кнопку вы соглашаетесь с условиями отправки и принимаете"
 msgstr ""
 "By clicking on the button, you agree to the terms of sending and accept the "
 
-#: .\Tatexkz\templates\order\order.html:346
+#: .\Tatexkz\templates\order\order.html:347
 msgid "оферту"
 msgstr "offer"
 
-#: .\Tatexkz\templates\order\order.html:348
+#: .\Tatexkz\templates\order\order.html:349
 msgid "и"
 msgstr "and"
 
-#: .\Tatexkz\templates\order\order.html:350
+#: .\Tatexkz\templates\order\order.html:351
 msgid "политику"
 msgstr "privacy"
 
-#: .\Tatexkz\templates\order\order.html:351
+#: .\Tatexkz\templates\order\order.html:352
 msgid "конфиденциальности"
 msgstr "policy"
 
-#: .\Tatexkz\templates\order\order.html:354
+#: .\Tatexkz\templates\order\order.html:355
 #: .\Tatexkz\templates\payment\payment.html:40
 msgid "К оплате"
 msgstr "To be paid"
 
-#: .\Tatexkz\templates\order\order.html:360
+#: .\Tatexkz\templates\order\order.html:361
 msgid "Перейти к оплате"
 msgstr "Go to payment"
 
-#: .\Tatexkz\templates\order\order.html:473
+#: .\Tatexkz\templates\order\order.html:474
 msgid ""
 "Накладная будет отправлена на Вашу почту после оформления заказа, ее нужно "
 "будет распечатать и передать курьеру вместе с Вашей посылкой"
@@ -528,19 +536,19 @@ msgstr ""
 "The invoice will be sent to your mail after placing the order, it will need "
 "to be printed and handed over to the courier along with your parcel"
 
-#: .\Tatexkz\templates\order\order.html:479
+#: .\Tatexkz\templates\order\order.html:480
 msgid "Принести с собой накладную"
 msgstr "Bring the invoice with you"
 
-#: .\Tatexkz\templates\order\order.html:484
+#: .\Tatexkz\templates\order\order.html:485
 msgid "Скидка"
 msgstr "Discount"
 
-#: .\Tatexkz\templates\order\order.html:507
+#: .\Tatexkz\templates\order\order.html:508
 msgid "Расчитать"
 msgstr "Calculate"
 
-#: .\Tatexkz\templates\order\order.html:523
+#: .\Tatexkz\templates\order\order.html:524
 msgid "Оплатить"
 msgstr "Pay"
 
@@ -609,9 +617,6 @@ msgstr "Status"
 #: .\Tatexkz\templates\tracking\tracking.html:51
 msgid "Заказ подтвержден"
 msgstr "The order is confirmed"
-
-#~ msgid "Курьер совершит забор посылки в указанную дату в течении дня (с 10:00 до 18:00)."
-#~ msgstr "The courier will pick up the parcel on the specified date during the day (from 10:00 to 18:00)."
 
 #~ msgid "Наш Инстаграм"
 #~ msgstr "Our Instagram"
