@@ -1,7 +1,7 @@
 <ns0:BookPURequest xmlns:ns0="http://www.dhl.com" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.dhl.com  book-pickup-global-req.xsd" schemaVersion="3.0">
     <Request>
         <ServiceHeader>
-            <MessageTime>2022-06-08T16:53:36.634635</MessageTime>
+            <MessageTime>2022-06-12T09:03:57.879187</MessageTime>
             <MessageReference>Shipmnt_AP_CN_wth_62_40000000001</MessageReference>
             <SiteID>v62_tBTTUgPMKT</SiteID>
             <Password>y3vOe4xj9h</Password>
@@ -35,10 +35,10 @@
         <PostalCode>050505</PostalCode>
     </Place>
     <Pickup>
-        <PickupDate>2022-05-30</PickupDate>
+        <PickupDate>2022-06-13</PickupDate>
         <PickupTypeCode>A</PickupTypeCode>
-        <ReadyByTime>10:30</ReadyByTime>
-        <CloseTime>15:15</CloseTime>
+        <ReadyByTime>10:00</ReadyByTime>
+        <CloseTime>18:00</CloseTime>
     </Pickup>
     <PickupContact>
         <PersonName>eagew</PersonName>

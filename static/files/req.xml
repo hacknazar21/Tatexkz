@@ -1,7 +1,7 @@
 <ns0:ShipmentRequest xmlns:ns0="http://www.dhl.com" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.dhl.com ship-val-global-req.xsd" schemaVersion="10.0"> 
 	<Request>
 		<ServiceHeader>
-			<MessageTime>2022-06-08T16:53:32.961365</MessageTime>
+			<MessageTime>2022-06-12T09:03:42.884120</MessageTime>
 			<MessageReference>Shipmnt_AP_CN_wth_62_40000000001</MessageReference>
 			<SiteID>v62_tBTTUgPMKT</SiteID>
 			<Password>y3vOe4xj9h</Password>
@@ -47,7 +47,7 @@
 		<WeightUnit>K</WeightUnit>
 		<GlobalProductCode>N</GlobalProductCode>
 		<LocalProductCode>N</LocalProductCode>
-		<Date>2022-06-08</Date>
+		<Date>2022-06-12</Date>
 		<Contents>document</Contents>
 		<DimensionUnit>C</DimensionUnit>
 		<PackageType>DC</PackageType>
