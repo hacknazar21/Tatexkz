@@ -142,10 +142,10 @@ os.path.join(BASE_DIR, 'static'),
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-DEFAULT_FROM_EMAIL = 'tatex@gtautofest.kz'
-SERVER_EMAIL = 'tatex@gtautofest.kz'
+DEFAULT_FROM_EMAIL = 'info@tatex.kz'
+SERVER_EMAIL = 'smtp.mail.ru'
 EMAIL_USE_SSL = True
-EMAIL_HOST = 'gtautofest.kz'
+EMAIL_HOST = 'smtp.mail.ru'
 EMAIL_PORT = 465
-EMAIL_HOST_USER = 'tatex@gtautofest.kz'
-EMAIL_HOST_PASSWORD = 'Ie427h*7f'
+EMAIL_HOST_USER = 'info@tatex.kz'
+EMAIL_HOST_PASSWORD = 'TcZ8J3H9E3gtWVLAfbxs'
