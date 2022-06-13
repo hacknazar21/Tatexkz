@@ -54,6 +54,7 @@ def tracking(request):
             for ShipmentDate in respRoot.iter('ShipmentDate'):
                 dateShipment = datetime.fromisoformat(
                     ShipmentDate.text).strftime("%d.%m.%Y")
+            
             for ShipmentEvent in respRoot.iter('ShipmentEvent'):
                 event = {}
                 for Date in ShipmentEvent.iter('Date'):
@@ -278,7 +279,7 @@ def dhl(request):
         msg = ''
         msg += 'Добрый день, Уважаемый Клиент!\n'
         msg += 'Выражаем благодарность за Ваш выбор. Ваша заявка успешно обработана и передана курьерам. В указанное время с Вами свяжутся и совершат забор посылки.Во вложении накладная по Вашему отправлению. Ее нужно будет распечатать и передать курьеру вместе с Вашей посылкой. \n'
-        msg += 'Команда TATEX желает Вам удачных сделок и продуктивного дня!'
+        msg += 'Команда TATEX желает Вам удачных сделок и продуктивного дня!\n'
         msg += 'Ваш трек-код для отслеживания '
         msg += trackcode
         msg += '\n'
@@ -369,3 +370,61 @@ def dhl(request):
         return JsonResponse({'Response': response.text})
 
     return JsonResponse({'dfd': 2})
+
+@csrf_exempt
+def status(request):
+     if request.method == "POST":
+        jsonReq = json.loads(request.body.decode('utf-8'))
+        trackcode = jsonReq.get('trackcode', '')
+        xml_file = '''
+            <ns0:KnownTrackingRequest xmlns:ns0="http://www.dhl.com" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.dhl.com TrackingRequestKnown.xsd" schemaVersion="1.0">
+                <Request>
+                    <ServiceHeader>
+                        <MessageTime>{0}</MessageTime>
+                        <MessageReference>1234567890123456789012345678901</MessageReference>
+                        <SiteID>v62_tBTTUgPMKT</SiteID>
+                        <Password>y3vOe4xj9h</Password>
+                    </ServiceHeader>
+                </Request>
+                <LanguageCode>RU</LanguageCode>
+                <AWBNumber>{1}</AWBNumber>
+                <LevelOfDetails>LAST_CHECK_POINT_ONLY</LevelOfDetails>
+            </ns0:KnownTrackingRequest>
+        '''.format(datetime.utcnow().isoformat(), str(trackcode))
+
+        response = requests.post(
+            'http://xmlpi-ea.dhl.com/XMLShippingServlet?isUTF8Support=true', data=xml_file)
+        print(response.text)
+        respRoot = ET.fromstring(response.text)
+        events = []
+
+        for ShipmentEvent in respRoot.iter('ShipmentEvent'):
+            event = {}
+            for Date in ShipmentEvent.iter('Date'):
+                event['date'] = Date.text
+            for Time in ShipmentEvent.iter('Time'):
+                event['time'] = Time.text
+            for ServiceEvent in ShipmentEvent.iter('ServiceEvent'):
+                for Description in ServiceEvent.iter('Description'):
+                    event['description'] = Description.text.replace(
+                        '<>', '')
+                for EventCode in ServiceEvent.iter('EventCode'):
+                    if EventCode.text == 'PU' or EventCode.text == 'FD' or EventCode.text == 'DF':
+                        event['code'] = '_green-indicator'
+                    elif EventCode.text == 'CS' or EventCode.text == 'OH' or EventCode.text == 'AF':
+                        event['code'] = '_yellow-indicator'
+                    elif EventCode.text == 'MS':
+                        event['code'] = '_red-indicator'
+                    else:
+                        event['code'] = '_no-indicator'
+            events.append(event)
+       
+        if(len(events) == 0):
+            events.append('Полученные данные об отправлениях')
+        try:
+            person = Order.objects.get(trackcode=trackcode)
+            person.status = events[0]
+            person.save()
+        except Order.DoesNotExist:
+            return JsonResponse({'Status': "Error"})
+        return JsonResponse({'Status': events})

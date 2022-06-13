@@ -29,6 +29,7 @@ urlpatterns = [
     path('oferta/', views.oferta, name="oferta"),
     path('privacy/', views.privacy, name="privacy"),
     path('gotodhl/', views.dhl, name="dhl"),
+    path('status/', views.status, name="status"),
     path('payment/', include('Tatexkz.apps.payment.urls')),
     path('coop/', include('Tatexkz.apps.coop.urls')),
     path('order/', include('Tatexkz.apps.order.urls')),

@@ -10,13 +10,15 @@ class Order(models.Model):
                                  verbose_name='Номер накладной', default='0000000000', blank=True)
     courierNum = models.CharField(max_length=16,
                                  verbose_name='Номер подтверждения', blank=True)
+    status = models.CharField(max_length=1000,
+                                 verbose_name='Статус', blank=True)
     date = models.CharField(
         max_length=50, verbose_name='Время подтверждения', null=True, blank=True)
     weight = models.FloatField(max_length=30, verbose_name='Вес')
     sendersName = models.CharField(
-        max_length=100, verbose_name='Имя отправителя')
+        max_length=35, verbose_name='Имя отправителя')
     recipientName = models.CharField(
-        max_length=100, verbose_name='Имя получателя')
+        max_length=35, verbose_name='Имя получателя')
     fromCity = models.CharField(
         max_length=100, verbose_name='Город отправителя')
     whereCity = models.CharField(

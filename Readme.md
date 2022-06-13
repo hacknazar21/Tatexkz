@@ -8,4 +8,4 @@
 <p>python manage.py runserver</p>
 <p>python manage.py runserver 192.168.1.6:8081</p>
 
-
+Пароль: cE8McCP8obVz

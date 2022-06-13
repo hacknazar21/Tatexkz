@@ -5,8 +5,10 @@ from .models import Order
 
 
 class OrderAdmin(admin.ModelAdmin):
-    list_display = ['sendersName', 'sendersTel',
-                    'sendersAddress', 'recipientAddress', 'applyButton', 'downloadDocs']
+    list_display = ['status', 'trackcode', 'sendersName', 'sendersTel',
+                    'sendersAddress', 'recipientName', 'recipientAddress', 'applyButton', 'downloadDocs']
+    search_fields = ['sendersName', 'sendersTel',
+                    'sendersAddress', 'recipientName', 'recipientAddress']
 
     def applyButton(self, obj):
         print(obj.shipmentDate)
@@ -29,7 +31,8 @@ class OrderAdmin(admin.ModelAdmin):
                 obj.whereCity,
                 obj.fromCountry,
                 obj.whereCountry,
-                obj.dataSend
+                obj.dataSend,
+                obj.status
             )
         return format_html(
             """
@@ -77,24 +80,24 @@ class OrderAdmin(admin.ModelAdmin):
         if obj.apply:
             return format_html(
                 """ 
-                    <a target="_blank" class="button" href="/static/files/{0}/Receipt.pdf"> Скачать квитанцию </a>
+                    <a target="_blank" class="button" href="/static/files/{0}/Receipt.pdf"> Накладная </a>
                     <br/>
                     <br/>
-                    <a  class="button" target="_blank" href="/static/files/{0}/Details.pdf"> Скачать накладную </a>
+                    <a  class="button" target="_blank" href="/static/files/{0}/Details.pdf"> Квитанция </a>
                 """, obj.trackcode
             )
         else:
             return format_html(
                 """ 
-                    <button class="button" disabled="true"> Скачать накладную </button>
+                    <button class="button" disabled="true"> Накладная </button>
                     <br/>
-                    <button class="button" disabled="true"> Скачать DOM </button>
+                    <button class="button" disabled="true"> Квитанция </button>
                 """
             )
     applyButton.short_description = 'Отправить в DHL'
     downloadDocs.short_description = 'Скачать'
-    list_display_links = ['sendersName', 'sendersTel',
-                          'sendersAddress', 'recipientAddress']
+    list_display_links = ['sendersName', 'trackcode', 'sendersTel',
+                          'sendersAddress', 'recipientName', 'recipientAddress']
 
     class Media:
         js = (

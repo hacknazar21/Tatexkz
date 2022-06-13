@@ -1,6 +1,7 @@
 window.onload = () => {
     const minRange = document.querySelector('[name="shipmentDate"]')
     const maxRange = document.querySelector('[name="shipmentDateFuture"]')
+    const statusField = document.querySelector('.field-status')
     if(minRange && maxRange){
         const minRangeHidden = document.createElement('input')
         const maxRangeHidden = document.createElement('input')
@@ -26,8 +27,8 @@ window.onload = () => {
         
         setMinMaxTime(minRange, maxRange, minRangeHidden, maxRangeHidden)
     }
-
-
+    updateStatus(statusField)
+    setInterval(updateStatus(statusField), 30000)
     const submitBtns = document.querySelectorAll('.dhl-button')
     submitBtns.forEach(submitBtn => {
         const img = document.createElement('img')
@@ -65,9 +66,33 @@ window.onload = () => {
         });
         return await response.json();
     }
-
 }
 
+function updateStatus() { 
+    const tracks = document.querySelectorAll('.field-trackcode a')
+    async function updateStatus(track) {
+        data = {}
+        data['trackcode'] = track
+        let response = await fetch("/status/", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json;charset=utf-8"
+            },
+            body: JSON.stringify(data)
+        });
+        return await response.json();
+    }
+    tracks.forEach(track => {
+        const statusField = track.parentElement.closest('tr').querySelector('.field-status')
+        if(track.innerText != '0000000000'){
+            console.log(track.innerText)
+            updateStatus(track.innerText).then((data)=>{
+                statusField.innerText = data['Status'][0]
+            })
+        }
+    });
+    
+}
 function setMinMaxTime(minel, maxel, minhidden, maxhidden){
     const sendDate = document.querySelector('input[name="dataSend"]')
     const sendDateMass = sendDate.value.split('/')
