@@ -360,7 +360,12 @@ def dhl(request):
         response = requests.post(
             'http://xmlpi-ea.dhl.com/XMLShippingServlet?isUTF8Support=true', data=xml_file)
 
-        print(response.text)
+        respRoot = ET.fromstring(response.text)
+        CourierNumber = ''
+        for ConfirmationNumber in respRoot.iter('ConfirmationNumber'):
+            CourierNumber = ConfirmationNumber.text
+        person.courierNum = CourierNumber
+        person.save()
         return JsonResponse({'Response': response.text})
 
     return JsonResponse({'dfd': 2})

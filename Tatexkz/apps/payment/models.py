@@ -6,8 +6,10 @@ from django.utils import timezone
 
 class Order(models.Model):
     typePackage = models.CharField(max_length=30, verbose_name='Тип посылки')
-    trackcode = models.CharField(max_length=10,
+    trackcode = models.CharField(max_length=16,
                                  verbose_name='Номер накладной', default='0000000000', blank=True)
+    courierNum = models.CharField(max_length=16,
+                                 verbose_name='Номер подтверждения', blank=True)
     date = models.CharField(
         max_length=50, verbose_name='Время подтверждения', null=True, blank=True)
     weight = models.FloatField(max_length=30, verbose_name='Вес')
@@ -58,6 +60,7 @@ class Order(models.Model):
         verbose_name='Позднее время', default=timezone.now)
     isPay = models.BooleanField(
         verbose_name='Оплачено', default=False)
+    
     def __str__(self):
         return self.sendersName
 
