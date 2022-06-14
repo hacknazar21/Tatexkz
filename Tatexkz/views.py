@@ -406,7 +406,7 @@ def status(request):
                 event['time'] = Time.text
             for ServiceEvent in ShipmentEvent.iter('ServiceEvent'):
                 for Description in ServiceEvent.iter('Description'):
-                    event['description'] = Description.text.replace(
+                    event['Status'] = Description.text.replace(
                         '<>', '')
                 for EventCode in ServiceEvent.iter('EventCode'):
                     if EventCode.text == 'PU' or EventCode.text == 'FD' or EventCode.text == 'DF':
