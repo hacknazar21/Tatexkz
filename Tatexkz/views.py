@@ -292,14 +292,13 @@ def dhl(request):
         msg += trackcode
         msg += '\n'
         msg += '*Не отвечайте на это письмо, оно автоматическое. Чтобы связаться с компанией TATEX, воспользуйтесь вариантами, представленными на нашем сайте tatex.kz'
-        theme =  'Накладная на заказ '
-        theme += personID
+        theme =  'Накладная по Вашему заказу'
         message = EmailMessage(
             theme,
             msg,
             to=[email]
         )
-        filePath = 'static/files/' + trackcode + '/Details.pdf'
+        filePath = 'static/files/' + trackcode + '/Накладная.pdf'
         message.attach_file(filePath)
         message.send()
         tree = ET.parse('static/files/callcourier.xml')
