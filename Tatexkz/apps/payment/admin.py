@@ -80,18 +80,18 @@ class OrderAdmin(admin.ModelAdmin):
         if obj.apply:
             return format_html(
                 """ 
-                    <a target="_blank" class="button" href="/static/files/{0}/Receipt.pdf"> Накладная </a>
+                    <a target="_blank" class="button" href="/static/files/{0}/Receipt.pdf"> Квитанция </a>
                     <br/>
                     <br/>
-                    <a  class="button" target="_blank" href="/static/files/{0}/Details.pdf"> Квитанция </a>
+                    <a  class="button" target="_blank" href="/static/files/{0}/Накладная.pdf"> Накладная </a>
                 """, obj.trackcode
             )
         else:
             return format_html(
                 """ 
-                    <button class="button" disabled="true"> Накладная </button>
-                    <br/>
                     <button class="button" disabled="true"> Квитанция </button>
+                    <br/>
+                    <button class="button" disabled="true"> Накладная </button>
                 """
             )
     applyButton.short_description = 'Отправить в DHL'

@@ -25,11 +25,11 @@
         <header class="header" data-scroll-show data-scroll="1">
             <div class="header__container">
                 <div data-da=".menu__block-1, 767.98" class="header__links links-header">
-                    <a href="/{% if LANGUAGE_CODE != 'ru' %}{{ LANGUAGE_CODE }}{% endif %}#about-us"
+                    <a href="{% if LANGUAGE_CODE != 'ru' %}{{ LANGUAGE_CODE }}{% endif %}#about-us"
                         class="links-header__link" data-goto=".about-us">{% trans 'О компании' %}</a>
-                    <a href="/{% if LANGUAGE_CODE != 'ru' %}{{ LANGUAGE_CODE }}{% endif %}#questions"
+                    <a href="{% if LANGUAGE_CODE != 'ru' %}{{ LANGUAGE_CODE }}{% endif %}#questions"
                         class="links-header__link" data-goto=".questions">{% trans 'Частые вопросы' %}</a>
-                    <a href="/{% if LANGUAGE_CODE != 'ru' %}{{ LANGUAGE_CODE }}{% endif %}/coop"
+                    <a href="{% if LANGUAGE_CODE != 'ru' %}{{ LANGUAGE_CODE }}{% endif %}/coop"
                         class="links-header__link">{% trans 'Сотрудничество' %}</a>
                 </div>
 

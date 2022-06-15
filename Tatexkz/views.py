@@ -50,11 +50,11 @@ def tracking(request):
 
             respRoot = ET.fromstring(response.text)
             events = []
-            
+            dateShipment = ''
             for ShipmentDate in respRoot.iter('ShipmentDate'):
                 dateShipment = datetime.fromisoformat(
                     ShipmentDate.text).strftime("%d.%m.%Y")
-            
+            print(response.text)
             for ShipmentEvent in respRoot.iter('ShipmentEvent'):
                 event = {}
                 for Date in ShipmentEvent.iter('Date'):
@@ -182,6 +182,14 @@ def dhl(request):
                 i = 0
                 break
             i += 1
+        for CompanyName in root.iter('CompanyName'):
+            if not i:
+                CompanyName.text = recipientName
+            else:
+                CompanyName.text =  sendersName
+                i = 0
+                break
+            i += 1
         for AddressLine1 in root.iter('AddressLine1'):
             if not i:
                 AddressLine1.text = recipientAddress
@@ -192,9 +200,9 @@ def dhl(request):
             i += 1
         for PhoneNumber in root.iter('PhoneNumber'):
             if not i:
-                PhoneNumber.text =  sendersTel
+                PhoneNumber.text =  recipientTel
             else:
-                PhoneNumber.text = recipientTel
+                PhoneNumber.text =  sendersTel
                 i = 0
                 break
             i += 1
@@ -265,7 +273,7 @@ def dhl(request):
         Path('static/files/' + trackcode).mkdir(parents=True, exist_ok=True)
 
         for pdfXML in respRoot.iter('OutputImage'):
-            with open('static/files/' + trackcode + '/Details.pdf', 'wb') as outpdf:
+            with open('static/files/' + trackcode + '/Накладная.pdf', 'wb') as outpdf:
                 outpdf.write(base64.b64decode(pdfXML.text))
         for pdfXML in respRoot.iter('DocImageVal'):
             with open('static/files/' + trackcode + '/Receipt.pdf', 'wb') as outpdf:
